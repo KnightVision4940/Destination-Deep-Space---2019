@@ -16,9 +16,189 @@ public class Xbox extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  @Override
+public static XboxController xbox = new XboxController(0);
+
+public static int outputs;
+
+public static int rRumble;
+
+public static int lRumble;
+
+
+
+//Triggers
+
+public static boolean getTrigger(Hand hand) {
+  return false;
+}
+
+public static double getTriggerAxis (Hand hand) {
+  if (hand.equals(Hand.kLeft)) {
+    return xbox.getRawAxis(2);
+  } else {
+            return xbox.getRawAxis(3);
+  }
+}
+
+public static double getTriggers(){
+  if(xbox.getRawAxis(2) > xbox.getRawAxis(3)){
+    return xbox.getRawAxis(2)
+  } else {
+            return -xbox.getRawAxis(3);
+  }
+}
+
+//getXYTop
+
+public static double getY(Hand hand) {
+  if (hand.equals(Hand.kLeft)) {
+    return xbox.getRawAxis(1);
+  } else {
+    return xbox.getRawAxis(5);
+  }
+  
+}
+
+
+public static double getx(Hand hand) {
+if (hand.equals(Hand.kLeft)) {
+  return xbox.getRawAxis(0);
+} else {
+  return xbox.getRawAxis(5);
+}
+}
+
+public static boolean getTop(Hand hand) {
+  return false;
+}
+
+//Bumpers
+
+public static boolean getBumper(Hand hand) {
+  if (hand.equals(Hand.kLeft)) {
+    return xbox.getRawButton(5);
+  } else {
+    return xbox.getRawButton(6);}}
+
+//Buttons
+
+public static boolean getRawButton(Hand hand) {
+  return xbox.getStickButton (hand);
+}
+
+public static boolean getAButton() {
+  return xbox.getRawButton(1);
+}
+
+public static boolean getBButton() {
+  return xbox.getRawButton(2);
+}
+
+public static boolean getXButton() {
+  return xbox.getRawButton(3);
+}
+
+public static boolean getYButton() {
+  return xbox.getRawButton(4);
+}
+
+public static boolean getStickButton(Hand hand) {
+  if (hand.equals(Hand.kLeft)) {
+    return xbox.getRawButton(9);
+  } else {
+    return xbox.getRawButton(10);
+  }
+}
+
+public static boolean getBackButton() {
+  return xbox.getRawButton(7);
+}
+
+public static boolean getStartButton() {
+  return xbox.getRawButton(8);
+}
+
+//Stick POV
+
+public static boolean getRawButton(Hand hand) {
+  return false;
+}
+
+public static boolean getStickButton(Hand hand) {
+  if (hand.equals(Hand.kLeft)) {
+    return xbox.getRawButton(9);
+  } else {
+    return xbox.getRawButton(10);
+  }
+}
+
+public static int getPOV(int pov) {
+  return getStickPOV(pov);
+}
+
+public static int getStickPOV(final int pov) {
+return 0;
+}
+public static int getPOVCount() {
+  return getStickPOVCount() ;
+}
+
+public static int getStickPOVCount() {
+return 0;
+}
+
+//Joystick
+
+public static int getJoystickType() {
+return 0;
+}
+
+public static HIDType getType() {
+  return HIDType.values()[getJoystickType()];
+}
+
+
+public static String getName() {
+  return getJoystickName();
+}
+
+public static String getJoystickName() {
+return null;
+}
+
+//Outputs
+
+/*Review later
+public static void setOutput(int outputNumber, boolean value) {
+  outputs = (outputs & ~(1 << (outputNumber - 1))) | ((value ? 1 : 0) << (outputNumber - 1));
+  HAL.setJoystickOutputs((byte) outputs, lRumble, rRumble, rRumble);
+}
+
+public static void setOutputs(int value) {
+  outputs = value;
+  HAL.setJoystickOutputs((byte)  outputs, lRumble, rRumble, rRumble);
+}
+*/
+
+//Rumble
+
+public static void setRumble(RumbleType type, double value) {
+  if (value < 0) {
+    value = 0;
+  } else if (value > 1) {
+    value = 1;
+  }
+  if (type == RumbleType.kLeftRumble) {
+    m_leftRumble = (short) (value * 65535);
+  } else {
+    m_rightRumble = (short) (value * 65535);
+  }
+  HAL.setJoystickOutputs((byte) m_outputs, m_leftRumble, m_rightRumble, m_rightRumble);
+}
+
+ @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-  }
+  } 
 }
