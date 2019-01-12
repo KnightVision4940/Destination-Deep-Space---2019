@@ -29,7 +29,7 @@ public class DriveTrain extends Subsystem {
   SpeedControllerGroup Right;
   SpeedControllerGroup Left;
 
-  DifferentialDrive m_drive; 
+  static DifferentialDrive m_drive; 
 //d@nte was here
   public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
     
@@ -45,7 +45,7 @@ public class DriveTrain extends Subsystem {
     m_drive = new DifferentialDrive(Left, Right);
   }
 
-  public void drive(double speed, double turn){
+  public static void drive(double speed, double turn){
     m_drive.arcadeDrive(speed, turn, false);
   }
 
