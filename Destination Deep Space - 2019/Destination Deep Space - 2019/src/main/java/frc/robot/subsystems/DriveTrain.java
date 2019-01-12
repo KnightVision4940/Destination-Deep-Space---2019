@@ -19,7 +19,7 @@ public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  //talons *these may need to change based on what the robot uses this year*
+  //We are victors this year
   static Victor FrontLeft;
   static Victor RearLeft;
   static Victor FrontRight;
