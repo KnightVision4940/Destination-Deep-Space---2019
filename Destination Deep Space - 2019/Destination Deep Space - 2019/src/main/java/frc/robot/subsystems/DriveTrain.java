@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -20,7 +21,7 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
 
   //talons *these may need to change based on what the robot uses this year*
-  static Talon FrontLeft;
+  static Victor FrontLeft;
   static Talon RearLeft;
   static Talon FrontRight;
   static Talon RearRight;
@@ -33,7 +34,7 @@ public class DriveTrain extends Subsystem {
 //d@nte was here
   public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
     
-    FrontLeft = new Talon(frontLeft);
+    FrontLeft = new Victor(frontLeft);
     RearLeft = new Talon(backLeft);
 
     FrontRight = new Talon(frontRight);
