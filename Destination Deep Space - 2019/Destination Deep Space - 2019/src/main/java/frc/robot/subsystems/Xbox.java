@@ -57,24 +57,32 @@ public static double getTriggers(){
   }
 }
 
-//getXYTop
+//Left Stick
 
-public static double getY(Hand hand) {
-  if (hand.equals(Hand.kLeft)) {
-    return xbox.getRawAxis(1);
-  } else {
-    return xbox.getRawAxis(5);
-  }
+// public static double getY(Hand hand) {
+//   if (hand.equals(Hand.kLeft)) {
+//     return xbox.getRawAxis(1);
+//   } else {
+//     return xbox.getRawAxis(5);
+//   }
   
-}
+// }
 
-
-public static double getx(Hand hand) {
-if (hand.equals(Hand.kLeft)) {
+//Simplified version of Above
+public static double getYLeft(){
   return xbox.getRawAxis(0);
-} else {
-  return xbox.getRawAxis(5);
 }
+
+
+// public static double getx(Hand hand) {
+// if (hand.equals(Hand.kLeft)) {
+//   return xbox.getRawAxis(0);
+// } else {
+//   return xbox.getRawAxis(5);
+// }
+// }
+public static double getXLeft(){
+  return xbox.getRawAxis(1);
 }
 
 public static boolean getTop(Hand hand) {
@@ -128,7 +136,7 @@ public static boolean getStartButton() {
   return xbox.getRawButton(8);
 }
 
-//Stick POV
+//Stick POV (D-Pad)
 
 //Don't need this line - it was creating errors
 // public static boolean getRawButton(Hand hand) {
