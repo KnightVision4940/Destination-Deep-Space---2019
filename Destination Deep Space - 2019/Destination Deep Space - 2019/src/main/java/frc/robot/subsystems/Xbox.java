@@ -5,10 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.HIDType;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+//import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 /**
  * Add your docs here.
  */
@@ -28,23 +33,27 @@ public static int lRumble;
 
 //Triggers
 
-public static boolean getTrigger(Hand hand) {
-  return false;
-}
+//Why does this exist
+// public static boolean getTrigger(Hand hand) {
+//   return false;
+// }
 
+
+//Choose this one
 public static double getTriggerAxis (Hand hand) {
   if (hand.equals(Hand.kLeft)) {
     return xbox.getRawAxis(2);
   } else {
-            return xbox.getRawAxis(3);
+    return xbox.getRawAxis(3);
   }
 }
 
+//Or this one for driving
 public static double getTriggers(){
   if(xbox.getRawAxis(2) > xbox.getRawAxis(3)){
-    return xbox.getRawAxis(2)
+    return xbox.getRawAxis(2);
   } else {
-            return -xbox.getRawAxis(3);
+    return -xbox.getRawAxis(3);
   }
 }
 
@@ -110,6 +119,7 @@ public static boolean getStickButton(Hand hand) {
   }
 }
 
+//Probably won't need these next two buttons
 public static boolean getBackButton() {
   return xbox.getRawButton(7);
 }
@@ -120,17 +130,19 @@ public static boolean getStartButton() {
 
 //Stick POV
 
-public static boolean getRawButton(Hand hand) {
-  return false;
-}
+//Don't need this line - it was creating errors
+// public static boolean getRawButton(Hand hand) {
+//   return false;
+// }
 
-public static boolean getStickButton(Hand hand) {
-  if (hand.equals(Hand.kLeft)) {
-    return xbox.getRawButton(9);
-  } else {
-    return xbox.getRawButton(10);
-  }
-}
+//This part was repeated
+// public static boolean getStickButton(Hand hand) {
+//   if (hand.equals(Hand.kLeft)) {
+//     return xbox.getRawButton(9);
+//   } else {
+//     return xbox.getRawButton(10);
+//   }
+// }
 
 public static int getPOV(int pov) {
   return getStickPOV(pov);
@@ -147,26 +159,29 @@ public static int getStickPOVCount() {
 return 0;
 }
 
-//Joystick
+//Joystick?? - Why??
 
-public static int getJoystickType() {
-return 0;
-}
+//I don't know what this is
+// public static int getJoystickType() {
+// return 0;
+// }
 
 public static HIDType getType() {
-  return HIDType.values()[getJoystickType()];
+  //return HIDType.values()[getJoystickType()];
+  return xbox.getType();
 }
 
 
-public static String getName() {
-  return getJoystickName();
+public static String getNameXBox() {
+  //return getJoystickName();
+  return xbox.getName();
 }
 
 public static String getJoystickName() {
 return null;
 }
 
-//Outputs
+//Outputs - I don't know what these are. If we get errors, you can uncomment thiss - Gabriel
 
 /*Review later
 public static void setOutput(int outputNumber, boolean value) {
@@ -182,19 +197,20 @@ public static void setOutputs(int value) {
 
 //Rumble
 
-public static void setRumble(RumbleType type, double value) {
-  if (value < 0) {
-    value = 0;
-  } else if (value > 1) {
-    value = 1;
-  }
-  if (type == RumbleType.kLeftRumble) {
-    m_leftRumble = (short) (value * 65535);
-  } else {
-    m_rightRumble = (short) (value * 65535);
-  }
-  HAL.setJoystickOutputs((byte) m_outputs, m_leftRumble, m_rightRumble, m_rightRumble);
-}
+//Lots of Errors Here: 
+// public static void setRumble(RumbleType type, double value) {
+//   if (value < 0) {
+//     value = 0;
+//   } else if (value > 1) {
+//     value = 1;
+//   }
+//   if (type == RumbleType.kLeftRumble) {
+//     m_leftRumble = (short) (value * 65535);
+//   } else {
+//     m_rightRumble = (short) (value * 65535);
+//   }
+//   HAL.setJoystickOutputs((byte) m_outputs, m_leftRumble, m_rightRumble, m_rightRumble);
+// }
 
  @Override
   public void initDefaultCommand() {
