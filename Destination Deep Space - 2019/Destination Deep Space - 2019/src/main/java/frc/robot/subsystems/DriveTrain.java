@@ -21,9 +21,9 @@ public class DriveTrain extends Subsystem {
 
   //We are victors this year
   static Victor FrontLeft;
-  static Victor RearLeft;
+//  static Victor RearLeft;
   static Victor FrontRight;
-  static Victor RearRight;
+//  static Victor RearRight;
 
   //Our speed controllergroups for right and left 
   SpeedControllerGroup Right;
@@ -34,12 +34,12 @@ public class DriveTrain extends Subsystem {
   public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
     
     FrontLeft = new Victor(frontLeft);
-    RearLeft = new Victor(backLeft);
+   // RearLeft = new Victor(backLeft);
     FrontRight = new Victor(frontRight);
-    RearRight = new Victor(backRight);
+   // RearRight = new Victor(backRight);
 
-    Left = new SpeedControllerGroup(FrontLeft, RearLeft);
-    Right = new SpeedControllerGroup(FrontRight, RearRight);
+    Left = new SpeedControllerGroup(FrontLeft);
+    Right = new SpeedControllerGroup(FrontRight);
 
     m_drive = new DifferentialDrive(Left, Right);
   }
