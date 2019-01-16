@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.Encoder;
 
 /**
  * Add your docs here.
@@ -24,6 +25,7 @@ public class DriveTrain extends Subsystem {
 //  static Victor RearLeft;
   static Victor FrontRight;
 //  static Victor RearRight;
+static Encoder enc;
 
   //Our speed controllergroups for right and left 
   SpeedControllerGroup Right;
@@ -33,6 +35,7 @@ public class DriveTrain extends Subsystem {
 //d@nte was here
   public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
     
+    enc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
     FrontLeft = new Victor(frontLeft);
    // RearLeft = new Victor(backLeft);
     FrontRight = new Victor(frontRight);
