@@ -25,7 +25,10 @@ public class DriveTrain extends Subsystem {
 //  static Victor RearLeft;
   static Victor FrontRight;
 //  static Victor RearRight;
-static Encoder enc;
+static Encoder enc1;
+static Encoder enc2;
+static Encoder enc3;
+static Encoder enc4;
 
   //Our speed controllergroups for right and left 
   SpeedControllerGroup Right;
@@ -35,16 +38,19 @@ static Encoder enc;
 //d@nte was here
   public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
     
-    enc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+    enc1 = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+    enc2 = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+    //enc3 = new Encoder(4, 5, false, Encoder.EncodingType.k4X);
+    //enc4 = new Encoder(6, 7, false, Encoder.EncodingType.k4X);
     FrontLeft = new Victor(frontLeft);
    // RearLeft = new Victor(backLeft);
     FrontRight = new Victor(frontRight);
    // RearRight = new Victor(backRight);
 
-    Left = new SpeedControllerGroup(FrontLeft);
-    Right = new SpeedControllerGroup(FrontRight);
+   // Left = new SpeedControllerGroup(FrontLeft);
+    //Right = new SpeedControllerGroup(FrontRight);
 
-    m_drive = new DifferentialDrive(Left, Right);
+    m_drive = new DifferentialDrive(FrontLeft, FrontRight);
   }
 
   public static void drive(double speed, double turn){
