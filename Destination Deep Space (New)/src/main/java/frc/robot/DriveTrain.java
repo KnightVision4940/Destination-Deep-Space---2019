@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Encoder;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /**
  * Add your docs here.
@@ -22,9 +23,9 @@ public class DriveTrain {
   // here. Call these from Commands.
 
   //We are victors this year
-  static VictorSPX FrontLeft;
+  static TalonSRX FrontLeft;
   //  static Victor RearLeft;
-    static VictorSPX FrontRight;
+    static TalonSRX FrontRight;
   //  static Victor RearRight;
   static Encoder enc1;
   static Encoder enc2;
@@ -50,10 +51,10 @@ public class DriveTrain {
       
 
 
-      FrontLeft = new VictorSPX(frontLeft);
+      FrontLeft = new TalonSRX(frontLeft);
      // FrontLeft.setSafetyEnabled(false);
      // RearLeft = new Victor(backLeft);
-      FrontRight = new VictorSPX(frontRight);
+    //  FrontRight = new TalonSRX(frontRight);
      /// FrontRight.setSafetyEnabled(false);
      // RearRight = new Victor(backRight);
   
@@ -65,21 +66,21 @@ public class DriveTrain {
       //m_drive.setSafetyEnabled(false);
     }
   
-    public static void drive(double speed, double turn){
-      m_drive.arcadeDrive(speed, turn, false);
+    // public static void drive(double speed, double turn){
+    //   m_drive.arcadeDrive(speed, turn, false);
 
-    }
+    // }
 
     public static void runMotor(){
       FrontLeft.set(ControlMode.PercentOutput,0.5);
-      FrontRight.set(ControlMode.PercentOutput,0.5);
+     // FrontRight.set(ControlMode.PercentOutput,0.5);
       
      // FrontLeft.set(ControlMode.PercentOutput,1.0);
     }
 
     public static void stopMotor(){
       FrontLeft.set(ControlMode.PercentOutput,0);
-      FrontRight.set(ControlMode.PercentOutput,0);
+    //  FrontRight.set(ControlMode.PercentOutput,0);
      // FrontLeft.set(ControlMode.PercentOutput,0);
         }
     
