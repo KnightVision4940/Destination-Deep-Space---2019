@@ -17,8 +17,8 @@ public class Arm {
 
     public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
     public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
-    armBase.setSelectedSensorPosition(0);
-    armElbow.setSelectedSensorPosition(0);
+    // armBase.setSelectedSensorPosition(0);
+    // armElbow.setSelectedSensorPosition(0);
     public static double endCountBase = 0;
     public static double endCountElbow = 0;
 
@@ -71,4 +71,5 @@ public static void armDown() {
      endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
     }
 
+}
 }
