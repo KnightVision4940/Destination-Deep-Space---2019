@@ -20,6 +20,8 @@ public class Xbox{
 
 public static XboxController xbox = new XboxController(3);
 
+public static XboxController xbox2 = new XboxController(2);
+
 public static int outputs;
 
 public static int rRumble;
