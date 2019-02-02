@@ -76,7 +76,7 @@ public class DriveTrain {
     public static void runMotor(){
        FrontLeft.set(ControlMode.PercentOutput,-1);
        count = FrontLeft.getSelectedSensorPosition(0);
-       System.out.println(count);
+       //System.out.println(count);
       //System.out.println(FrontLeft.getSelectedSensorVelocity(0));
       
      //FrontRight.set(ControlMode.PercentOutput,0.5);
