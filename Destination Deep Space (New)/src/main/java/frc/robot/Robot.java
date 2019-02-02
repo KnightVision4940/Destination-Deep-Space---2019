@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static boolean toggleA = false;
-  public static int count = DriveTrain.count;
+  public static double count = DriveTrain.count;
   
 
   /**
