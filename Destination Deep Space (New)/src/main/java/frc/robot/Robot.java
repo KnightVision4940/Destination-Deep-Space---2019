@@ -27,6 +27,8 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static boolean toggleA = false;
   public static int count = DriveTrain.count;
+  public static Xbox xbox1 = new Xbox(3);
+  public static Xbox xbox2 = new Xbox(1);
   
 
   /**
@@ -41,6 +43,7 @@ public class Robot extends TimedRobot {
     DriveTrain drive = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
     CamServer.camInit();
     SmartDashboard.putData("Auto choices", m_chooser);
+    
    // SmartDashboard.putData("Rotations", rotations);
     
   }
@@ -98,11 +101,11 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     //DriveTrain.drive(1, 0);
     //DriveTrain.drive(1, 0);
-    if(Xbox.getAButton() || toggleA){
+    if(xbox1.getAButton() || toggleA){
       DriveTrain.runMotor();
       toggleA = true;
     }
-    if(Xbox.getBButton()){
+    if(xbox1.getBButton()){
       toggleA = false;
       DriveTrain.stopMotor();
     }
