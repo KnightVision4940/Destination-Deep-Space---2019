@@ -6,34 +6,34 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 /**
  * Add your docs here.
  */
 public class IntakeSystem {
 
-    static TalonSRX IntakeL;
-    static TalonSRX IntakeR;
-    static TalonSRX OuttakeL;
-    static TalonSRX OuttakeR;
+    static VictorSPX IntakeL;
+    static VictorSPX IntakeR;
+    static VictorSPX OuttakeL;
+    static VictorSPX OuttakeR;
 
    public static void Intake() {
 
-        IntakeL = new TalonSRX(RobotMap.leftRoller);
+        IntakeL = new VictorSPX(RobotMap.leftRoller);
         IntakeL.set(ControlMode.PercentOutput,1);
 
-        IntakeR = new TalonSRX(RobotMap.rightRoller);
+        IntakeR = new VictorSPX(RobotMap.rightRoller);
         IntakeR.set(ControlMode.PercentOutput,1);
 
         }
     
     public static void Outtake() {
 
-        OuttakeL = new TalonSRX(RobotMap.leftRoller);
+        OuttakeL = new VictorSPX(RobotMap.leftRoller);
         OuttakeL.set(ControlMode.PercentOutput,-1);
 
-        OuttakeR = new TalonSRX(RobotMap.rightRoller);
+        OuttakeR = new VictorSPX(RobotMap.rightRoller);
         OuttakeR.set(ControlMode.PercentOutput,-1);
 
         }
