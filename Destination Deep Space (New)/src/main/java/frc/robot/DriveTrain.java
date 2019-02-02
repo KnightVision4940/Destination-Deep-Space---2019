@@ -10,10 +10,11 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Encoder;
-
+import edu.wpi.first.wpilibj.AnalogGyro;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 /**
  * Add your docs here.
@@ -31,12 +32,14 @@ public class DriveTrain {
   static Encoder enc2;
   static Encoder enc3;
   static Encoder enc4;
-  
+  //AnalogGyro gyro;
+
+
     //Our speed controllergroups for right and left 
     SpeedControllerGroup Right;
     SpeedControllerGroup Left;
 
-    public static int count;
+    public static double count;
   
     static DifferentialDrive m_drive; 
   //d@nte was here
@@ -74,16 +77,20 @@ public class DriveTrain {
     // }
 
     public static void runMotor(){
-       FrontLeft.set(ControlMode.PercentOutput,-1);
-       count = FrontLeft.getSelectedSensorPosition(0);
-       //System.out.println(count);
+       
+       FrontLeft.set(ControlMode.PercentOutput,1);
+       count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
+       System.out.println(count);
+      //  if(Math.round(count) % 0.5 == 0){
+
+      //  }
       //System.out.println(FrontLeft.getSelectedSensorVelocity(0));
       
      //FrontRight.set(ControlMode.PercentOutput,0.5);
       
      // FrontLeft.set(ControlMode.PercentOutput,1.0);
     }
-
+      
     public static void stopMotor(){
       FrontLeft.set(ControlMode.PercentOutput,0);
     //  FrontRight.set(ControlMode.PercentOutput,0);
