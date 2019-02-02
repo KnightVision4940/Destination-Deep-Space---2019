@@ -106,7 +106,7 @@ public class Robot extends TimedRobot {
       toggleA = false;
       DriveTrain.stopMotor();
     }
-    System.out.println(count);
+    //System.out.println(count);
   }
 
   /**

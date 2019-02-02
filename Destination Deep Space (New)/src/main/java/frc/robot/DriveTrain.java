@@ -42,16 +42,18 @@ public class DriveTrain {
   //d@nte was here
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
       
-      enc1 = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-      enc2 = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
-      enc3 = new Encoder(4, 5, false, Encoder.EncodingType.k4X);
-      enc4 = new Encoder(6, 7, false, Encoder.EncodingType.k4X);
+    //  enc1 = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+   
+    //  enc2 = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
+    //  enc3 = new Encoder(4, 5, false, Encoder.EncodingType.k4X);
+    //  enc4 = new Encoder(6, 7, false, Encoder.EncodingType.k4X);
 
-      count = enc1.get();
+    //  count = enc1.get();
       
 
 
       FrontLeft = new TalonSRX(frontLeft);
+      FrontLeft.setSelectedSensorPosition(0);
      // FrontLeft.setSafetyEnabled(false);
      // RearLeft = new Victor(backLeft);
     //  FrontRight = new TalonSRX(frontRight);
@@ -72,8 +74,12 @@ public class DriveTrain {
     // }
 
     public static void runMotor(){
-      FrontLeft.set(ControlMode.PercentOutput,0.5);
-     // FrontRight.set(ControlMode.PercentOutput,0.5);
+       FrontLeft.set(ControlMode.PercentOutput,-1);
+       count = FrontLeft.getSelectedSensorPosition(0);
+       System.out.println(count);
+      //System.out.println(FrontLeft.getSelectedSensorVelocity(0));
+      
+     //FrontRight.set(ControlMode.PercentOutput,0.5);
       
      // FrontLeft.set(ControlMode.PercentOutput,1.0);
     }
