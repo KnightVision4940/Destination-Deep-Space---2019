@@ -20,9 +20,9 @@ public class RobotMap {
 
   //Arm
   public static int rotatePlate = 4;
-  public static int bottomArm = 5;
-  public static int middleArm = 6;
-  public static int wristRotate = 7;
+  public static int armBase = 5;
+  public static int armElbow = 6;
+  public static int armWrist = 7;
   public static int leftRoller = 8;
   public static int rightRoller = 9;
 
@@ -31,5 +31,5 @@ public class RobotMap {
   public static int leftHatch = 11;
 
   //Climb
-  
+
 }
