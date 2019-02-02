@@ -13,8 +13,6 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
  */
 public class IntakeSystem {
 
-    public static Xbox xbox1 = new Xbox(3);
-    public static Xbox xbox2 = new Xbox(1);
     static TalonSRX IntakeL;
     static TalonSRX IntakeR;
     static TalonSRX OuttakeL;
@@ -28,8 +26,6 @@ public class IntakeSystem {
         IntakeR = new TalonSRX(RobotMap.rightRoller);
         IntakeR.set(ControlMode.PercentOutput,1);
 
-          IntakeL.set(ControlMode.PercentOutput,0);
-          IntakeR.set(ControlMode.PercentOutput,0);
         }
     
     public static void Outtake() {
@@ -40,7 +36,5 @@ public class IntakeSystem {
         OuttakeR = new TalonSRX(RobotMap.rightRoller);
         OuttakeR.set(ControlMode.PercentOutput,-1);
 
-          OuttakeL.set(ControlMode.PercentOutput,0);
-          OuttakeR.set(ControlMode.PercentOutput,0);
         }
     }
