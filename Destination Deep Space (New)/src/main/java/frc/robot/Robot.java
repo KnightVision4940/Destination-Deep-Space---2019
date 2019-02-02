@@ -26,14 +26,10 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static boolean toggleA = false;
-<<<<<<< HEAD
-  public static int count = DriveTrain.count;
+
   public static Xbox xbox1 = new Xbox(3);
   public static Xbox xbox2 = new Xbox(1);
-=======
   public static double count = DriveTrain.count;
->>>>>>> master
-  
 
   /**
    * This function is run when the robot is first started up and should be
