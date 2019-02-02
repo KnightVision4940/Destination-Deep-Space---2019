@@ -7,33 +7,22 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-//import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
-/**
+/*
  * Add your docs here.
  */
 public class DriveTrain {
-     // Put methods for controlling this subsystem
-  // here. Call these from Commands.
 
-  //We are victors this year
+  //We are using TalonSRX
   static TalonSRX FrontLeft;
-  //  static Victor RearLeft;
-    static TalonSRX FrontRight;
-  //  static Victor RearRight;
-  static Encoder enc1;
-  static Encoder enc2;
-  static Encoder enc3;
-  static Encoder enc4;
-  //AnalogGyro gyro;
+  static TalonSRX FrontRight;
 
+  static ADXRS450_Gyro gyro;
 
     //Our speed controllergroups for right and left 
     SpeedControllerGroup Right;
@@ -44,24 +33,12 @@ public class DriveTrain {
     static DifferentialDrive m_drive; 
   //d@nte was here
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
-      
-    //  enc1 = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
-   
-    //  enc2 = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
-    //  enc3 = new Encoder(4, 5, false, Encoder.EncodingType.k4X);
-    //  enc4 = new Encoder(6, 7, false, Encoder.EncodingType.k4X);
 
-    //  count = enc1.get();
       
 
-
+      
       FrontLeft = new TalonSRX(frontLeft);
       FrontLeft.setSelectedSensorPosition(0);
-     // FrontLeft.setSafetyEnabled(false);
-     // RearLeft = new Victor(backLeft);
-    //  FrontRight = new TalonSRX(frontRight);
-     /// FrontRight.setSafetyEnabled(false);
-     // RearRight = new Victor(backRight);
   
      //Left = new SpeedControllerGroup(FrontLeft);
      //Right = new SpeedControllerGroup(FrontRight);
@@ -75,12 +52,13 @@ public class DriveTrain {
     //   m_drive.arcadeDrive(speed, turn, false);
 
     // }
-
+    
     public static void runMotor(){
-       
-       FrontLeft.set(ControlMode.PercentOutput,1);
+      
+       System.out.println(gyro.getAngle());
+      // FrontLeft.set(ControlMode.PercentOutput,1);
        count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
-       System.out.println(count);
+       //System.out.println(count);
       //  if(Math.round(count) % 0.5 == 0){
 
       //  }
@@ -93,8 +71,13 @@ public class DriveTrain {
       
     public static void stopMotor(){
       FrontLeft.set(ControlMode.PercentOutput,0);
-    //  FrontRight.set(ControlMode.PercentOutput,0);
-     // FrontLeft.set(ControlMode.PercentOutput,0);
         }
+
+    public static void reset(){
+      gyro.reset();
+    }
+    public static void calibrategyro(){
+      gyro.calibrate();
+    }
     
 }
