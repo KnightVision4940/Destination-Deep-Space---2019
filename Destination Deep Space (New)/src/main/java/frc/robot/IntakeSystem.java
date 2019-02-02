@@ -6,23 +6,41 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 /**
  * Add your docs here.
  */
 public class IntakeSystem {
 
-   public static Intake() {
-       
-    if(Xbox2.getAButton()) {
-        Map.leftRoller.MotorLauncher1(1);
-        Map.rightRoller.MotorLauncher2(1);
+    public static Xbox xbox1 = new Xbox(3);
+    public static Xbox xbox2 = new Xbox(1);
+    static TalonSRX IntakeL;
+    static TalonSRX IntakeR;
+    static TalonSRX OuttakeL;
+    static TalonSRX OuttakeR;
+
+   public static void Intake() {
+
+        IntakeL = new TalonSRX(RobotMap.leftRoller);
+        IntakeL.set(ControlMode.PercentOutput,1);
+
+        IntakeR = new TalonSRX(RobotMap.rightRoller);
+        IntakeR.set(ControlMode.PercentOutput,1);
+
+          IntakeL.set(ControlMode.PercentOutput,0);
+          IntakeR.set(ControlMode.PercentOutput,0);
+        }
+    
+    public static void Outtake() {
+
+        OuttakeL = new TalonSRX(RobotMap.leftRoller);
+        OuttakeL.set(ControlMode.PercentOutput,-1);
+
+        OuttakeR = new TalonSRX(RobotMap.rightRoller);
+        OuttakeR.set(ControlMode.PercentOutput,-1);
+
+          OuttakeL.set(ControlMode.PercentOutput,0);
+          OuttakeR.set(ControlMode.PercentOutput,0);
         }
     }
-    public static Outake() {
-        if(Xbox2.getBButton()) {
-            map.leftRoller.MotorLauncher1(-1);
-            map.rightRoller.MotorLauncher2(-1);
-        }
-    }
-}
