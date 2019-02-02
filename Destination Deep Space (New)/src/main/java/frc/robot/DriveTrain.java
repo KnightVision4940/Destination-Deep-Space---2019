@@ -55,7 +55,7 @@ public class DriveTrain {
     
     public static void runMotor(){
       
-       System.out.println(gyro.getAngle());
+      //  System.out.println(gyro.getAngle());
       // FrontLeft.set(ControlMode.PercentOutput,1);
        count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
        //System.out.println(count);
@@ -73,11 +73,11 @@ public class DriveTrain {
       FrontLeft.set(ControlMode.PercentOutput,0);
         }
 
-    public static void reset(){
-      gyro.reset();
-    }
-    public static void calibrategyro(){
-      gyro.calibrate();
-    }
+    // public static void reset(){
+    //   gyro.reset();
+    // }
+    // public static void calibrategyro(){
+    //   gyro.calibrate();
+    // }
     
 }

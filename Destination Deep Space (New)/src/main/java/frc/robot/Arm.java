@@ -5,71 +5,71 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.ControlMode;
+// package frc.robot;
+// import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+// import com.ctre.phoenix.motorcontrol.ControlMode;
 
 
-/**
- * Add your docs here.
- */
-public class Arm {
+// /**
+//  * Add your docs here.
+//  */
+// public class Arm {
 
-    public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
-    public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
-    // armBase.setSelectedSensorPosition(0);
-    // armElbow.setSelectedSensorPosition(0);
-    public static double endCountBase = 0;
-    public static double endCountElbow = 0;
-
-
-    public static void stopMotor() {
-        armBase.set(ControlMode.PercentOutput,0);
-        armElbow.set(ControlMode.PercentOutput,0);
-    }
+//     public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
+//     public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
+//     // armBase.setSelectedSensorPosition(0);
+//     // armElbow.setSelectedSensorPosition(0);
+//     public static double endCountBase = 0;
+//     public static double endCountElbow = 0;
 
 
-public static void armUp() {
+//     public static void stopMotor() {
+//         armBase.set(ControlMode.PercentOutput,0);
+//         armElbow.set(ControlMode.PercentOutput,0);
+//     }
+
+
+// public static void armUp() {
     
-    if(endCountBase == 10 && endCountElbow == 10) {
+//     if(endCountBase == 10 && endCountElbow == 10) {
 
-        stopMotor();
+//         stopMotor();
 
-    }else{
+//     }else{
 
-       armBase.set(ControlMode.PercentOutput,0.5);
-       endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+//        armBase.set(ControlMode.PercentOutput,0.5);
+//        endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
 
-        armElbow.set(ControlMode.PercentOutput,0.5);
-        endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
-    }
+//         armElbow.set(ControlMode.PercentOutput,0.5);
+//         endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
+//     }
     
 
-    // IntakeL = new TalonSRX(RobotMap.armBase);
-    //     IntakeL.set(ControlMode.PercentOutput,0.5);
+//     // IntakeL = new TalonSRX(RobotMap.armBase);
+//     //     IntakeL.set(ControlMode.PercentOutput,0.5);
 
-    //     IntakeR = new TalonSRX(RobotMap.rightRoller);
-    //     IntakeR.set(ControlMode.PercentOutput,1);
-
-
-}
-
-public static void armDown() {
-
- if(endCountBase == 0 && endCountElbow == 0) {
-
-     stopMotor();
-
- }else {
+//     //     IntakeR = new TalonSRX(RobotMap.rightRoller);
+//     //     IntakeR.set(ControlMode.PercentOutput,1);
 
 
-    armBase.set(ControlMode.PercentOutput,-0.5);
-    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+// }
+
+// public static void armDown() {
+
+//  if(endCountBase == 0 && endCountElbow == 0) {
+
+//      stopMotor();
+
+//  }else {
 
 
-     armElbow.set(ControlMode.PercentOutput,-0.5);
-     endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
-    }
+//     armBase.set(ControlMode.PercentOutput,-0.5);
+//     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
 
-}
-}
+
+//      armElbow.set(ControlMode.PercentOutput,-0.5);
+//      endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
+//     }
+
+// }
+// }
