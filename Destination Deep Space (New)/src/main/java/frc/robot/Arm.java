@@ -30,8 +30,7 @@ public class Arm {
 
 
 public static void armUp() {
-
-<<<<<<< Updated upstream
+    
     if(endCountBase == 10 && endCountElbow == 10) {
 
         stopMotor();
@@ -45,13 +44,13 @@ public static void armUp() {
         endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
     }
     
-=======
+
     // IntakeL = new TalonSRX(RobotMap.armBase);
     //     IntakeL.set(ControlMode.PercentOutput,0.5);
 
     //     IntakeR = new TalonSRX(RobotMap.rightRoller);
     //     IntakeR.set(ControlMode.PercentOutput,1);
->>>>>>> Stashed changes
+
 
 }
 
