@@ -6,12 +6,32 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 /**
  * Add your docs here.
  */
 public class Hatches {
-    public static void HatchesIn{
+
+    static VictorSPX right;
+    static VictorSPX left;
+
+    public static void Hatch() {
         
+   VictorSPX right = new VictorSPX(RobotMap.rightHatch);
+   VictorSPX left = new VictorSPX(RobotMap.leftHatch);
+
+     }
+      public static void HatchesIn() {
+
+    right.set(ControlMode.PercentOutput,0.5);
+    left.set(ControlMode.PercentOutput,-0.5);
+
     }
-}
+   
+    public static void HatchesOut() {
+
+        right.set(ControlMode.PercentOutput,-0.5);
+        left.set(ControlMode.PercentOutput,0.5);
+
+}}
