@@ -22,10 +22,10 @@ public class Hatches {
    VictorSPX left = new VictorSPX(RobotMap.leftHatch);
 
      }
-      public static void HatchesIn() {
+    public static void HatchesIn() {
 
-    right.set(ControlMode.PercentOutput,0.5);
-    left.set(ControlMode.PercentOutput,-0.5);
+        right.set(ControlMode.PercentOutput,0.5);
+        left.set(ControlMode.PercentOutput,-0.5);
 
     }
    
@@ -34,4 +34,11 @@ public class Hatches {
         right.set(ControlMode.PercentOutput,-0.5);
         left.set(ControlMode.PercentOutput,0.5);
 
-}}
+}
+    public static void HatchesStop() {
+
+        right.set(ControlMode.PercentOutput,0);
+        left.set(ControlMode.PercentOutput,0);
+
+}
+}
