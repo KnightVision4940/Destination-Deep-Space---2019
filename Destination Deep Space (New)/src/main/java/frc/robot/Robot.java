@@ -43,6 +43,7 @@ public class Robot extends TimedRobot {
     DriveTrain drive = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
     CamServer.camInit();
     SmartDashboard.putData("Auto choices", m_chooser);
+    Arm.init();
     // DriveTrain.reset();
     // DriveTrain.calibrategyro();
    // SmartDashboard.putData("Rotations", rotations);
