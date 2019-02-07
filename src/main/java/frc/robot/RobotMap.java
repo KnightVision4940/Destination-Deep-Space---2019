@@ -30,6 +30,10 @@ public class RobotMap {
   public static int rightHatch = 10;
   public static int leftHatch = 11;
 
+  //Turn Table
+  public static int TurnTable = 12;
+  
+
   //Climb
 
 }

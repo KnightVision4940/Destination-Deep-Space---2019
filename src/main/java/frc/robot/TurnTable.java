@@ -15,19 +15,21 @@ import com.ctre.phoenix.motorcontrol.ControlMode;;
  * Add your docs here.
  */
 public class TurnTable {
-    public static TalonSRX turn = new TalonSRX(0);
+    //turn is out motor and function
+    public static TalonSRX TurnMotor= new TalonSRX(0);
     public static double TurnCoder = 0;
     public static double TurnRotate = 0;
+    
 
 public static void Turn(double speed){
     
-    turn.set(ControlMode.PercentOutput, speed);
-    TurnCoder = -(turn.getSelectedSensorPosition());
+    TurnMotor.set(ControlMode.PercentOutput, speed);
+    TurnCoder = -(TurnMotor.getSelectedSensorPosition());
     TurnRotate = (TurnCoder/4069);
     if(TurnRotate == 1 && speed == 0.5){
-        turn.set(ControlMode.PercentOutput, 0);
+        TurnMotor.set(ControlMode.PercentOutput, 0);
     }else if(TurnRotate == -1 && speed == -0.5){
-        turn.set(ControlMode.PercentOutput, 0);
+        TurnMotor.set(ControlMode.PercentOutput, 0);
     }
 
 }

@@ -111,6 +111,7 @@ public class Robot extends TimedRobot {
       toggleA = false;
       DriveTrain.stopMotor();
     }
+    TurnTable.Turn(xbox2.getXLeft());
     //System.out.println(count);
   }
 

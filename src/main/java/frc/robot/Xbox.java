@@ -74,7 +74,7 @@ public Xbox(int port){
 
 //Simplified version of Above
   double getYLeft(){
-  return xbox.getRawAxis(0);
+  return xbox.getRawAxis(1);
 }
 
 
@@ -86,7 +86,7 @@ public Xbox(int port){
 // }
 // }
   double getXLeft(){
-  return xbox.getRawAxis(1);
+  return xbox.getRawAxis(0);
 }
 
   boolean getTop(Hand hand) {
