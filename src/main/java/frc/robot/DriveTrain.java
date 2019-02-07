@@ -6,11 +6,9 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.SPI;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -23,41 +21,77 @@ public class DriveTrain {
   //We are using TalonSRX
   static TalonSRX FrontLeft;
   static TalonSRX FrontRight;
+  static TalonSRX BackLeft;
+  static TalonSRX BackRight;
 
-  static ADXRS450_Gyro gyro;
+ 
 
     //Our speed controllergroups for right and left 
-    SpeedControllerGroup Right;
-    SpeedControllerGroup Left;
+   // public static SpeedControllerGroup Right;
+    //public static SpeedControllerGroup Left;
 
     public static double count;
-    private static final SPI.Port kGyroPort = SPI.Port.kOnboardCS0;
+    public static Gyroscope g = new Gyroscope();
+    public static int setpoint;
+    public static int error;
+    public static int p,i,d = 1;
+    public static double integral;
+
     static DifferentialDrive m_drive; 
   //d@nte was here
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
-      gyro = new ADXRS450_Gyro(kGyroPort);
-      
-
+     
       
       FrontLeft = new TalonSRX(frontLeft);
-      FrontLeft.setSelectedSensorPosition(0);
+      BackLeft = new TalonSRX(backLeft);
+      FrontRight = new TalonSRX(frontRight);
+      BackRight = new TalonSRX(backRight);
+     // FrontLeft.setSelectedSensorPosition(0);
   
-     //Left = new SpeedControllerGroup(FrontLeft);
-     //Right = new SpeedControllerGroup(FrontRight);
-  
+    SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
+    SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
+    
       
-     // m_drive = new DifferentialDrive(FrontLeft, FrontRight);
+      m_drive = new DifferentialDrive(Left, Right);
       //m_drive.setSafetyEnabled(false);
     }
   
-    // public static void drive(double speed, double turn){
-    //   m_drive.arcadeDrive(speed, turn, false);
+    public static void drive(double speed, double turn){
+      m_drive.arcadeDrive(speed, turn, false);
+    }
 
-    // }
-    
-    public static void runMotor(){
-      
-        System.out.println(gyro.getAngle());
+    //The drive we are going to use - needs testing
+    public static void driveGyro(double speed, double turn){
+      setpoint = (int)(turn * 180);
+      error = setpoint - g.getAngle(); // What is Left = Target - Actual
+      integral += error*0.02; //0.02 is the # of seconds for everytime this method is used
+      double yeet = p*error + i*integral;
+      m_drive.arcadeDrive(speed, yeet, false);
+      //gab was here
+    }
+
+    public static void driveGyroWithReverseSteering(double speed, double turn){
+      setpoint = (int)(turn * 180);
+      error = setpoint - g.getAngle(); // What is Left = Target - Actual
+      integral += error*0.02; //0.02 is the # of seconds for everytime this method is used
+      double yeet = p*error + i*integral;
+      if(speed >= 0){
+        m_drive.arcadeDrive(speed, yeet, false);
+      }else if(speed <= 0){
+        m_drive.arcadeDrive(-speed, yeet, false);
+      }else{
+        m_drive.arcadeDrive(0, 0, false);
+      }
+      //gab was here
+    }
+
+    public static void SetPoint(double Xjoystick){
+        setpoint = (int)(Xjoystick * 180);
+    }
+
+
+    //The rest is temporary
+    public static void runMotor(){  
       // FrontLeft.set(ControlMode.PercentOutput,1);
        count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
        //System.out.println(count);
@@ -75,11 +109,6 @@ public class DriveTrain {
       FrontLeft.set(ControlMode.PercentOutput,0);
         }
 
-    public static void reset(){
-      gyro.reset();
-    }
-    public static void calibrategyro(){
-      gyro.calibrate();
-    }
+    
     
 }
