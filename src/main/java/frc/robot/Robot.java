@@ -45,6 +45,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Auto choices", m_chooser);
      DriveTrain.calibrategyro();
      DriveTrain.reset();
+     TurnTable.turn.setSelectedSensorPosition(0);
    // SmartDashboard.putData("Rotations", rotations);
     
   }

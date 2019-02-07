@@ -1,0 +1,35 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
+package frc.robot;
+
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;;
+
+
+/**
+ * Add your docs here.
+ */
+public class TurnTable {
+    public static TalonSRX turn = new TalonSRX(0);
+    public static double TurnCoder = 0;
+    public static double TurnRotate = 0;
+
+public static void Turn(double speed){
+    
+    turn.set(ControlMode.PercentOutput, speed);
+    TurnCoder = -(turn.getSelectedSensorPosition());
+    TurnRotate = (TurnCoder/4069);
+    if(TurnRotate == 1 && speed == 0.5){
+        turn.set(ControlMode.PercentOutput, 0);
+    }else if(TurnRotate == -1 && speed == -0.5){
+        turn.set(ControlMode.PercentOutput, 0);
+    }
+
+}
+
+}
