@@ -17,7 +17,8 @@ public class Arm {
 
     public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
     public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
-      
+    public static TalonSRX WristMotor = new TalonSRX(0);
+
     public static double endCountBase = 0;
     public static double endCountElbow = 0;
   public static void init(){
@@ -28,6 +29,10 @@ public class Arm {
     public static void stopMotor() {
         armBase.set(ControlMode.PercentOutput,0);
         armElbow.set(ControlMode.PercentOutput,0);
+    }
+
+    public static void Wrist(){
+
     }
 
     public static void grabMode(){
