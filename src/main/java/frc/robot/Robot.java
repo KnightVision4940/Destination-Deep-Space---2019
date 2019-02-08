@@ -103,15 +103,16 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     //DriveTrain.drive(1, 0);
     //DriveTrain.drive(1, 0);
-    if(xbox1.getAButton() || toggleA){
-      DriveTrain.runMotor();
-      toggleA = true;
-    }
-    if(xbox1.getBButton()){
-      toggleA = false;
-      DriveTrain.stopMotor();
-    }
-    TurnTable.Turn(xbox2.getXLeft());
+    // if(xbox1.getAButton() || toggleA){
+    //   DriveTrain.runMotor();
+    //   toggleA = true;
+    // }
+    // if(xbox1.getBButton()){
+    //   toggleA = false;
+    //   DriveTrain.stopMotor();
+    // }
+    // TurnTable.Turn(xbox2.getXLeft());
+    PracticeBoard.runMotor();
     //System.out.println(count);
   }
 

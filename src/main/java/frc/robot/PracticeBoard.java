@@ -7,9 +7,23 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Talon;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 /**
  * Add your docs here.
  */
-public class Arm {
-    
+public class PracticeBoard {
+    static WPI_TalonSRX motor = new WPI_TalonSRX(0);
+    public static void runMotor(){
+        motor.set(1);
+        //motor.set(ControlMode.PercentOutput,1);
+
+        System.out.println(motor.getSelectedSensorPosition());
+    }
+    public static void stopMotor(){
+        motor.set(0);
+    }
 }

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 
 /*
@@ -21,9 +21,9 @@ public class DriveTrain {
 
   //We are using TalonSRX
   static Talon FrontLeft;
-  static TalonSRX FrontRight;
+  static WPI_TalonSRX FrontRight;
   static Talon BackLeft;
-  static TalonSRX BackRight;
+  static WPI_TalonSRX BackRight;
 
  
 
@@ -45,15 +45,15 @@ public class DriveTrain {
       
       FrontLeft = new Talon(frontLeft);
       BackLeft = new Talon(backLeft);
-      FrontRight = new TalonSRX(frontRight);
-      BackRight = new TalonSRX(backRight);
+      FrontRight = new WPI_TalonSRX(frontRight);
+      BackRight = new WPI_TalonSRX(backRight);
      // FrontLeft.setSelectedSensorPosition(0);
   
     SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
     SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
     
       
-      m_drive = new DifferentialDrive(Left, Right);
+    //  m_drive = new DifferentialDrive(Left, Right);
       //m_drive.setSafetyEnabled(false);
     }
   
@@ -94,7 +94,7 @@ public class DriveTrain {
     //The rest is temporary
     public static void runMotor(){  
       // FrontLeft.set(ControlMode.PercentOutput,1);
-       count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
+     //  count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
        //System.out.println(count);
       //  if(Math.round(count) % 0.5 == 0){
 
@@ -107,7 +107,7 @@ public class DriveTrain {
     }
       
     public static void stopMotor(){
-      FrontLeft.set(ControlMode.PercentOutput,0);
+      //FrontLeft.set(ControlMode.PercentOutput,0);
         }
 
     
