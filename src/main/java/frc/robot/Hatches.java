@@ -42,5 +42,3 @@ public class Hatches {
 
 }
 }
-
-//D@nte wants to break free from the shackles of society
