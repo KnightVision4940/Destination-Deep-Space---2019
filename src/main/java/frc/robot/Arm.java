@@ -6,10 +6,39 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 
 /**
  * Add your docs here.
  */
 public class Arm {
-    
+
+    public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
+    public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
+      
+    public static double endCountBase = 0;
+    public static double endCountElbow = 0;
+  public static void init(){
+      armBase.setSelectedSensorPosition(0);
+      armElbow.setSelectedSensorPosition(0);
+  }
+
+    public static void stopMotor() {
+        armBase.set(ControlMode.PercentOutput,0);
+        armElbow.set(ControlMode.PercentOutput,0);
+    }
+
+    public static void grabMode(){
+
+
+
+    }
+
+  public static void placeMode(){
+
+      //D@nte was here
+
+  }
 }
