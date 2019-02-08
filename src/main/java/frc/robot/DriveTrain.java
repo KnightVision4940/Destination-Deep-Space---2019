@@ -8,6 +8,7 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -19,9 +20,9 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 public class DriveTrain {
 
   //We are using TalonSRX
-  static TalonSRX FrontLeft;
+  static Talon FrontLeft;
   static TalonSRX FrontRight;
-  static TalonSRX BackLeft;
+  static Talon BackLeft;
   static TalonSRX BackRight;
 
  
@@ -42,8 +43,8 @@ public class DriveTrain {
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
      
       
-      FrontLeft = new TalonSRX(frontLeft);
-      BackLeft = new TalonSRX(backLeft);
+      FrontLeft = new Talon(frontLeft);
+      BackLeft = new Talon(backLeft);
       FrontRight = new TalonSRX(frontRight);
       BackRight = new TalonSRX(backRight);
      // FrontLeft.setSelectedSensorPosition(0);
