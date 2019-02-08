@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 
 /*
@@ -20,10 +20,10 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public class DriveTrain {
 
   //We are using TalonSRX
-  static Talon FrontLeft;
-  static WPI_TalonSRX FrontRight;
-  static Talon BackLeft;
-  static WPI_TalonSRX BackRight;
+  static WPI_VictorSPX FrontLeft;
+  static WPI_VictorSPX FrontRight;
+  static WPI_VictorSPX BackLeft;
+  static WPI_VictorSPX BackRight;
 
  
 
@@ -43,10 +43,10 @@ public class DriveTrain {
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
      
       
-      FrontLeft = new Talon(frontLeft);
-      BackLeft = new Talon(backLeft);
-      FrontRight = new WPI_TalonSRX(frontRight);
-      BackRight = new WPI_TalonSRX(backRight);
+      FrontLeft = new WPI_VictorSPX(frontLeft);
+      BackLeft = new WPI_VictorSPX(backLeft);
+      FrontRight = new WPI_VictorSPX(frontRight);
+      BackRight = new WPI_VictorSPX(backRight);
      // FrontLeft.setSelectedSensorPosition(0);
   
     SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
@@ -91,24 +91,7 @@ public class DriveTrain {
     }
 
 
-    //The rest is temporary
-    public static void runMotor(){  
-      // FrontLeft.set(ControlMode.PercentOutput,1);
-     //  count = -(FrontLeft.getSelectedSensorPosition(0) /4069);
-       //System.out.println(count);
-      //  if(Math.round(count) % 0.5 == 0){
-
-      //  }
-      //System.out.println(FrontLeft.getSelectedSensorVelocity(0));
-      
-     //FrontRight.set(ControlMode.PercentOutput,0.5);
-      
-     // FrontLeft.set(ControlMode.PercentOutput,1.0);
-    }
-      
-    public static void stopMotor(){
-      //FrontLeft.set(ControlMode.PercentOutput,0);
-        }
+    
 
     
     
