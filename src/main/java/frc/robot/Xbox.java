@@ -157,19 +157,10 @@ public Xbox(int port){
 // }
 
   int getPOV(int pov) {
-  return getStickPOV(pov);
+  return xbox.getPOV();
 }
 
-  int getStickPOV(final int pov) {
-return 0;
-}
-  int getPOVCount() {
-  return getStickPOVCount() ;
-}
-
-  int getStickPOVCount() {
-return 0;
-}
+ 
 
 //Joystick?? - Why??
 

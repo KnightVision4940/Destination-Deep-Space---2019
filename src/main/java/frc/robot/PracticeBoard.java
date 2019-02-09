@@ -16,14 +16,20 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
  * Add your docs here.
  */
 public class PracticeBoard {
-    static WPI_TalonSRX motor = new WPI_TalonSRX(0);
+    static TalonSRX motor = new TalonSRX(0);
     public static void runMotor(){
-        motor.set(1);
-        //motor.set(ControlMode.PercentOutput,1);
-
-        System.out.println(motor.getSelectedSensorPosition());
+        Xbox shackles = new Xbox(1);
+        //motor.set(1);
+        if(motor.getSelectedSensorPosition()/4069 <= -1){
+            motor.set(ControlMode.PercentOutput,0);
+        }else{
+            motor.set(ControlMode.PercentOutput,1);
+        }
+        //System.out.println(shackles.getPOV(1));
+       System.out.println(motor.getSelectedSensorPosition());
     }
     public static void stopMotor(){
-        motor.set(0);
+        motor.set(ControlMode.PercentOutput,0);
+      //  motor.set(0);
     }
 }
