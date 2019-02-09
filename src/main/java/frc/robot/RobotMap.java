@@ -35,5 +35,5 @@ public class RobotMap {
   
 
   //Climb
-
+  public static int climbmotor = 13;
 }
