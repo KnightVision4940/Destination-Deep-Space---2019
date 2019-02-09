@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Joystick;
 /**
  * Add your docs here.
  */
-public class xbox {
+public class Xbox {
     public static final double DEADZONE = 0.25;
 	
 	public static final int
