@@ -17,13 +17,16 @@ public class Arm {
 
     public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
     public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
-    public static TalonSRX WristMotor = new TalonSRX(0);
+    public static TalonSRX armWrist = new TalonSRX(RobotMap.armWrist);
 
     public static double endCountBase = 0;
     public static double endCountElbow = 0;
+    public static double endCountWrist = 0;
+
   public static void init(){
       armBase.setSelectedSensorPosition(0);
       armElbow.setSelectedSensorPosition(0);
+      armWrist.setSelectedSensorPosition(0);
   }
 
     public static void stopMotor() {
@@ -31,8 +34,21 @@ public class Arm {
         armElbow.set(ControlMode.PercentOutput,0);
     }
 
-    public static void Wrist(){
-
+    public static void WristUp(){
+        if(armWrist.selected){
+            stopWrist()
+        }
+        else if(Xbox.xbox.getPOV() == 0 || Xbox.xbox.getPOV() == 45|| Xbox.xbox.getPOV() == 315){
+            armWrist.set(ControlMode.PercentOutput, 0.3);
+        }
+    }
+    public static void WristDown(){
+        if(Xbox.xbox.getPOV() == 180 || Xbox.xbox.getPOV() == 225|| Xbox.xbox.getPOV() == 135){
+            armWrist.set(ControlMode.PercentOutput, -0.3);
+        }
+    }
+    public static void stopWrist() {
+        armWrist.set(ControlMode.PercentOutput,0);
     }
 
     public static void grabMode(){
