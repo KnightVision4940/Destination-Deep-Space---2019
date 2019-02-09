@@ -66,18 +66,22 @@ public class Arm {
       //D@nte was here
 
   }
-  public static void armDown() {
-    if(endCountBase == 0 && endCountElbow == 0) {
+  public static void arm(double speed) {
+    
+    if(endCountBase == 10 || endCountBase == -10  && endCountElbow == 10 || endCountElbow == -10) {
+
         stopMotor();
-    }else {
-       armBase.set(ControlMode.PercentOutput,-0.5);
+
+    }else{
+
+       armBase.set(ControlMode.PercentOutput,speed);
        endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
- 
- 
-        armElbow.set(ControlMode.PercentOutput,-0.5);
+
+        armElbow.set(ControlMode.PercentOutput,speed);
         endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
-       }
- 
-   }
+    }
+
+
+}
    }
 
