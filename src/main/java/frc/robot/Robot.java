@@ -112,7 +112,11 @@ public class Robot extends TimedRobot {
     //   DriveTrain.stopMotor();
     // }
     // TurnTable.Turn(xbox2.getXLeft());
-    PracticeBoard.runMotor();
+    //PracticeBoard.runMotor();
+    PracticeBoard.driveGyro(1, 1);
+    if(xbox2.getAButton()){
+      PracticeBoard.resetEncoder();
+    }
     //System.out.println(count);
   }
 
