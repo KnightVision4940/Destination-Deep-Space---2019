@@ -46,4 +46,23 @@ public class Arm {
       //D@nte was here
 
   }
-}
+  public static void armDown() {
+
+    if(endCountBase == 0 && endCountElbow == 0) {
+ 
+        stopMotor();
+ 
+    }else {
+ 
+ 
+       armBase.set(ControlMode.PercentOutput,-0.5);
+       endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+ 
+ 
+        armElbow.set(ControlMode.PercentOutput,-0.5);
+        endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
+       }
+ 
+   }
+   }
+
