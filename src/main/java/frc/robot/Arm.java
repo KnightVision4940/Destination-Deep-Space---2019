@@ -35,8 +35,8 @@ public class Arm {
     }
 
     public static void WristUp(){
-        if(armWrist.selected){
-            stopWrist()
+        if(armWrist.getSelectedSensorPosition(0) == 0){
+            stopWrist();
         }
         else if(Xbox.xbox.getPOV() == 0 || Xbox.xbox.getPOV() == 45|| Xbox.xbox.getPOV() == 315){
             armWrist.set(ControlMode.PercentOutput, 0.3);
