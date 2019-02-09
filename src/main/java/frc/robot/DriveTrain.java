@@ -86,6 +86,10 @@ public class DriveTrain {
       //gab was here
     }
 
+    public static void forward(double speed){
+        m_drive.arcadeDrive(speed, 0);
+    }
+
     public static void SetPoint(double Xjoystick){
         setpoint = (int)(Xjoystick * 180);
     }
