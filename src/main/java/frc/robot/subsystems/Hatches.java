@@ -23,8 +23,8 @@ public class Hatches extends Subsystem {
 
   public static void Hatch() {
       
- VictorSPX right = new VictorSPX(RobotMap.rightHatch);
- VictorSPX left = new VictorSPX(RobotMap.leftHatch);
+  VictorSPX right = new VictorSPX(RobotMap.rightHatch);
+  VictorSPX left = new VictorSPX(RobotMap.leftHatch);
 
    }
   public static void HatchesIn() {
