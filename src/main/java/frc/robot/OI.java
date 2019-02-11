@@ -50,8 +50,8 @@ public class OI {
 
   public static final Joystick xBox = new Joystick(1);
   public OI(){
-    Button a = new JoystickButton(xBox, xbox.A);
-    a.whenPressed(new RunMotor());
+    Button a = new JoystickButton(xBox,1);
+    a.whenPressed(new RunMotorBasic());
   }
 
 

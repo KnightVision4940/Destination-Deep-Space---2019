@@ -10,22 +10,38 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-
+import frc.robot.RobotMap;
+import frc.robot.subsystems.DriveTrain;
 /**
  * Add your docs here.
  */
-public class PracticeMotor extends Subsystem {
+public class Climb extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  TalonSRX motor = new TalonSRX(0);
+  static TalonSRX climbMotor = new TalonSRX(RobotMap.climbmotor);
+
+    public static void climb(int stage){
+        switch(stage){
+        case 1: 
+            climbMotor.set(ControlMode.PercentOutput,1); 
+        break;
+        case 2:
+            climbMotor.set(ControlMode.PercentOutput,1); 
+            DriveTrain.forward(1);
+        break;
+        case 3:
+            climbMotor.set(ControlMode.PercentOutput,-1); 
+            DriveTrain.forward(1);
+        break;
+        case 4:
+            climbMotor.set(ControlMode.PercentOutput,0); 
+            DriveTrain.forward(0);  
+        break;
+        }
+    }
   @Override
   public void initDefaultCommand() {
-   
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  public void runMotor(){
-    motor.set(ControlMode.PercentOutput,1);
-  }
-  
 }

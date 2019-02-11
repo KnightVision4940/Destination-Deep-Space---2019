@@ -8,24 +8,43 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-
+import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class PracticeMotor extends Subsystem {
+public class IntakeSystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  TalonSRX motor = new TalonSRX(0);
+
+  static VictorSPX IntakeL;
+  static VictorSPX IntakeR;
+  static VictorSPX OuttakeL;
+  static VictorSPX OuttakeR;
+
+ public static void Intake() {
+
+      IntakeL = new VictorSPX(RobotMap.leftRoller);
+      IntakeL.set(ControlMode.PercentOutput,1);
+
+      IntakeR = new VictorSPX(RobotMap.rightRoller);
+      IntakeR.set(ControlMode.PercentOutput,1);
+
+      }
+  
+  public static void Outtake() {
+
+      OuttakeL = new VictorSPX(RobotMap.leftRoller);
+      OuttakeL.set(ControlMode.PercentOutput,-1);
+
+      OuttakeR = new VictorSPX(RobotMap.rightRoller);
+      OuttakeR.set(ControlMode.PercentOutput,-1);
+
+      }
   @Override
   public void initDefaultCommand() {
-   
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  public void runMotor(){
-    motor.set(ControlMode.PercentOutput,1);
-  }
-  
 }

@@ -5,27 +5,25 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
+import edu.wpi.first.cameraserver.*;
+import edu.wpi.cscore.UsbCamera;
 /**
  * Add your docs here.
  */
-public class PracticeMotor extends Subsystem {
+public class CamServer{
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  TalonSRX motor = new TalonSRX(0);
-  @Override
-  public void initDefaultCommand() {
-   
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
-  public void runMotor(){
-    motor.set(ControlMode.PercentOutput,1);
-  }
-  
+  public static UsbCamera m_Cam;
+	
+	public static void camInit(){
+		m_Cam = CameraServer.getInstance().startAutomaticCapture("vision", 0);
+		m_Cam.setFPS(30);
+		m_Cam.setResolution(320, 240);
+		m_Cam.setExposureManual(50);
+	}
+	
+
 }

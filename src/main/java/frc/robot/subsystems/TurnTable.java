@@ -7,25 +7,39 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Add your docs here.
  */
-public class PracticeMotor extends Subsystem {
+public class TurnTable extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  TalonSRX motor = new TalonSRX(0);
+  public static TalonSRX TurnMotor= new TalonSRX(0);
+  public static double TurnCoder = 0;
+  public static double TurnRotate = 0;
+  //D@nte Was Here
+
+public static void Turn(double speed){
+  
+  TurnMotor.set(ControlMode.PercentOutput, speed);
+  TurnCoder = -(TurnMotor.getSelectedSensorPosition());
+  TurnRotate = (TurnCoder/4069);
+  if(TurnRotate >= 1 && speed == 0.5){
+      TurnMotor.set(ControlMode.PercentOutput, 0);
+  }else if(TurnRotate <= -1 && speed == -0.5){
+      TurnMotor.set(ControlMode.PercentOutput, 0);
+  }
+
+}
+
+
+
   @Override
   public void initDefaultCommand() {
-   
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  public void runMotor(){
-    motor.set(ControlMode.PercentOutput,1);
-  }
-  
 }

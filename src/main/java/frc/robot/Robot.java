@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
   //PracticeMotor pmotor = new PracticeMotor();
-  public static PracticeMotor Practice;
+  public static PracticeMotor Practice = new PracticeMotor();
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    CamServer.camInit();
   }
 
   /**
