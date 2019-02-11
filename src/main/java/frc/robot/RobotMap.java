@@ -35,7 +35,9 @@ public class RobotMap {
   public static int armBase = 5;
   public static int armElbow = 6;
   public static int armWrist = 7;
-  public static int leftRoller = 8;
+
+  //Intake System
+  public static int leftRoller = 1;
   public static int rightRoller = 9;
 
   //Hatch

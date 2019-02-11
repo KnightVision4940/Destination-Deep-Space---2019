@@ -29,7 +29,7 @@ public class IntakeSystem extends Subsystem {
       IntakeL.set(ControlMode.PercentOutput,speed);
 
       IntakeR = new VictorSPX(RobotMap.rightRoller);
-      IntakeR.set(ControlMode.PercentOutput,speed);
+      IntakeR.set(ControlMode.PercentOutput,-speed);
 
       }
   
@@ -39,7 +39,7 @@ public class IntakeSystem extends Subsystem {
       OuttakeL.set(ControlMode.PercentOutput,speed);
 
       OuttakeR = new VictorSPX(RobotMap.rightRoller);
-      OuttakeR.set(ControlMode.PercentOutput,speed);
+      OuttakeR.set(ControlMode.PercentOutput,-speed);
 
       }
   @Override
