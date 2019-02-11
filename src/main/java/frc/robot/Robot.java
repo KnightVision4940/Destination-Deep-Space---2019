@@ -13,7 +13,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.HatchesDrop;
+import frc.robot.commands.HatchesGrab;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Hatches;
 import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
 
@@ -29,6 +32,7 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
   //PracticeMotor pmotor = new PracticeMotor();
   public static PracticeMotor Practice = new PracticeMotor();
+  public static Hatches H = new Hatches();
   public static IntakeSystem intakeSystem = new IntakeSystem();
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

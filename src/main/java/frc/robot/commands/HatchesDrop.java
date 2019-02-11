@@ -8,10 +8,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 public class HatchesDrop extends Command {
   public HatchesDrop() {
-    requires(Robot.Hatch);
+    requires(Robot.H);
     setTimeout(.9);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -20,13 +21,13 @@ public class HatchesDrop extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.Hatch.Hatch();
+    Robot.H.Hatch();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.Hatch.HatchesIn;
+    Robot.H.HatchesIn();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,7 +39,7 @@ public class HatchesDrop extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.Hatch.HatchesStop;
+    Robot.H.HatchesStop();
   }
 
   // Called when another command which requires one or more of the same
