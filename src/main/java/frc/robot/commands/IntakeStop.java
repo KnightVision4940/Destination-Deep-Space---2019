@@ -9,12 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.IntakeSystem;
 
-public class IntakeIn extends Command {
-  static double InSpeed = 1;
-  static double stop = 0;
-  public IntakeIn() {
+public class IntakeStop extends Command {
+  static boolean stop = false;
+  public IntakeStop() 
+  {
+    
     requires(Robot.intakeSystem);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -23,25 +23,24 @@ public class IntakeIn extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.intakeSystem.Intake(InSpeed);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.intakeSystem.Intake(InSpeed);
+    Robot.intakeSystem.Intake(0.0);
+    stop = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return stop;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intakeSystem.stop();
   }
 
   // Called when another command which requires one or more of the same

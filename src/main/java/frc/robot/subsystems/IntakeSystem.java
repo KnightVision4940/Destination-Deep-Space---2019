@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
 /**
@@ -18,29 +19,32 @@ public class IntakeSystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static VictorSPX IntakeL;
-  static VictorSPX IntakeR;
-  static VictorSPX OuttakeL;
-  static VictorSPX OuttakeR;
+  static TalonSRX Left;
+  static VictorSPX Right;
 
  public static void Intake(Double speed) {
 
-      IntakeL = new VictorSPX(RobotMap.leftRoller);
-      IntakeL.set(ControlMode.PercentOutput,speed);
+      Left = new TalonSRX(RobotMap.leftRoller);
+      Left.set(ControlMode.PercentOutput,speed);
 
-      IntakeR = new VictorSPX(RobotMap.rightRoller);
-      IntakeR.set(ControlMode.PercentOutput,-speed);
+      //IntakeR = new VictorSPX(RobotMap.rightRoller);
+      //IntakeR.set(ControlMode.PercentOutput,-speed);
 
       }
   
   public static void Outtake(Double speed) {
 
-      OuttakeL = new VictorSPX(RobotMap.leftRoller);
-      OuttakeL.set(ControlMode.PercentOutput,speed);
+      Left = new TalonSRX(RobotMap.leftRoller);
+      Left.set(ControlMode.PercentOutput,speed);
 
-      OuttakeR = new VictorSPX(RobotMap.rightRoller);
-      OuttakeR.set(ControlMode.PercentOutput,-speed);
+      //OuttakeR = new VictorSPX(RobotMap.rightRoller);
+      //OuttakeR.set(ControlMode.PercentOutput,-speed);
 
+      }
+      public static void stop(){
+        Left = new TalonSRX(RobotMap.leftRoller);
+        Left.set(ControlMode.PercentOutput,0);
+  
       }
   @Override
   public void initDefaultCommand() {
