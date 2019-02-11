@@ -24,7 +24,7 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   //Wheels
-  public static int frontLeft = 0;
+  public static int frontLeft = 1;
   public static int backLeft = 2;
 
   public static int frontRight = 1;
@@ -37,7 +37,7 @@ public class RobotMap {
   public static int armWrist = 7;
 
   //Intake System
-  public static int leftRoller = 1;
+  public static int leftRoller = 0;
   public static int rightRoller = 9;
 
   //Hatch
