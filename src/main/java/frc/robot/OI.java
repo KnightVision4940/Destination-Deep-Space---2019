@@ -51,7 +51,7 @@ public class OI {
   public static final Joystick xBox = new Joystick(1);
   public OI(){
     Button a = new JoystickButton(xBox,1);
-    a.whenPressed(new RunMotorBasic());
+    a.whenPressed(new IntakeIn());
   }
 
 
