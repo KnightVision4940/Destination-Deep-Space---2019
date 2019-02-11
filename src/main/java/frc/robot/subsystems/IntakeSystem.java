@@ -23,23 +23,23 @@ public class IntakeSystem extends Subsystem {
   static VictorSPX OuttakeL;
   static VictorSPX OuttakeR;
 
- public static void Intake() {
+ public static void Intake(Double speed) {
 
       IntakeL = new VictorSPX(RobotMap.leftRoller);
-      IntakeL.set(ControlMode.PercentOutput,1);
+      IntakeL.set(ControlMode.PercentOutput,speed);
 
       IntakeR = new VictorSPX(RobotMap.rightRoller);
-      IntakeR.set(ControlMode.PercentOutput,1);
+      IntakeR.set(ControlMode.PercentOutput,speed);
 
       }
   
-  public static void Outtake() {
+  public static void Outtake(Double speed) {
 
       OuttakeL = new VictorSPX(RobotMap.leftRoller);
-      OuttakeL.set(ControlMode.PercentOutput,-1);
+      OuttakeL.set(ControlMode.PercentOutput,speed);
 
       OuttakeR = new VictorSPX(RobotMap.rightRoller);
-      OuttakeR.set(ControlMode.PercentOutput,-1);
+      OuttakeR.set(ControlMode.PercentOutput,speed);
 
       }
   @Override
