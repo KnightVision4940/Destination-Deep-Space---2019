@@ -15,13 +15,13 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 /**
  * Add your docs here.
  */
-public class xbox {
+public class Xbox {
     public static final double DEADZONE = 0.25;
 	
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public static XboxController xbox;
-public xbox(int port){
+public Xbox(int port){
   xbox = new XboxController(port);
 }
 

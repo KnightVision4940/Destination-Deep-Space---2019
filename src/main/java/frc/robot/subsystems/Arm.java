@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
-import frc.robot.xbox;
+import frc.robot.Xbox;
 /**
  * Add your docs here.
  */
@@ -39,18 +39,18 @@ public static void init(){
 
   public static void WristUp(){
       endCountWrist= -(armWrist.getSelectedSensorPosition(0) /4069);
-      if(endCountWrist == 3 ||  xbox.xbox.getPOV() == -1){
+      if(endCountWrist == 3 ||  Xbox.xbox.getPOV() == -1){
           stopWrist();
       }
-      else if(xbox.xbox.getPOV() == 0 || xbox.xbox.getPOV() == 45|| xbox.xbox.getPOV() == 315){
+      else if(Xbox.xbox.getPOV() == 0 || Xbox.xbox.getPOV() == 45|| Xbox.xbox.getPOV() == 315){
           armWrist.set(ControlMode.PercentOutput, 0.3);
       }
   }
   public static void WristDown(){
-      if(endCountWrist == -3 ||  xbox.xbox.getPOV() == -1){
+      if(endCountWrist == -3 ||  Xbox.xbox.getPOV() == -1){
           stopWrist();
       }
-      else if(xbox.xbox.getPOV() == 180 || xbox.xbox.getPOV() == 225|| xbox.xbox.getPOV() == 135){
+      else if(Xbox.xbox.getPOV() == 180 || Xbox.xbox.getPOV() == 225|| Xbox.xbox.getPOV() == 135){
           armWrist.set(ControlMode.PercentOutput, -0.3);
       }
   }

@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.*;
-import frc.robot.xbox;
+import frc.robot.Xbox;
 
 /**
  * This class is the glue that binds the controls on the physical operator
