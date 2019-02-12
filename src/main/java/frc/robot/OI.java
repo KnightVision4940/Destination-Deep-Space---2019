@@ -51,9 +51,9 @@ public class OI {
   public static final Joystick xBox = new Joystick(1);
   public OI(){
     Button a = new JoystickButton(xBox,1);
-    a.whileHeld(new IntakeIn());
     
-    // a.whenReleased(new IntakeStop());
+    a.whileHeld(new IntakeIn());
+   // a.whenReleased(new IntakeIn(true));
   }
 
 

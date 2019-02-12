@@ -13,8 +13,9 @@ import frc.robot.subsystems.IntakeSystem;
 
 public class IntakeIn extends Command {
   static double InSpeed = 1;
-  static double stop = 0;
+  //static boolean stop;
   public IntakeIn() {
+    
     requires(Robot.intakeSystem);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -35,7 +36,9 @@ public class IntakeIn extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    
     return false;
+    
   }
 
   // Called once after isFinished returns true
@@ -48,5 +51,6 @@ public class IntakeIn extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

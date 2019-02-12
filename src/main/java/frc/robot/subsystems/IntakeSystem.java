@@ -19,12 +19,13 @@ public class IntakeSystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static TalonSRX Left;
+  static TalonSRX Left = new TalonSRX(RobotMap.leftRoller);  
   static VictorSPX Right;
+
 
  public static void Intake(Double speed) {
 
-      Left = new TalonSRX(RobotMap.leftRoller);
+      
       Left.set(ControlMode.PercentOutput,speed);
 
       //IntakeR = new VictorSPX(RobotMap.rightRoller);
@@ -34,15 +35,14 @@ public class IntakeSystem extends Subsystem {
   
   public static void Outtake(Double speed) {
 
-      Left = new TalonSRX(RobotMap.leftRoller);
+      
       Left.set(ControlMode.PercentOutput,speed);
 
       //OuttakeR = new VictorSPX(RobotMap.rightRoller);
       //OuttakeR.set(ControlMode.PercentOutput,-speed);
 
       }
-      public static void stop(){
-        Left = new TalonSRX(RobotMap.leftRoller);
+  public static void stop(){
         Left.set(ControlMode.PercentOutput,0);
   
       }
