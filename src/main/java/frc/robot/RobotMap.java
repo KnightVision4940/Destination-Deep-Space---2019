@@ -32,12 +32,12 @@ public class RobotMap {
 
   //Arm
   public static int rotatePlate = 4;
-  public static int armBase = 5;
+  public static int armBase = 0;
   public static int armElbow = 6;
   public static int armWrist = 7;
 
   //Intake System
-  public static int leftRoller = 0;
+  public static int leftRoller = 5;
   public static int rightRoller = 9;
 
   //Hatch
