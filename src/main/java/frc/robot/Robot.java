@@ -21,6 +21,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Hatches;
 import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
+import frc.robot.subsystems.Arm;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
   public static PracticeMotor Practice = new PracticeMotor();
   public static Hatches H = new Hatches();
   public static IntakeSystem intakeSystem = new IntakeSystem();
+  public static Arm arm = new Arm();
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
   Drive drive = new Drive();
