@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.sun.swing.internal.plaf.basic.resources.basic;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -52,7 +54,7 @@ public class OI {
   public OI(){
     Button a = new JoystickButton(xBox,1);
     
-    a.whileHeld(new IntakeIn());
+    a.whileHeld(new ArmUp());
    // a.whenReleased(new IntakeIn(true));
   }
 
