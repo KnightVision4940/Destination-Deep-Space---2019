@@ -20,31 +20,28 @@ public class IntakeSystem extends Subsystem {
   // here. Call these from Commands.
 
   static TalonSRX Left = new TalonSRX(RobotMap.leftRoller);  
-  static VictorSPX Right;
+  static VictorSPX Right  = new VictorSPX(RobotMap.rightRoller);
 
 
  public static void Intake(Double speed) {
 
       
       Left.set(ControlMode.PercentOutput,speed);
+      Right.set(ControlMode.PercentOutput,speed);
 
-      //IntakeR = new VictorSPX(RobotMap.rightRoller);
-      //IntakeR.set(ControlMode.PercentOutput,-speed);
 
       }
   
   public static void Outtake(Double speed) {
 
-      
       Left.set(ControlMode.PercentOutput,speed);
-
-      //OuttakeR = new VictorSPX(RobotMap.rightRoller);
-      //OuttakeR.set(ControlMode.PercentOutput,-speed);
+      Right.set(ControlMode.PercentOutput,speed);
 
       }
   public static void stop(){
         Left.set(ControlMode.PercentOutput,0);
-  
+        Right.set(ControlMode.PercentOutput,0);
+    
       }
   @Override
   public void initDefaultCommand() {
