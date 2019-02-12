@@ -10,9 +10,9 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class WristUp extends Command {
+public class WristDown extends Command {
   public static double _Speed;
-  public WristUp(double speed) {
+  public WristDown(double speed) {
     requires(Robot.arm);
     _Speed = speed;
     // Use requires() here to declare subsystem dependencies

@@ -52,7 +52,7 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public static final Joystick xBox = new Joystick(1);
-  Arm wrist = new Arm();
+  WristUp wrist = new WristUp();
   public OI(){
     Button a = new JoystickButton(xBox,1);
     Button b = new JoystickButton(xBox,2);
@@ -60,11 +60,12 @@ public class OI {
     Button y = new JoystickButton(xBox,4);
     
     if(Robot.A_Control.getPOV(1) == 0){
-      wrist.moveWrist(1);
+      wrist.start(0.5);
     }else if(Robot.A_Control.getPOV(1) == 180){
-      wrist.moveWrist(1);
+      wrist.start(-0.5);
     }else if(Robot.A_Control.getPOV(1) == -1){
-      wrist.moveWrist(0.0);
+      wrist.cancel();
+
     
     a.whileHeld(new IntakeIn());
     b.whileHeld(new IntakeOut());
