@@ -37,46 +37,12 @@ public static void init(){
       armElbow.set(ControlMode.PercentOutput,0);
   }
 
-  public static void WristUp(){
-      endCountWrist= -(armWrist.getSelectedSensorPosition(0) /4069);
-      if(endCountWrist == 3 ||  Xbox.xbox.getPOV() == -1){
-          stopWrist();
-      }
-      else if(Xbox.xbox.getPOV() == 0 || Xbox.xbox.getPOV() == 45|| Xbox.xbox.getPOV() == 315){
-          armWrist.set(ControlMode.PercentOutput, 0.3);
-      }
-  }
-  public static void WristDown(){
-      if(endCountWrist == -3 ||  Xbox.xbox.getPOV() == -1){
-          stopWrist();
-      }
-      else if(Xbox.xbox.getPOV() == 180 || Xbox.xbox.getPOV() == 225|| Xbox.xbox.getPOV() == 135){
-          armWrist.set(ControlMode.PercentOutput, -0.3);
-      }
-  }
-  public static void stopWrist() {
-      armWrist.set(ControlMode.PercentOutput,0);
-  }
-
-  public static void grabMode(){
-
-
-
-  }
-
-public static void placeMode(){
 
     //D@nte was here
 
-}
+
 public static void arm(double speed) {
   
-  if(endCountBase == 10 || endCountBase == -10  && endCountElbow == 10 || endCountElbow == -10) {
-
-      stopMotor();
-
-  }else{
-
      armBase.set(ControlMode.PercentOutput,speed);
      endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
 
@@ -84,8 +50,6 @@ public static void arm(double speed) {
       endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
   }
 
-
-}
 
   @Override
   public void initDefaultCommand() {
