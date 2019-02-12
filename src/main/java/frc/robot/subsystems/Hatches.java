@@ -27,10 +27,10 @@ public class Hatches extends Subsystem {
   VictorSPX left = new VictorSPX(RobotMap.leftHatch);
 
    }
-  public static void HatchesIn() {
+  public static void HatchesIn(double speed) {
 
-      right.set(ControlMode.PercentOutput,0.5);
-      left.set(ControlMode.PercentOutput,-0.5);
+      right.set(ControlMode.PercentOutput,speed);
+      left.set(ControlMode.PercentOutput,-speed);
 
   }
  

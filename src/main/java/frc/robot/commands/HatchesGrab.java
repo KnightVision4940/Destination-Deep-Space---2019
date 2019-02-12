@@ -12,9 +12,9 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class HatchesGrab extends Command {
+  static double Hspeed = 0.5;
   public HatchesGrab() {
     requires(Robot.H);
-    setTimeout(.9);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -22,30 +22,29 @@ public class HatchesGrab extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.H.Hatch();
+    Robot.H.HatchesIn(Hspeed);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.H.HatchesIn();
     }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isTimedOut();
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.H.HatchesStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

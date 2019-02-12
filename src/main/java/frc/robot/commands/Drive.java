@@ -29,7 +29,7 @@ public class Drive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain.drive(Robot.D_Control.getTriggers(),Robot.D_Control.getYLeft());
+    Robot.driveTrain.drive(Robot.D_Control.getTriggers(),Robot.D_Control.getXLeft());
   }
 
   // Make this return true when this Command no longer needs to run execute()

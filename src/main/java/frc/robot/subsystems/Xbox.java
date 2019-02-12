@@ -57,7 +57,7 @@ public Xbox(int port){
 }
 
 //Or this one for driving
-  double getTriggers(){
+  public static double getTriggers(){
   if(xbox.getRawAxis(2) > xbox.getRawAxis(3)){
     return xbox.getRawAxis(2);
   } else {
@@ -89,7 +89,7 @@ public Xbox(int port){
 //   return xbox.getRawAxis(5);
 // }
 // }
-  double getXLeft(){
+  public static double getXLeft(){
   return xbox.getRawAxis(0);
 }
 

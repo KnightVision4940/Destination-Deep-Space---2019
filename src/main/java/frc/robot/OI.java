@@ -51,10 +51,14 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public static final Joystick xBox = new Joystick(1);
+  
   public OI(){
     Button a = new JoystickButton(xBox,1);
+    Button b = new JoystickButton(xBox,2);
+
     
-    a.whenPressed(new ArmUp());
+    a.whileHeld(new IntakeIn());
+    b.whileHeld(new IntakeOut());
    // a.whenReleased(new IntakeIn(true));
   }
 

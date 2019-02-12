@@ -22,18 +22,12 @@ public class IntakeSystem extends Subsystem {
   static TalonSRX Left = new TalonSRX(RobotMap.leftRoller);  
   static VictorSPX Right  = new VictorSPX(RobotMap.rightRoller);
 
-
  public static void Intake(Double speed) {
-
-      
       Left.set(ControlMode.PercentOutput,speed);
       Right.set(ControlMode.PercentOutput,speed);
-
-
       }
   
   public static void Outtake(Double speed) {
-
       Left.set(ControlMode.PercentOutput,speed);
       Right.set(ControlMode.PercentOutput,speed);
 
@@ -41,8 +35,8 @@ public class IntakeSystem extends Subsystem {
   public static void stop(){
         Left.set(ControlMode.PercentOutput,0);
         Right.set(ControlMode.PercentOutput,0);
-    
       }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
