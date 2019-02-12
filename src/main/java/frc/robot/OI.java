@@ -52,6 +52,7 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public static final Joystick xBox = new Joystick(1);
+  public static final Joystick logicTech = new Joystick(3);
   
   public OI(){
     Button a = new JoystickButton(xBox,1);
