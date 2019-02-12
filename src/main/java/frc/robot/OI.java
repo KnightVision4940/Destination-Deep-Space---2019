@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.*;
 //import frc.robot.Xbox;
+import frc.robot.subsystems.Arm;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -51,15 +52,19 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public static final Joystick xBox = new Joystick(1);
-  
+  Arm wrist = new Arm();
   public OI(){
     Button a = new JoystickButton(xBox,1);
     Button b = new JoystickButton(xBox,2);
     Button x = new JoystickButton(xBox,3);
     Button y = new JoystickButton(xBox,4);
-
-
-
+    
+    if(Robot.A_Control.getPOV(1) == 0){
+      wrist.moveWrist(1);
+    }else if(Robot.A_Control.getPOV(1) == 180){
+      wrist.moveWrist(1);
+    }else if(Robot.A_Control.getPOV(1) == -1){
+      wrist.moveWrist(0.0);
     
     a.whileHeld(new IntakeIn());
     b.whileHeld(new IntakeOut());
@@ -71,4 +76,5 @@ public class OI {
 
 
   
+}
 }
