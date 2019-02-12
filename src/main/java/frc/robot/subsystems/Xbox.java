@@ -160,7 +160,7 @@ public Xbox(int port){
 //   }
 // }
 
-  public static int getPOV(int pov) {
+  int getPOV(int pov) {
   return xbox.getPOV();
 }
 
