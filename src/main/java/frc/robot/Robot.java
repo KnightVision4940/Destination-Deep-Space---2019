@@ -23,10 +23,6 @@ import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
 import frc.robot.subsystems.Xbox;
 import frc.robot.subsystems.Arm;
-<<<<<<< Updated upstream
-=======
-import frc.robot.subsystems.DriveLEft;
->>>>>>> Stashed changes
 import frc.robot.subsystems.DriveLeft;
 
 /**
@@ -47,10 +43,6 @@ public class Robot extends TimedRobot {
   public static Xbox D_Control = new Xbox(1);
   public static Xbox A_Control = new Xbox(3);
   public static DriveLeft driveLeft = new DriveLeft();
-<<<<<<< Updated upstream
-=======
-  
->>>>>>> Stashed changes
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
@@ -141,7 +133,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    //drive.start();
+    drive.start();
   }
 
   /**

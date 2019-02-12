@@ -59,13 +59,13 @@ public class OI {
     Button x = new JoystickButton(xBox,3);
     Button y = new JoystickButton(xBox,4);
     
-    if(Robot.A_Control.getPOV(1) == 0){
-      wrist.start(0.5);
-    }else if(Robot.A_Control.getPOV(1) == 180){
-      wrist.start(-0.5);
-    }else if(Robot.A_Control.getPOV(1) == -1){
-      wrist.cancel();
-
+    // if(Robot.A_Control.getPOV(1) == 0){
+    //   wrist.start(0.5);
+    // }else if(Robot.A_Control.getPOV(1) == 180){
+    //   wrist.start(-0.5);
+    // }else if(Robot.A_Control.getPOV(1) == -1){
+    //   wrist.cancel();
+    // }
 
 
     
@@ -75,7 +75,7 @@ public class OI {
     y.whileHeld(new HatchesDrop());
 
    // a.whenReleased(new IntakeIn(true));
-  }
+  
 
 
   

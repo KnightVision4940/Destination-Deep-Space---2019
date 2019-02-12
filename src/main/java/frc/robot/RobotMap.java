@@ -27,7 +27,7 @@ public class RobotMap {
   public static int frontLeft = 1;
   public static int backLeft = 2;
 
-  public static int frontRight = 1;
+  public static int frontRight = 0;
   public static int backRight = 3;
 
   //Arm
