@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class HatchesDrop extends Command {
-  static double HSpeed = 0.5;
+  static double HSpeed = -0.5;
   public HatchesDrop() {
     requires(Robot.H);
     // Use requires() here to declare subsystem dependencies
@@ -45,5 +45,6 @@ public class HatchesDrop extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+end();
   }
 }
