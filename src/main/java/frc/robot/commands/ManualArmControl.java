@@ -10,10 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ArmUp extends Command {
+public class ManualArmControl extends Command {
   static double ArmSpeed = 0.5;
-  public ArmUp() {
+  public ManualArmControl() {
     requires(Robot.arm);
+    requires(Robot.A_Control);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -21,12 +22,13 @@ public class ArmUp extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(Robot.arm.endCountBase >= 3){
-      end();
-    }else{
-      Robot.arm.arm(ArmSpeed);
-   }
-   System.out.println(Robot.arm.endCountBase);
+  //   if(Robot.arm.endCountBase >= 3){
+  //     end();
+  //   }else{
+  //     Robot.arm.arm(ArmSpeed);
+  //  }
+  //  System.out.println(Robot.arm.endCountBase);
+    Robot.arm.arm(Robot.A_Control.getTriggers());
   }
 
   // Called repeatedly when this Command is scheduled to run

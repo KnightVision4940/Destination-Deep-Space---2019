@@ -47,10 +47,23 @@ public static void arm(double speed) {
      endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
      
 
-      armElbow.set(ControlMode.PercentOutput,speed);
-      endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
+    armElbow.set(ControlMode.PercentOutput,speed);
+    endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
       
   }
+  public static void moveShoulder(double speed){
+    armBase.set(ControlMode.PercentOutput,speed);
+    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+  }
+  public static void moveElbow(double speed){
+    armElbow.set(ControlMode.PercentOutput,speed);
+    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+  }
+  public static void moveWrist(double speed){
+    armWrist.set(ControlMode.PercentOutput,speed);
+    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+  }
+  
 
 
   @Override
