@@ -13,6 +13,7 @@ import frc.robot.subsystems.DriveLeft;
 
 public class DriveLeftJoystick extends Command {
   public DriveLeftJoystick() {
+    requires(Robot.driveLeft);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -20,6 +21,7 @@ public class DriveLeftJoystick extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.driveLeft.run();
   }
 
   // Called repeatedly when this Command is scheduled to run

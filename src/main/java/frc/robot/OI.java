@@ -52,7 +52,7 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public static final Joystick xBox = new Joystick(1);
-  WristUp wrist = new WristUp();
+  
   public OI(){
     Button a = new JoystickButton(xBox,1);
     Button b = new JoystickButton(xBox,2);
@@ -65,6 +65,8 @@ public class OI {
       wrist.start(-0.5);
     }else if(Robot.A_Control.getPOV(1) == -1){
       wrist.cancel();
+
+
 
     
     a.whileHeld(new IntakeIn());
