@@ -54,7 +54,7 @@ public class OI {
   public OI(){
     Button a = new JoystickButton(xBox,1);
     
-    a.whileHeld(new ArmUp());
+    a.whenPressed(new ArmUp());
    // a.whenReleased(new IntakeIn(true));
   }
 
