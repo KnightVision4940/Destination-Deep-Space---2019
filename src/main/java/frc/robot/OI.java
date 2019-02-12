@@ -55,10 +55,17 @@ public class OI {
   public OI(){
     Button a = new JoystickButton(xBox,1);
     Button b = new JoystickButton(xBox,2);
+    Button x = new JoystickButton(xBox,3);
+    Button y = new JoystickButton(xBox,4);
+
+
 
     
     a.whileHeld(new IntakeIn());
     b.whileHeld(new IntakeOut());
+    x.whileHeld(new HatchesGrab());
+    y.whileHeld(new HatchesDrop());
+
    // a.whenReleased(new IntakeIn(true));
   }
 

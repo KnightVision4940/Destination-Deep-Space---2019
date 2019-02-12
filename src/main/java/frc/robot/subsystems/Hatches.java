@@ -34,10 +34,10 @@ public class Hatches extends Subsystem {
 
   }
  
-  public static void HatchesOut() {
+  public static void HatchesOut(double speed) {
 
-      right.set(ControlMode.PercentOutput,-0.5);
-      left.set(ControlMode.PercentOutput,0.5);
+      right.set(ControlMode.PercentOutput,-speed);
+      left.set(ControlMode.PercentOutput,speed);
 
 }
   public static void HatchesStop() {

@@ -23,13 +23,13 @@ public class IntakeSystem extends Subsystem {
   static VictorSPX Right  = new VictorSPX(RobotMap.rightRoller);
 
  public static void Intake(Double speed) {
-      Left.set(ControlMode.PercentOutput,speed);
+      Left.set(ControlMode.PercentOutput,-speed);
       Right.set(ControlMode.PercentOutput,speed);
       }
   
   public static void Outtake(Double speed) {
       Left.set(ControlMode.PercentOutput,speed);
-      Right.set(ControlMode.PercentOutput,speed);
+      Right.set(ControlMode.PercentOutput,-speed);
 
       }
   public static void stop(){
