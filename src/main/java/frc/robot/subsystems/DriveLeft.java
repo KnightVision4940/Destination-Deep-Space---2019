@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import frc.robot.RobotMap;
 /**
  * Add your docs here.
@@ -17,8 +18,8 @@ public class DriveLeft extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static TalonSRX frontLeftMotor = new TalonSRX(RobotMap.frontleft);
-  static TalonSRX backLeftMotor = new TalonSRX(RobotMap.backLeftMotor);
+  static TalonSRX frontLeftMotor = new TalonSRX(RobotMap.frontLeft);
+  static TalonSRX backLeftMotor = new TalonSRX(RobotMap.backLeft);
 
 
   @Override
