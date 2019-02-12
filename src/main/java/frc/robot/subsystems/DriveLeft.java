@@ -13,7 +13,7 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class DriveLEft extends Subsystem {
+public class DriveLeft extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
