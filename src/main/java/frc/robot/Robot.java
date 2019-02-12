@@ -21,6 +21,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Hatches;
 import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
+import frc.robot.subsystems.Xbox;
 import frc.robot.subsystems.Arm;
 
 /**
@@ -38,6 +39,9 @@ public class Robot extends TimedRobot {
   public static Hatches H = new Hatches();
   public static IntakeSystem intakeSystem = new IntakeSystem();
   public static Arm arm = new Arm();
+  public static Xbox D_Control = new Xbox(1);
+  public static Xbox A_Control = new Xbox(3);
+
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
   Drive drive = new Drive();
