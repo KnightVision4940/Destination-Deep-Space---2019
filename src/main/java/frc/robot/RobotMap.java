@@ -38,7 +38,7 @@ public class RobotMap {
 
   //Intake System
   public static int leftRoller = 0;
-  public static int rightRoller = 0;
+  public static int rightRoller = 1;
 
   //Hatch
   public static int rightHatch = 0;

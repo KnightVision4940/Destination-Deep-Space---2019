@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class IntakeOut extends Command {
-  static double OutSpeed = -1;
+  static double OutSpeed = 1;
   public IntakeOut() {
     requires(Robot.intakeSystem);
     // Use requires() here to declare subsystem dependencies

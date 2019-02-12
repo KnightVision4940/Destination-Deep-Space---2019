@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
 /**
@@ -18,33 +19,22 @@ public class Hatches extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static VictorSPX right;
-  static VictorSPX left;
+  static TalonSRX Hatch = new TalonSRX(RobotMap.rightHatch);
 
-  public static void Hatch() {
-      
-  VictorSPX right = new VictorSPX(RobotMap.rightHatch);
-  VictorSPX left = new VictorSPX(RobotMap.leftHatch);
-
-   }
   public static void HatchesIn(double speed) {
 
-      right.set(ControlMode.PercentOutput,speed);
-      left.set(ControlMode.PercentOutput,-speed);
+      Hatch.set(ControlMode.PercentOutput,speed);
 
   }
  
   public static void HatchesOut(double speed) {
 
-      right.set(ControlMode.PercentOutput,-speed);
-      left.set(ControlMode.PercentOutput,speed);
+      Hatch.set(ControlMode.PercentOutput,speed);
 
 }
   public static void HatchesStop() {
 
-      right.set(ControlMode.PercentOutput,0);
-      left.set(ControlMode.PercentOutput,0);
-
+      Hatch.set(ControlMode.PercentOutput,0);
 }
   @Override
   public void initDefaultCommand() {
