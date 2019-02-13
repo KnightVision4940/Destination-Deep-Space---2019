@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.Gyroscope;
+import frc.robot.commands.Drive;
 /**
  * Add your docs here.
  */
@@ -96,6 +97,8 @@ public class DriveTrain extends Subsystem {
     }
   @Override
   public void initDefaultCommand() {
+    //Uncomment the next line to test out this drive.
+    //setDefaultCommand(new Drive());
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }

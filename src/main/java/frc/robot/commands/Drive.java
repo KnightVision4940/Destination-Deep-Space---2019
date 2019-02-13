@@ -9,13 +9,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import edu.wpi.first.wpilibj.XboxController; 
 
 
 public class Drive extends Command {
-  
+  //public static XboxController Driver = new XboxController(1);
+
   public Drive() {
     requires(Robot.driveTrain);
-    requires(Robot.D_Control);
+    
+    //requires(Robot.D_Control);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -29,9 +32,16 @@ public class Drive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain.drive(Robot.D_Control.getTriggers(),Robot.D_Control.getXLeft());
+    Robot.driveTrain.drive(getTriggers(),Robot.m_oi.xBox.getRawAxis(1));
   }
 
+  public static double getTriggers(){
+    if(Robot.m_oi.xBox.getRawAxis(2) > Robot.m_oi.xBox.getRawAxis(3)){
+      return Robot.m_oi.xBox.getRawAxis(2);
+    } else {
+      return -Robot.m_oi.xBox.getRawAxis(3);
+    }
+  }
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
@@ -47,5 +57,6 @@ public class Drive extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
