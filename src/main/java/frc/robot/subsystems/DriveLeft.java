@@ -30,6 +30,6 @@ public class DriveLeft extends Subsystem {
 
   public static void run(Double speed) {
     frontLeftMotor.set(ControlMode.PercentOutput, speed);
-    backLeftMotor.set(ControlMode.PercentOutput, -speed);
+    backLeftMotor.set(ControlMode.PercentOutput, speed);
   }
 }
