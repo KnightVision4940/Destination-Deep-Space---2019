@@ -25,10 +25,10 @@ public class RobotMap {
   // public static int rangefinderModule = 1;
   //Wheels
   public static int frontLeft = 0;
-  public static int backLeft = 2;
+  public static int backLeft = 0;
 
   public static int frontRight = 0;
-  public static int backRight = 3;
+  public static int backRight = 0;
 
   //Arm
   public static int rotatePlate = 4;

@@ -28,7 +28,7 @@ public class DriveLeft extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public static void run(Double speed) {
+  public static void drive(double speed) {
     frontLeftMotor.set(ControlMode.PercentOutput, speed);
     backLeftMotor.set(ControlMode.PercentOutput, speed);
   }
