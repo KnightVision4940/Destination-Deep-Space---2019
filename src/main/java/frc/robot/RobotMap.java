@@ -23,6 +23,8 @@ public class RobotMap {
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
+  
+  
   //Wheels
   public static int frontLeft = 0;
   public static int backLeft = 0;
@@ -51,6 +53,18 @@ public class RobotMap {
   //Climb
   public static int climbmotor = 13;
 
-  public static double driveRatio = 0.6;// driving speed reduction
+// LogicTech Buttons
+  public static int LogicFullSpeed = 5;	//acceleration to full speed
 
+
+
+// XBox buttons:
+
+
+  // turning parameters
+  public static double driveRatio = 0.6;// driving speed reduction
+  
+
+
+  //
 }
