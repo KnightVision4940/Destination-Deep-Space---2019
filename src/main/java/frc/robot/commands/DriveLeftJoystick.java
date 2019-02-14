@@ -21,12 +21,13 @@ public class DriveLeftJoystick extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveLeft.drive(Robot.m_oi.logicTech.getY(Hand.kLeft));
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.driveLeft.drive(Robot.m_oi.logicTech.getY(Hand.kLeft));
   }
 
   // Make this return true when this Command no longer needs to run execute()
