@@ -51,4 +51,6 @@ public class RobotMap {
   //Climb
   public static int climbmotor = 13;
 
+  public static double driveRatio = 0.6;// driving speed reduction
+
 }

@@ -38,6 +38,12 @@ public class Powertrain extends Subsystem {
   private static SpeedControllerGroup rtMotor = new SpeedControllerGroup(FrRtMotor, RrRtMotor);
   public static DifferentialDrive mDrive = new DifferentialDrive(ltMotor, rtMotor);
   public static void drive(double speedLeft, double speedRight){
+    //Drive with reduce speed
+    mDrive.tankDrive(speedLeft*RobotMap.driveRatio, speedRight*RobotMap.driveRatio);
+  }
+
+  public static void driveF(double speedLeft, double speedRight){
+    // drive with full speed
     mDrive.tankDrive(speedLeft, speedRight);
   }
 
