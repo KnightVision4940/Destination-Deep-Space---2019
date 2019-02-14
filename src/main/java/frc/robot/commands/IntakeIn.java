@@ -24,13 +24,14 @@ public class IntakeIn extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.intakeSystem.Intake(InSpeed);
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     //Robot.intakeSystem.Intake(InSpeed);
+    Robot.intakeSystem.Intake(InSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

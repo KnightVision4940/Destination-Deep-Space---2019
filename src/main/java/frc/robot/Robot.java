@@ -16,11 +16,13 @@ import frc.robot.commands.Drive;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.HatchesDrop;
 import frc.robot.commands.HatchesGrab;
+import frc.robot.commands.ManualArmControl;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Hatches;
 import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
+import frc.robot.subsystems.TurnTable;
 import frc.robot.subsystems.Xbox;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.*;
@@ -40,13 +42,14 @@ public class Robot extends TimedRobot {
   public static Hatches H = new Hatches();
   public static IntakeSystem intakeSystem = new IntakeSystem();
   public static Arm arm = new Arm();
+  public static TurnTable table = new TurnTable();
   public static Xbox D_Control = new Xbox(1);
   public static Xbox A_Control = new Xbox(3);
   public static Powertrain powertrain = new Powertrain();
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
-  Drive drive = new Drive();
+  //Drive drive = new Drive();
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
@@ -133,6 +136,9 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    Scheduler.getInstance().add(new Drive());
+    Scheduler.getInstance().add(new ManualArmControl());
+    Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     //drive.start();
   }
 

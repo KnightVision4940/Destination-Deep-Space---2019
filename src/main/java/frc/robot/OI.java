@@ -9,6 +9,7 @@ package frc.robot;
 
 
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -51,22 +52,18 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-  public static final Joystick xBox = new Joystick(1);
-  public static final Joystick logicTech = new Joystick(3);
+  public static final Joystick xBox = new Joystick(3);
+  public static final XboxController x = new XboxController(1);
+  public static final XboxController l = new XboxController(3);
+  public static final Joystick logicTech = new Joystick(1);
   
   public OI(){
-    Button a = new JoystickButton(xBox,1);
-    Button b = new JoystickButton(xBox,2);
-    Button x = new JoystickButton(xBox,3);
-    Button y = new JoystickButton(xBox,4);
+    Button a = new JoystickButton(xBox,6);
+    Button b = new JoystickButton(xBox,7);
+    Button x = new JoystickButton(xBox,8);
+    Button y = new JoystickButton(xBox,9);
     
-    // if(Robot.A_Control.getPOV(1) == 0){
-    //   wrist.start(0.5);
-    // }else if(Robot.A_Control.getPOV(1) == 180){
-    //   wrist.start(-0.5);
-    // }else if(Robot.A_Control.getPOV(1) == -1){
-    //   wrist.cancel();
-    // }
+   
 
 
     
@@ -80,5 +77,32 @@ public class OI {
 
 
   
+}
+
+public static double getTriggers(){
+    if(x.getRawAxis(2) > x.getRawAxis(3)){
+      return x.getRawAxis(2);
+    } else {
+      return -x.getRawAxis(3);
+    }
+  
+}
+public static int getPOV(){
+  return l.getPOV();
+}
+
+public static double getTriggersLogi(){
+  if(l.getRawAxis(2) > l.getRawAxis(3)){
+    return l.getRawAxis(2);
+  } else {
+    return -l.getRawAxis(3);
+  }
+
+}
+public static double getX(){
+  return x.getRawAxis(0);
+}
+public static double getXLogi(){
+  return l.getRawAxis(0);
 }
 }

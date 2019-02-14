@@ -28,13 +28,13 @@ public class ManualArmControl extends Command {
   //     Robot.arm.arm(ArmSpeed);
   //  }
   //  System.out.println(Robot.arm.endCountBase);
-    Robot.arm.arm(Robot.A_Control.getTriggers());
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   
+    Robot.arm.arm(Robot.m_oi.getTriggersLogi());
   }
 
   // Make this return true when this Command no longer needs to run execute()

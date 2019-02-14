@@ -34,6 +34,12 @@ public static void Turn(double speed){
   }
 
 }
+public static void rotate(double speed){
+  TurnMotor.set(ControlMode.PercentOutput, speed);
+}
+public static double Encoder(){
+return TurnMotor.getSelectedSensorPosition();
+}
 
 
 

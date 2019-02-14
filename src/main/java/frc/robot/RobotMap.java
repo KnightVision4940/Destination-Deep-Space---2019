@@ -27,14 +27,14 @@ public class RobotMap {
   
   //Wheels
   public static int frontLeft = 0;
-  public static int backLeft = 0;
+  public static int backLeft = 1;
 
-  public static int frontRight = 0;
-  public static int backRight = 0;
+  public static int frontRight = 2;
+  public static int backRight = 3;
 
   //Arm
   public static int rotatePlate = 4;
-  public static int armBase = 1;
+  public static int armBase = 0;
   public static int armElbow = 6;
   public static int armWrist = 7;
 
@@ -47,7 +47,7 @@ public class RobotMap {
   public static int leftHatch = 11;
 
   //Turn Table
-  public static int TurnTable = 12;
+  public static int TurnTable = 0;
   
 
   //Climb

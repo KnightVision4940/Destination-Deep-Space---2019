@@ -13,19 +13,26 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.Gyroscope;
 import frc.robot.commands.Drive;
+import frc.robot.RobotMap;;
 /**
  * Add your docs here.
  */
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  static WPI_VictorSPX FrontLeft;
-  static WPI_VictorSPX FrontRight;
-  static WPI_VictorSPX BackLeft;
-  static WPI_VictorSPX BackRight;
+  
+       
+       
+     
+  static WPI_TalonSRX FrontLeft  = new WPI_TalonSRX(RobotMap.frontLeft);;
+  static WPI_TalonSRX FrontRight = new WPI_TalonSRX(RobotMap.backLeft);;
+  static WPI_TalonSRX BackLeft = new WPI_TalonSRX(RobotMap.frontRight);;
+  static WPI_TalonSRX BackRight = new WPI_TalonSRX(RobotMap.backRight);;
 
  
 
@@ -45,18 +52,22 @@ public class DriveTrain extends Subsystem {
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
      
       
-      FrontLeft = new WPI_VictorSPX(frontLeft);
-      BackLeft = new WPI_VictorSPX(backLeft);
-      FrontRight = new WPI_VictorSPX(frontRight);
-      BackRight = new WPI_VictorSPX(backRight);
+      // FrontLeft = new WPI_VictorSPX(frontLeft);
+      // BackLeft = new WPI_VictorSPX(backLeft);
+      // FrontRight = new WPI_VictorSPX(frontRight);
+      // BackRight = new WPI_VictorSPX(backRight);
+      //FrontLeft = new WPI_TalonSRX(frontLeft);
+      //BackLeft = new WPI_TalonSRX(backLeft);
+    //  FrontRight = new WPI_TalonSRX(frontRight);
+      //BackRight = new WPI_TalonSRX(backRight);
      // FrontLeft.setSelectedSensorPosition(0);
   
     SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
     SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
     
       
-    //  m_drive = new DifferentialDrive(Left, Right);
-      //m_drive.setSafetyEnabled(false);
+    m_drive = new DifferentialDrive(Left, Right);
+      m_drive.setSafetyEnabled(false);
     }
   
     public static void drive(double speed, double turn){
@@ -98,7 +109,7 @@ public class DriveTrain extends Subsystem {
   @Override
   public void initDefaultCommand() {
     //Uncomment the next line to test out this drive.
-    //setDefaultCommand(new Drive());
+   // setDefaultCommand(new Drive());
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }

@@ -10,10 +10,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class HatchesDrop extends Command {
-  static double HSpeed = -0.5;
-  public HatchesDrop() {
-    requires(Robot.H);
+public class TurnTable extends Command {
+  double encoder;
+  public TurnTable() {
+    requires(Robot.table);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -21,13 +21,26 @@ public class HatchesDrop extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.H.HatchesOut(HSpeed);
+    encoder = Robot.table.Encoder();
+    if(encoder/4069 > -1){
+      if(Robot.m_oi.getXLogi() <= 1){
+        Robot.table.Turn(Robot.m_oi.getXLogi());
+      }else{
+        Robot.table.Turn(0.0);
+      }
+    }else if(encoder/4069 < 1){
+      if(Robot.m_oi.getXLogi() >= 1){
+        Robot.table.Turn(Robot.m_oi.getXLogi());
+      }else{
+        Robot.table.Turn(0.0);
+      }
+    }
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,13 +52,11 @@ public class HatchesDrop extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.H.HatchesStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-end();
   }
 }

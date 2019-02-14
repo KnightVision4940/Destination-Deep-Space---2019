@@ -9,11 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController; 
 
 
 public class Drive extends Command {
-  //public static XboxController Driver = new XboxController(1);
+ // public static XboxController Driver = new XboxController(1);
 
   public Drive() {
     requires(Robot.driveTrain);
@@ -26,22 +27,19 @@ public class Drive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-   
+    //Robot.driveTrain.drive(Robot.m_oi.xBox.getY(),Robot.m_oi.xBox.getX());
+   // System.out.println(Robot.m_oi.xBox.getThrottle());
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain.drive(getTriggers(),Robot.m_oi.xBox.getRawAxis(1));
+   // Robot.driveTrain.drive(Robot.m_oi.xBox.getRawAxis(2),Robot.m_oi.logicTech.getX(Hand.kLeft));
+   Robot.driveTrain.drive(Robot.m_oi.getTriggers(),Robot.m_oi.getX());
   }
 
-  public static double getTriggers(){
-    if(Robot.m_oi.xBox.getRawAxis(2) > Robot.m_oi.xBox.getRawAxis(3)){
-      return Robot.m_oi.xBox.getRawAxis(2);
-    } else {
-      return -Robot.m_oi.xBox.getRawAxis(3);
-    }
-  }
+  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
