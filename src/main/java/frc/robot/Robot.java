@@ -23,7 +23,6 @@ import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
 import frc.robot.subsystems.Xbox;
 import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.DriveLeft;
 import frc.robot.subsystems.*;
 
 /**
@@ -43,7 +42,6 @@ public class Robot extends TimedRobot {
   public static Arm arm = new Arm();
   public static Xbox D_Control = new Xbox(1);
   public static Xbox A_Control = new Xbox(3);
-  public static DriveLeft driveLeft = new DriveLeft();
   public static Powertrain powertrain = new Powertrain();
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
