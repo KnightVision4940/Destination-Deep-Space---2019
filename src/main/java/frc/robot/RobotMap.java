@@ -47,7 +47,7 @@ public class RobotMap {
   public static int leftHatch = 11;
 
   //Turn Table
-  public static int TurnTable = 0;
+  public static int TurnTable = 1;
   
 
   //Climb

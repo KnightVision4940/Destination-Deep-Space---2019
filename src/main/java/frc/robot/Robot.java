@@ -117,6 +117,9 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
+    Scheduler.getInstance().add(new Drive());
+    Scheduler.getInstance().add(new ManualArmControl());
+    Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
   }
 
   /**
@@ -139,6 +142,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new Drive());
     Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
+   
     //drive.start();
   }
 

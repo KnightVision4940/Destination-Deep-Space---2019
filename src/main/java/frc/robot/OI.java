@@ -52,16 +52,16 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-  public static final Joystick xBox = new Joystick(3);
+  public static final Joystick xBox = new Joystick(1);
   public static final XboxController x = new XboxController(1);
   public static final XboxController l = new XboxController(3);
-  public static final Joystick logicTech = new Joystick(1);
+  public static final Joystick logicTech = new Joystick(3);
   
   public OI(){
-    Button a = new JoystickButton(xBox,6);
-    Button b = new JoystickButton(xBox,7);
-    Button x = new JoystickButton(xBox,8);
-    Button y = new JoystickButton(xBox,9);
+    Button a = new JoystickButton(xBox,1);
+    Button b = new JoystickButton(xBox,2);
+    Button x = new JoystickButton(xBox,3);
+    Button y = new JoystickButton(xBox,4);
     
    
 

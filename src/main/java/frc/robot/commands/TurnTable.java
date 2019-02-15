@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class TurnTable extends Command {
   double encoder;
+  public static int i = 0;
   public TurnTable() {
     requires(Robot.table);
     // Use requires() here to declare subsystem dependencies
@@ -21,27 +22,29 @@ public class TurnTable extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     encoder = Robot.table.Encoder();
-    if(encoder/4069 > -1){
-      if(Robot.m_oi.getXLogi() <= 1){
-        Robot.table.Turn(Robot.m_oi.getXLogi());
+   
+ 
+      if(i >= 100 && Robot.m_oi.getXLogi() > 0){
+        Robot.table.Turn(0);
+      }else if(i <= -100 && Robot.m_oi.getXLogi() < 0){
+        Robot.table.Turn(0);
       }else{
-        Robot.table.Turn(0.0);
-      }
-    }else if(encoder/4069 < 1){
-      if(Robot.m_oi.getXLogi() >= 1){
         Robot.table.Turn(Robot.m_oi.getXLogi());
-      }else{
-        Robot.table.Turn(0.0);
+        i += Robot.m_oi.getXLogi();
       }
+      
+    
+    System.out.println(i);
+  
     }
-
-  }
+  
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
