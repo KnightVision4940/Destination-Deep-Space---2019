@@ -63,7 +63,7 @@ public static void arm(double speed) {
     armWrist.set(ControlMode.PercentOutput,speed);
     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
-  
+
 
 
   @Override
