@@ -28,7 +28,11 @@ public class HatchesGrab extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.H.HatchesIn(Hspeed);
+    if(-(Robot.H.Encoder()) > 4069){
+      end();
+    }else{
+      Robot.H.HatchesOut(-1);
+    }
     }
 
   // Make this return true when this Command no longer needs to run execute()

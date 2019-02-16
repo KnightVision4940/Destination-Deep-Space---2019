@@ -27,10 +27,10 @@ public class HatchesDrop extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(){
+    if(-(Robot.H.Encoder()) > 4069){
       end();
     }else{
-      Robot.H.HatchesIn(0.5);
+      Robot.H.HatchesIn(1);
     }
   }
 
@@ -50,6 +50,6 @@ public class HatchesDrop extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-end();
+      end();
   }
 }
