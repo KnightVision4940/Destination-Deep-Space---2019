@@ -36,6 +36,9 @@ public class Hatches extends Subsystem {
 
       Hatch.set(ControlMode.PercentOutput,0);
 }
+public static int Encoder(){
+  return Hatch.getSelectedSensorPosition();
+}
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
