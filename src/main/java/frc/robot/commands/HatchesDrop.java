@@ -12,6 +12,8 @@ import frc.robot.Robot;
 
 public class HatchesDrop extends Command {
   static double HSpeed = -0.5;
+  static int i = 0;
+  static boolean run = false;
   public HatchesDrop() {
     requires(Robot.H);
     // Use requires() here to declare subsystem dependencies
@@ -21,35 +23,41 @@ public class HatchesDrop extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
+    i= 0;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(-(Robot.H.Encoder()) > 4069){
-      end();
+    //if(-(Robot.H.Encoder()) > 4069){
+    if(i > 100){
+      run  =true;
+     // i = 0;
     }else{
       Robot.H.HatchesIn(1);
+      i++;
     }
+    System.out.println(i);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return run;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
     Robot.H.HatchesStop();
+   i = 0;
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-      end();
+    //Robot.H.HatchesStop();
+      //end();
   }
 }

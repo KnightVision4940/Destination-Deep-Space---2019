@@ -71,7 +71,7 @@ public class OI {
     a.whileHeld(new ClimbBot());
     b.whileHeld(new IntakeOut());
     x.whileHeld(new HatchesGrab());
-    y.whileHeld(new HatchesDrop());
+    y.whenPressed(new HatchesDrop());
     LB.whenPressed(new HatchesInit());
 
 

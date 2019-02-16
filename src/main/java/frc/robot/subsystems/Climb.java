@@ -8,6 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
@@ -18,7 +20,7 @@ import frc.robot.subsystems.DriveTrain;
 public class Climb extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  static VictorSPX climbMotor = new VictorSPX (RobotMap.climbmotor);
+  static TalonSRX climbMotor = new TalonSRX(RobotMap.climbmotor);
 
     public static void climb(double speed){
       climbMotor.set(ControlMode.PercentOutput, speed);
