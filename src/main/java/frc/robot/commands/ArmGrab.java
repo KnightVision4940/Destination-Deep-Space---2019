@@ -40,7 +40,8 @@ public class ArmGrab extends Command {
       else{
       Arm.moveElbow(0.5);        
       }
-
+      if(Robot.arm.endCountElbow >= 10 && Robot.arm.endCountBase >= 25){}
+      end();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -52,12 +53,15 @@ public class ArmGrab extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Arm.armBase.set(ControlMode.PercentOutput, 0);
+    Arm.armElbow.set(ControlMode.PercentOutput, 0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
 
