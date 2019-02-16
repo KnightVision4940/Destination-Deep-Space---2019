@@ -27,7 +27,8 @@ public class DriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   Robot.powertrain.drive(Robot.m_oi.logicTech.getY(Hand.kLeft),Robot.m_oi.logicTech.getY(Hand.kRight));
+   //Robot.powertrain.drive(Robot.m_oi.logicTech.getY(Hand.kLeft),Robot.m_oi.logicTech.getY(Hand.kRight));
+   Robot.powertrain.drive(Robot.m_oi.getYLogiL(),Robot.m_oi.getYLogiR());
     /*
    if (Robot.m_oi.logicTech.getRawButton(RobotMap.LogicFullSpeed)) {
     Robot.powertrain.driveF(Robot.m_oi.logicTech.getY(Hand.kLeft),Robot.m_oi.logicTech.getY(Hand.kRight));

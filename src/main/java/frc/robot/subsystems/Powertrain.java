@@ -15,6 +15,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.commands.*;
 /**
  * Add your docs here.
@@ -30,10 +31,10 @@ public class Powertrain extends Subsystem {
   private static TalonSRX RrRtMotor = new TalonSRX(RobotMap.backRight);
   */
 
-  private static WPI_VictorSPX FrLtMotor = new WPI_VictorSPX(RobotMap.frontLeft);
-  private static WPI_VictorSPX RrLtMotor = new WPI_VictorSPX(RobotMap.backLeft);
-  private static WPI_VictorSPX FrRtMotor = new WPI_VictorSPX(RobotMap.frontRight);
-  private static WPI_VictorSPX RrRtMotor = new WPI_VictorSPX(RobotMap.backRight);
+  private static WPI_TalonSRX FrLtMotor = new WPI_TalonSRX(RobotMap.frontLeft);
+  private static WPI_TalonSRX RrLtMotor = new WPI_TalonSRX(RobotMap.backLeft);
+  private static WPI_TalonSRX FrRtMotor = new WPI_TalonSRX(RobotMap.frontRight);
+  private static WPI_TalonSRX RrRtMotor = new WPI_TalonSRX(RobotMap.backRight);
   private static SpeedControllerGroup ltMotor = new SpeedControllerGroup(FrLtMotor,RrLtMotor);
   private static SpeedControllerGroup rtMotor = new SpeedControllerGroup(FrRtMotor, RrRtMotor);
   public static DifferentialDrive mDrive = new DifferentialDrive(ltMotor, rtMotor);

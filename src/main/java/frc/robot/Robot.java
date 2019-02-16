@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.Drive;
+import frc.robot.commands.DriveWithJoystick;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.HatchesDrop;
 import frc.robot.commands.HatchesGrab;
@@ -25,6 +26,7 @@ import frc.robot.subsystems.PracticeMotor;
 import frc.robot.subsystems.TurnTable;
 import frc.robot.subsystems.Xbox;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Powertrain;
 import frc.robot.subsystems.*;
 
 /**
@@ -45,7 +47,7 @@ public class Robot extends TimedRobot {
   public static TurnTable table = new TurnTable();
   public static Xbox D_Control = new Xbox(1);
   public static Xbox A_Control = new Xbox(3);
- // public static Powertrain powertrain = new Powertrain();
+  public static Powertrain powertrain = new Powertrain();
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
@@ -120,6 +122,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new Drive());
     Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
+    Scheduler.getInstance().add(new DriveWithJoystick());
   }
 
   /**
@@ -142,6 +145,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new Drive());
     Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
+    Scheduler.getInstance().add(new DriveWithJoystick());
    
     //drive.start();
   }
