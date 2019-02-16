@@ -44,6 +44,7 @@ public class Robot extends TimedRobot {
   public static Hatches H = new Hatches();
   public static IntakeSystem intakeSystem = new IntakeSystem();
   public static Arm arm = new Arm();
+  public static Climb Climb = new Climb();  
   public static TurnTable table = new TurnTable();
   public static Xbox D_Control = new Xbox(1);
   public static Xbox A_Control = new Xbox(3);

@@ -20,11 +20,13 @@ public class Climb extends Subsystem {
   // here. Call these from Commands.
   static VictorSPX climbMotor = new VictorSPX (RobotMap.climbmotor);
 
-    public static void climb(){
-
-      
-    
+    public static void climb(double speed){
+      climbMotor.set(ControlMode.PercentOutput, speed);
     }
+    public static void climbStop(){
+      climbMotor.set(ControlMode.PercentOutput, 0);
+    }
+    
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
