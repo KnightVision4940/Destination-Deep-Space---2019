@@ -10,11 +10,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class WristUp extends Command {
-  public static double _Speed;
-  public WristUp(double speed) {
+public class WristMove extends Command {
+  public static double _Speed = -0.5;
+  public WristMove() {
     requires(Robot.arm);
-    _Speed = speed;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,7 +26,13 @@ public class WristUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
     Robot.arm.moveWrist(_Speed);
+    }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
+      Robot.arm.moveWrist(-_Speed);
+      }else{
+      Robot.arm.moveWrist(0);
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,6 +44,7 @@ public class WristUp extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.arm.moveWrist(0);
   }
 
   // Called when another command which requires one or more of the same

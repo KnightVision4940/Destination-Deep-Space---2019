@@ -18,7 +18,7 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.HatchesDrop;
 import frc.robot.commands.HatchesGrab;
 import frc.robot.commands.ManualArmControl;
-import frc.robot.commands.WristDown;
+import frc.robot.commands.WristMove;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Hatches;
@@ -125,7 +125,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     Scheduler.getInstance().add(new DriveWithJoystick());
-    Scheduler.getInstance().add(new WristDown());
+    Scheduler.getInstance().add(new WristMove());
   }
 
   /**
@@ -149,7 +149,8 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     Scheduler.getInstance().add(new DriveWithJoystick());
-   
+    Scheduler.getInstance().add(new WristMove());
+
     //drive.start();
   }
 

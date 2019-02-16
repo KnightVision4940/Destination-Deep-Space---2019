@@ -36,7 +36,7 @@ public class RobotMap {
   public static int rotatePlate = 4;
   public static int armBase = 0;
   public static int armElbow = 6;
-  public static int armWrist = 7;
+  public static int armWrist = 0;
 
   //Intake System
   public static int leftRoller = 1;
