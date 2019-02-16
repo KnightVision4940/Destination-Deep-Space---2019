@@ -62,15 +62,19 @@ public class OI {
     Button b = new JoystickButton(xBox,2);
     Button x = new JoystickButton(xBox,3);
     Button y = new JoystickButton(xBox,4);
+    Button LB = new JoystickButton(xBox,5);
     
    
 
 
     
-    a.whileHeld(new IntakeIn());
+    a.whileHeld(new ClimbBot());
     b.whileHeld(new IntakeOut());
     x.whileHeld(new HatchesGrab());
     y.whileHeld(new HatchesDrop());
+    LB.whenPressed(new HatchesInit());
+
+
 
    // a.whenReleased(new IntakeIn(true));
   
