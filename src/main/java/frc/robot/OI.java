@@ -103,10 +103,10 @@ public static double getX(){
   return x.getRawAxis(0);
 }
 public static double getYLogiL(){
-  return x.getRawAxis(1);
+  return l.getRawAxis(1);
 }
 public static double getYLogiR(){
-  return x.getRawAxis(5);
+  return l.getRawAxis(5);
 }
 public static double getXLogi(){
   return l.getRawAxis(0);
