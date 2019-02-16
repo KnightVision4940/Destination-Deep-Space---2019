@@ -11,10 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class WristDown extends Command {
-  public static double _Speed;
-  public WristDown(double speed) {
+  public static double _Speed = 0.5;
+  public WristDown() {
     requires(Robot.arm);
-    _Speed = speed;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,6 +26,7 @@ public class WristDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(Robot.m_oi.x.getPOV() == 180 && Robot.m_oi.x.getPOV() == 135 && Robot.m_oi.x.getPOV() == 225)
     Robot.arm.moveWrist(_Speed);
   }
 
