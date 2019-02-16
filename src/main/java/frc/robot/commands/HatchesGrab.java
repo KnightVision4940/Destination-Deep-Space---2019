@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class HatchesGrab extends Command {
   static double Hspeed = 0.5;
+  static boolean run =false;
   public HatchesGrab() {
     requires(Robot.H);
     // Use requires() here to declare subsystem dependencies
@@ -22,14 +23,15 @@ public class HatchesGrab extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
+    run =false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     if(-(Robot.H.Encoder()) > 4069){
-      end();
+      run  =true;
+      //end();
     }else{
       Robot.H.HatchesOut(-1);
     }
@@ -38,7 +40,7 @@ public class HatchesGrab extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return run;
   }
 
   // Called once after isFinished returns true
@@ -51,6 +53,6 @@ public class HatchesGrab extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
+   // end();
   }
 }

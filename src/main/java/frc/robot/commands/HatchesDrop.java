@@ -24,6 +24,7 @@ public class HatchesDrop extends Command {
   @Override
   protected void initialize() {
     i= 0;
+    run =false;
   }
 
   // Called repeatedly when this Command is scheduled to run

@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class HatchesInit extends Command {
+  static boolean run = false;
   public HatchesInit() {
     requires(Robot.H);
     // Use requires() here to declare subsystem dependencies
@@ -20,13 +21,14 @@ public class HatchesInit extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    run = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     if (-(Robot.H.Encoder()) > 4069) {
-      end();
+      run  =true;
     }
     else 
     {
@@ -37,7 +39,7 @@ public class HatchesInit extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return run;
   }
 
   // Called once after isFinished returns true
