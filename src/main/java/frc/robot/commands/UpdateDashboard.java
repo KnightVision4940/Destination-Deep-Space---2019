@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Gyroscope;
 import frc.robot.Robot;
+import frc.robot.subsystems.Arm;
 
 public class UpdateDashboard extends Command {
   public UpdateDashboard() {
@@ -33,21 +34,21 @@ public class UpdateDashboard extends Command {
     SmartDashboard.putNumber("time left", time);
 
     //Gyro
-    Gyroscope g = new Gyroscope();
-    int gyro = g.getAngle();
-    SmartDashboard.putNumber("gyro angle", gyro);
+    //sGyroscope g = new Gyroscope();
+    //int gyro = g.getAngle();
+   //s SmartDashboard.putNumber("gyro angle", gyro);
 
     //Arm Angle = Baseangle
     
-    double Baseangle =  a.endCountBase;
+    double Baseangle =  Arm.endCountBase;
     SmartDashboard.putNumber("angle of Base", Baseangle);
     
     //Arm Angle = ArmElbow
-     double ArmElbow = a.endCountElbow;
+     double ArmElbow = Arm.endCountElbow;
     SmartDashboard.putNumber("angle of Elbow",ArmElbow); 
 
     // Arm Angle = ArmWaist
-    double ArmWaist = a.endCountWrist;
+    double ArmWaist = Arm.endCountWrist;
     SmartDashboard.putNumber("angle of Waist",ArmWaist);
     
     //Robot Status  
