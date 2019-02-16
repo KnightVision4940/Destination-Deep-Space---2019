@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.commands.*;
 //import frc.robot.Xbox;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Climb;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -68,8 +69,8 @@ public class OI {
 
 
     
-    a.whileHeld(new ArmGrab());
-    b.whileHeld(new IntakeOut());
+    a.whenPressed(new ArmGrab());
+    b.whileHeld(new ClimbBot());
     x.whileHeld(new HatchesGrab());
     y.whenPressed(new HatchesDrop());
     LB.whenPressed(new HatchesInit());

@@ -34,7 +34,7 @@ public class RobotMap {
 
   //Arm
   public static int rotatePlate = 4;
-  public static int armBase = 1;
+  public static int armBase = 0;
   public static int armElbow = 6;
   public static int armWrist = 7;
 
@@ -51,7 +51,7 @@ public class RobotMap {
   
 
   //Climb
-  public static int climbmotor = 1;
+  public static int climbmotor = 0;
 
 // LogicTech Buttons
   public static int LogicFullSpeed = 5;	//acceleration to full speed

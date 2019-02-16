@@ -14,6 +14,8 @@ import frc.robot.Robot;
 import frc.robot.subsystems.Arm;
 
 public class ArmGrab extends Command {
+  int i1 = 0;
+  int i2 = 0;
   public ArmGrab() {
     requires(Robot.arm);
     // Use requires() here to declare subsystem dependencies
@@ -23,26 +25,33 @@ public class ArmGrab extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    i1 = 0;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.arm.endCountBase >= 25){
+ 
+    if(i1 >= 250){
       Arm.armBase.set(ControlMode.PercentOutput, 0);
     }
     else{
       Arm.moveShoulder(0.5);
     }
-    if(Robot.arm.endCountElbow >= 10){
+    if(i2 >= 100){
       Arm.armElbow.set(ControlMode.PercentOutput, 0);
       }
       else{
       Arm.moveElbow(0.5);        
       }
-      if(Robot.arm.endCountElbow >= 10 && Robot.arm.endCountBase >= 25){}
+      if(Robot.arm.endCountElbow >= 10 && Robot.arm.endCountBase >= 25){
       end();
   }
+  i1++;
+ i2++;
+ System.out.println("i1:"+i1);
+ System.out.println("i2:"+i2);
+}
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
