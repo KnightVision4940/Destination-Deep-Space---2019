@@ -20,16 +20,16 @@ public class Arm extends Subsystem {
   // here. Call these from Commands.
   public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
   public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
-  public static TalonSRX armWrist = new TalonSRX(RobotMap.armWrist);
+  //public static TalonSRX armWrist = new TalonSRX(RobotMap.armWrist);
 
   public static double endCountBase = 0;
   public static double endCountElbow = 0;
-  public static double endCountWrist = 0;
+ // public static double endCountWrist = 0;
 
 public static void init(){
-    armBase.setSelectedSensorPosition(0);
-    armElbow.setSelectedSensorPosition(0);
-    armWrist.setSelectedSensorPosition(0);
+    //armBase.setSelectedSensorPosition(0);
+    //armElbow.setSelectedSensorPosition(0);
+    //armWrist.setSelectedSensorPosition(0);
 }
 
   public static void stopMotor() {
@@ -59,10 +59,7 @@ public static void arm(double speed) {
     armElbow.set(ControlMode.PercentOutput,speed);
     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
-  public static void moveWrist(double speed){
-    armWrist.set(ControlMode.PercentOutput,speed);
-    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
-  }
+  
 
 
 

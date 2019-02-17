@@ -31,17 +31,17 @@ public class TurnTable extends Command {
     // encoder = Robot.table.Encoder();
    
  
-    //   if(i >= 100 && Robot.m_oi.getXLogi() > 0){
-    //     Robot.table.Turn(0);
-    //   }else if(i <= -100 && Robot.m_oi.getXLogi() < 0){
-    //     Robot.table.Turn(0);
-    //   }else{
-    //     Robot.table.Turn(Robot.m_oi.getXLogi());
-    //     i += Robot.m_oi.getXLogi();
-    //   }
+      if(i >= 100 && Robot.m_oi.getXLogi() > 0){
+        Robot.table.Turn(0);
+      }else if(i <= -100 && Robot.m_oi.getXLogi() < 0){
+        Robot.table.Turn(0);
+      }else{
+        Robot.table.Turn(Robot.m_oi.getXLogi());
+        
+      }
       
     
-    // System.out.println(i);
+     //System.out.println(i);
   
     }
   

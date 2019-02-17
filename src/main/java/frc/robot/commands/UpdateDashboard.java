@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.CamServer;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Wrist;
 
 public class UpdateDashboard extends Command {
 
@@ -51,7 +52,7 @@ public class UpdateDashboard extends Command {
     SmartDashboard.putNumber("angle of Elbow",ArmElbow); 
 
     // Arm Angle = ArmWaist
-    double ArmWaist = Arm.endCountWrist;
+    double ArmWaist = Wrist.endCountWrist;
     SmartDashboard.putNumber("angle of Wrist",ArmWaist);
     
     //Robot Status  

@@ -13,7 +13,7 @@ import frc.robot.Robot;
 public class WristMove extends Command {
   public static double _Speed = -0.5;
   public WristMove() {
-    requires(Robot.arm);
+    requires(Robot.wrist);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,11 +27,11 @@ public class WristMove extends Command {
   @Override
   protected void execute() {
     if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
-    Robot.arm.moveWrist(_Speed);
+    Robot.wrist.moveWrist(_Speed);
     }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
-      Robot.arm.moveWrist(-_Speed);
+      Robot.wrist.moveWrist(-_Speed);
       }else{
-      Robot.arm.moveWrist(0);
+        Robot.wrist.moveWrist(0);
     }
   }
 
@@ -44,7 +44,7 @@ public class WristMove extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.arm.moveWrist(0);
+    Robot.wrist.moveWrist(0);
   }
 
   // Called when another command which requires one or more of the same

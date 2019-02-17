@@ -14,7 +14,6 @@ public class ManualArmControl extends Command {
   static double ArmSpeed = 0.5;
   public ManualArmControl() {
     requires(Robot.arm);
-    requires(Robot.A_Control);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -22,6 +21,7 @@ public class ManualArmControl extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    
   //   if(Robot.arm.endCountBase >= 3){
   //     end();
   //   }else{
@@ -34,7 +34,8 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.arm(Robot.m_oi.getTriggersLogi());
+    Robot.arm.arm(Robot.m_oi.getTriggers());
+    System.out.println("Please Work");
   }
 
   // Make this return true when this Command no longer needs to run execute()

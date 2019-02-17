@@ -6,37 +6,24 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
-import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
 /**
  * Add your docs here.
  */
-public class IntakeSystem extends Subsystem {
+public class Wrist extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public static TalonSRX armWrist = new TalonSRX(RobotMap.armWrist);
+  public static double endCountWrist = 0;
 
-  static VictorSPX Left = new VictorSPX(RobotMap.leftRoller);  
-  static VictorSPX Right  = new VictorSPX(RobotMap.rightRoller);
-
- public static void Intake(Double speed) {
-      Left.set(ControlMode.PercentOutput,-speed);
-      Right.set(ControlMode.PercentOutput,speed);
-      }
-  
-  public static void Outtake(Double speed) {
-      Left.set(ControlMode.PercentOutput,speed);
-      Right.set(ControlMode.PercentOutput,-speed);
-
-      }
-  public static void stop(){
-        Left.set(ControlMode.PercentOutput,0);
-        Right.set(ControlMode.PercentOutput,0);
-      }
-
+  public static void moveWrist(double speed){
+    armWrist.set(ControlMode.PercentOutput,speed);
+    endCountWrist = -(armWrist.getSelectedSensorPosition(0) /4069);
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

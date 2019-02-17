@@ -26,24 +26,24 @@ public class RobotMap {
   
   
   //Wheels
-  public static int frontLeft = 0;
+  public static int frontLeft = 1;
   public static int backLeft = 1;
 
   public static int frontRight = 2;
   public static int backRight = 3;
 
   //Arm
-  public static int rotatePlate = 4;
-  public static int armBase = 0;
-  public static int armElbow = 6;
-  public static int armWrist = 0;
+  //public static int rotatePlate = 4;
+  public static int armBase = 2;
+  public static int armElbow = 2;
+  public static int armWrist = 1;
 
   //Intake System
-  public static int leftRoller = 4;
-  public static int rightRoller = 5;
+  public static int leftRoller = 5;
+  public static int rightRoller = 1;
 
   //Hatch
-  public static int hatch = 9;
+  public static int hatch = 1;
 
   //Turn Table
   public static int TurnTable = 1;

@@ -52,6 +52,7 @@ public class Robot extends TimedRobot {
   public static Xbox A_Control = new Xbox(3);
   public static Powertrain powertrain = new Powertrain();
   public static Gyroscope gyro = new Gyroscope();
+  public static Wrist wrist = new Wrist();
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
@@ -128,10 +129,10 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.start();
     }
     Scheduler.getInstance().add(new Drive());
-    Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     Scheduler.getInstance().add(new DriveWithJoystick());
     Scheduler.getInstance().add(new WristMove());
+    Scheduler.getInstance().add(new ManualArmControl());
   }
 
   /**
@@ -152,11 +153,11 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     Scheduler.getInstance().add(new Drive());
-    Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     Scheduler.getInstance().add(new DriveWithJoystick());
     Scheduler.getInstance().add(new WristMove());
     Scheduler.getInstance().add(new UpdateDashboard());
+    Scheduler.getInstance().add(new ManualArmControl());
 
 
     //drive.start();

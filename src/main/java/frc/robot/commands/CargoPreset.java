@@ -16,6 +16,7 @@ public class CargoPreset extends Command {
   public CargoPreset() {
   requires(Robot.arm);
   requires(Robot.intakeSystem);
+  requires(Robot.wrist);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -42,10 +43,10 @@ public class CargoPreset extends Command {
     }else{
       inPosition[1]= true;
     }
-    if(Robot.arm.endCountWrist > 4){
-      Robot.arm.moveWrist(-0.5);
-    }else if(Robot.arm.endCountWrist < 4){
-      Robot.arm.moveWrist(0.5);
+    if(Robot.wrist.endCountWrist > 4){
+      Robot.wrist.moveWrist(-0.5);
+    }else if(Robot.wrist.endCountWrist < 4){
+      Robot.wrist.moveWrist(0.5);
     }else{
       inPosition[2]= true;
     }
