@@ -9,13 +9,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Gyroscope;
+// import frc.robot.Gyroscope;
 import frc.robot.Robot;
+import frc.robot.CamServer;
 import frc.robot.subsystems.Arm;
 
 public class UpdateDashboard extends Command {
-  public UpdateDashboard() {
+
+  SendableChooser<Command> m_chooser = new SendableChooser<>();  public UpdateDashboard() {
     requires(Robot.arm);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -32,8 +35,7 @@ public class UpdateDashboard extends Command {
     double time = 1;
     time = DriverStation.getInstance().getMatchTime();
     SmartDashboard.putNumber("time left", time);
-    SmartDashboard.putData("Auto mode", m_chooser);
-       CamServer.camInit();
+
     //Gyro
     //sGyroscope g = new Gyroscope();
     //int gyro = g.getAngle();
@@ -50,7 +52,7 @@ public class UpdateDashboard extends Command {
 
     // Arm Angle = ArmWaist
     double ArmWaist = Arm.endCountWrist;
-    SmartDashboard.putNumber("angle of Waist",ArmWaist);
+    SmartDashboard.putNumber("angle of Wrist",ArmWaist);
     
     //Robot Status  
   }
