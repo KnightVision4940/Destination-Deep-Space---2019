@@ -18,6 +18,7 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.HatchesDrop;
 import frc.robot.commands.HatchesGrab;
 import frc.robot.commands.ManualArmControl;
+import frc.robot.commands.UpdateDashboard;
 import frc.robot.commands.WristMove;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -66,8 +67,10 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
-    CamServer.camInit();
+      new UpdateDashboard();
+        
+  
+    System.out.println(isOperatorControl() + "" + isEnabled());
   }
 
   /**
@@ -151,6 +154,8 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     Scheduler.getInstance().add(new DriveWithJoystick());
     Scheduler.getInstance().add(new WristMove());
+    Scheduler.getInstance().add(new UpdateDashboard());
+
 
     //drive.start();
   }

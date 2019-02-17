@@ -26,10 +26,10 @@ public class RobotMap {
   
   
   //Wheels
-  public static int frontLeft = 2;
+  public static int frontLeft = 0;
   public static int backLeft = 1;
 
-  public static int frontRight = 1;
+  public static int frontRight = 2;
   public static int backRight = 3;
 
   //Arm
@@ -39,19 +39,18 @@ public class RobotMap {
   public static int armWrist = 0;
 
   //Intake System
-  public static int leftRoller = 1;
-  public static int rightRoller = 1;
+  public static int leftRoller = 4;
+  public static int rightRoller = 5;
 
   //Hatch
-  public static int rightHatch = 0;
-  public static int leftHatch = 11;
+  public static int hatch = 9;
 
   //Turn Table
   public static int TurnTable = 1;
   
 
   //Climb
-  public static int climbmotor = 0;
+  public static int climbmotor = 8;
 
 // LogicTech Buttons
   public static int LogicFullSpeed = 5;	//acceleration to full speed

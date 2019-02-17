@@ -19,7 +19,7 @@ public class Hatches extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static TalonSRX Hatch = new TalonSRX(RobotMap.rightHatch);
+  static TalonSRX Hatch = new TalonSRX(RobotMap.hatch);
 
   public static void HatchesIn(double speed) {
 

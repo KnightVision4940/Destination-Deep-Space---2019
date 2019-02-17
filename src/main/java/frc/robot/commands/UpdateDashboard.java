@@ -32,7 +32,8 @@ public class UpdateDashboard extends Command {
     double time = 1;
     time = DriverStation.getInstance().getMatchTime();
     SmartDashboard.putNumber("time left", time);
-
+    SmartDashboard.putData("Auto mode", m_chooser);
+       CamServer.camInit();
     //Gyro
     //sGyroscope g = new Gyroscope();
     //int gyro = g.getAngle();

@@ -59,22 +59,31 @@ public class OI {
   public static final Joystick logicTech = new Joystick(3);
   
   public OI(){
-    Button a = new JoystickButton(xBox,1);
-    Button b = new JoystickButton(xBox,2);
-    Button x = new JoystickButton(xBox,3);
-    Button y = new JoystickButton(xBox,4);
-    Button LB = new JoystickButton(xBox,5);
+    Button xbox_a = new JoystickButton(xBox,1);
+    Button xbox_b = new JoystickButton(xBox,2);
+    Button xbox_x = new JoystickButton(xBox,3);
+    Button xbox_y = new JoystickButton(xBox,4);
+
+    Button logi_a = new JoystickButton(logicTech, 1);
+    Button logi_b = new JoystickButton(logicTech, 2);
+    Button logi_x = new JoystickButton(logicTech, 3);
+    Button logi_y = new JoystickButton(logicTech, 4);
+    Button logi_LB = new JoystickButton(logicTech, 5);
+    Button logi_RB = new JoystickButton(logicTech, 6);
+    
     
    
 
 
     
-    a.whenPressed(new ArmGrab());
-    b.whileHeld(new ClimbBot());
-    x.whileHeld(new HatchesGrab());
-    y.whenPressed(new HatchesDrop());
-    LB.whenPressed(new HatchesInit());
-
+    xbox_a.whenPressed(new HatchesGrab());
+    xbox_b.whileHeld(new HatchesDrop());
+    xbox_x.whileHeld(new HatchesInit());
+    xbox_y.whenPressed(new ClimbBot());
+   
+    logi_b.whenPressed(new ArmGrab());
+    logi_LB.whenPressed(new IntakeOut());
+    logi_RB.whenPressed(new IntakeIn());
 
 
    // a.whenReleased(new IntakeIn(true));
