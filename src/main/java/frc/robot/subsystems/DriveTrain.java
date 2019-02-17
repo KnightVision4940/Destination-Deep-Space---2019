@@ -16,7 +16,6 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import frc.robot.Gyroscope;
 import frc.robot.commands.Drive;
 import frc.robot.RobotMap;;
 /**
@@ -29,10 +28,10 @@ public class DriveTrain extends Subsystem {
        
        
      
-  static WPI_TalonSRX FrontLeft  = new WPI_TalonSRX(RobotMap.frontLeft);;
-  static WPI_TalonSRX FrontRight = new WPI_TalonSRX(RobotMap.backLeft);;
-  static WPI_TalonSRX BackLeft = new WPI_TalonSRX(RobotMap.frontRight);;
-  static WPI_TalonSRX BackRight = new WPI_TalonSRX(RobotMap.backRight);;
+  static WPI_VictorSPX FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);;
+  static WPI_VictorSPX FrontRight = new WPI_VictorSPX(RobotMap.backLeft);;
+  static WPI_VictorSPX BackLeft = new WPI_VictorSPX(RobotMap.frontRight);;
+  static WPI_VictorSPX BackRight = new WPI_VictorSPX(RobotMap.backRight);;
 
  
 
@@ -72,6 +71,13 @@ public class DriveTrain extends Subsystem {
   
     public static void drive(double speed, double turn){
       m_drive.arcadeDrive(speed, turn, false);
+    }
+    public static void driveGyro(double speed, double turn, double gyro){
+      if(turn != 0 || gyro < 0.5 || gyro > -0.5){
+        m_drive.arcadeDrive(speed, turn, false);
+      }else{
+        m_drive.arcadeDrive(speed, -(gyro),false);
+      }
     }
 
     //The drive we are going to use - needs testing

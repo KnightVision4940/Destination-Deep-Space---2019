@@ -18,7 +18,7 @@ public class Drive extends Command {
 
   public Drive() {
     requires(Robot.driveTrain);
-    
+    requires(Robot.gyro);
     //requires(Robot.D_Control);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -27,6 +27,9 @@ public class Drive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.gyro.gyroInit();
+    Robot.gyro.calibrategyro();
+    Robot.gyro.reset();
     //Robot.driveTrain.drive(Robot.m_oi.xBox.getY(),Robot.m_oi.xBox.getX());
    // System.out.println(Robot.m_oi.xBox.getThrottle());
     
@@ -37,6 +40,7 @@ public class Drive extends Command {
   protected void execute() {
    // Robot.driveTrain.drive(Robot.m_oi.xBox.getRawAxis(2),Robot.m_oi.logicTech.getX(Hand.kLeft));
    Robot.driveTrain.drive(Robot.m_oi.getTriggers(),Robot.m_oi.getX());
+   //Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers(),Robot.m_oi.getX(),Robot.gyro.getAngle());
   }
 
   

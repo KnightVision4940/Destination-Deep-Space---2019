@@ -5,30 +5,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class Gyroscope{
+public class Gyroscope extends Subsystem{
     ADXRS450_Gyro gyro;
 
-    Gyroscope(){
+    public void gyroInit(){
         SPI.Port kGyroPort = SPI.Port.kOnboardCS0;
         gyro = new ADXRS450_Gyro(kGyroPort);
     }
 
-    int getAngle(){
-       return (int)gyro.getAngle();
+    public double getAngle(){
+       return gyro.getAngle();
     }
 
-    void reset(){
+    public void reset(){
         gyro.reset();
       }
       
-    void calibrategyro(){
+    public void calibrategyro(){
         gyro.calibrate();
       }
+      @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+  }
 }
