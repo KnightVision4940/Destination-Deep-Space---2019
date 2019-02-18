@@ -27,6 +27,7 @@ public class Drive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.driveTrain.driveInit();
     Robot.gyro.gyroInit();
     Robot.gyro.calibrategyro();
     Robot.gyro.reset();
@@ -41,6 +42,7 @@ public class Drive extends Command {
    // Robot.driveTrain.drive(Robot.m_oi.xBox.getRawAxis(2),Robot.m_oi.logicTech.getX(Hand.kLeft));
    Robot.driveTrain.drive(Robot.m_oi.getTriggers()*0.25,Robot.m_oi.getX()*0.25);
    //Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers(),Robot.m_oi.getX(),Robot.gyro.getAngle());
+   System.out.println("This should be printed out");
   }
 
   

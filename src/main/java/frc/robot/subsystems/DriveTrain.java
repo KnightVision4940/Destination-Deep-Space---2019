@@ -28,10 +28,10 @@ public class DriveTrain extends Subsystem {
        
        
      
-  static WPI_VictorSPX FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);;
-  static WPI_VictorSPX FrontRight = new WPI_VictorSPX(RobotMap.backLeft);;
-  static WPI_VictorSPX BackLeft = new WPI_VictorSPX(RobotMap.frontRight);;
-  static WPI_VictorSPX BackRight = new WPI_VictorSPX(RobotMap.backRight);;
+  static WPI_VictorSPX FrontLeft;
+  static WPI_VictorSPX FrontRight;
+  static WPI_VictorSPX BackLeft;
+  static WPI_VictorSPX BackRight;
 
  
 
@@ -61,12 +61,20 @@ public class DriveTrain extends Subsystem {
       //BackRight = new WPI_TalonSRX(backRight);
      // FrontLeft.setSelectedSensorPosition(0);
   
-    SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
-    SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
-    
+     
+   
+    }
+    public static void driveInit(){
+      FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);
+      FrontRight = new WPI_VictorSPX(RobotMap.backLeft);
+      BackLeft = new WPI_VictorSPX(RobotMap.frontRight);
+      BackRight = new WPI_VictorSPX(RobotMap.backRight);
+      SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
+      SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
       
-    m_drive = new DifferentialDrive(Left, Right);
-      m_drive.setSafetyEnabled(false);
+        
+      m_drive = new DifferentialDrive(Left, Right);
+        m_drive.setSafetyEnabled(false);
     }
   
     public static void drive(double speed, double turn){
