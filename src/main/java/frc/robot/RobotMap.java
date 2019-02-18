@@ -34,9 +34,9 @@ public class RobotMap {
 
   //Arm
   //public static int rotatePlate = 4;
-  public static int armBase = 2;
-  public static int armElbow = 2;
-  public static int armWrist = 1;
+  public static int armBase = 14;
+  public static int armElbow = 13;
+  public static int armWrist = 12;
 
   //Intake System
   public static int leftRoller = 4;
@@ -46,7 +46,7 @@ public class RobotMap {
   public static int hatch = 9;
 
   //Turn Table
-  public static int TurnTable = 1;
+  public static int TurnTable = 15;
   
 
   //Climb
