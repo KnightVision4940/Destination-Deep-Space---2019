@@ -66,8 +66,8 @@ public class DriveTrain extends Subsystem {
     }
     public static void driveInit(){
       FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);
-      FrontRight = new WPI_VictorSPX(RobotMap.backLeft);
-      BackLeft = new WPI_VictorSPX(RobotMap.frontRight);
+      FrontRight = new WPI_VictorSPX(RobotMap.frontRight);
+      BackLeft = new WPI_VictorSPX(RobotMap.backLeft);
       BackRight = new WPI_VictorSPX(RobotMap.backRight);
       SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
       SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
