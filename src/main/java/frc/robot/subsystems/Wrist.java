@@ -24,6 +24,10 @@ public class Wrist extends Subsystem {
     armWrist.set(ControlMode.PercentOutput,speed);
     endCountWrist = -(armWrist.getSelectedSensorPosition(0) /4069);
   }
+
+public static int EncoderWrist(){
+  return armWrist.getSelectedSensorPosition();
+}
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

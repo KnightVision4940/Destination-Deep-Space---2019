@@ -22,22 +22,10 @@ public class TurnTable extends Subsystem {
   public static double TurnRotate = 0;
   //D@nte Was Here
 
-public static void Turn(double speed){
-  
-  TurnMotor.set(ControlMode.PercentOutput, speed);
-  TurnCoder = -(TurnMotor.getSelectedSensorPosition());
-  TurnRotate = (TurnCoder/4069);
-  if(TurnRotate >= 1 && speed == 0.5){
-      TurnMotor.set(ControlMode.PercentOutput, 0);
-  }else if(TurnRotate <= -1 && speed == -0.5){
-      TurnMotor.set(ControlMode.PercentOutput, 0);
-  }
-
-}
 public static void rotate(double speed){
   TurnMotor.set(ControlMode.PercentOutput, speed);
 }
-public static double Encoder(){
+public static int Encoder(){
 return TurnMotor.getSelectedSensorPosition();
 }
 

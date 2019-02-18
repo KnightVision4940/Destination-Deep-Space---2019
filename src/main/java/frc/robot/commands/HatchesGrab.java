@@ -12,7 +12,7 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class HatchesGrab extends Command {
-  static double Hspeed = 0.5;
+  static double Hspeed = 0.25;
   static boolean run =false;
   public HatchesGrab() {
     requires(Robot.H);

@@ -60,7 +60,12 @@ public static void arm(double speed) {
     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
   
-
+  public static int EncoderShoulder(){
+   return armBase.getSelectedSensorPosition();
+  }
+  public static int EncoderElbow(){
+    return armElbow.getSelectedSensorPosition();
+   }
 
 
   @Override

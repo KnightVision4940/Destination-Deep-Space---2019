@@ -32,7 +32,7 @@ public class HatchesInit extends Command {
     }
     else 
     {
-      Robot.H.HatchesIn(1.0);
+      Robot.H.HatchesIn(0.25);
     }
     }
 

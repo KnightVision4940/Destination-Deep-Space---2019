@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class HatchesDrop extends Command {
-  static double HSpeed = -0.5;
+  static double HSpeed = -0.25;
   static int i = 0;
   static boolean run = false;
   public HatchesDrop() {

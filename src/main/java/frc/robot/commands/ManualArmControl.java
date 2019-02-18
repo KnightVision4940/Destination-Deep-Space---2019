@@ -34,8 +34,9 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.arm(Robot.m_oi.getTriggers());
-    System.out.println("Please Work");
+    Robot.arm.arm(Robot.m_oi.getTriggers()*0.25);
+    System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
+    System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -44,7 +45,7 @@ public class ManualArmControl extends Command {
     return false;
   }
 
-  // Called once after isFinished returns true
+  // Called once after isFinished returns trues
   @Override
   protected void end() {
   }
