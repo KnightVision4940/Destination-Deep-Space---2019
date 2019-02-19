@@ -23,24 +23,26 @@ public class HatchesGrab extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.H.HatchesOut(0.15);
     run =false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(-(Robot.H.Encoder()) > 4069){
-      run  =true;
-      //end();
-    }else{
-      Robot.H.HatchesOut(-1);
+    // if(-(Robot.H.Encoder()) > 4069){
+    //   run  =true;
+    //   //end();
+    // }else{
+      
     }
-    }
+    // }
+    // }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return run;
+    return false;
   }
 
   // Called once after isFinished returns true
@@ -53,6 +55,6 @@ public class HatchesGrab extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   // end();
+   end();
   }
 }

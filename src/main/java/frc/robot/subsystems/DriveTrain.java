@@ -66,19 +66,26 @@ public class DriveTrain extends Subsystem {
     }
     public static void driveInit(){
       FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);
+   //  FrontLeft.setSafetyEnabled(false);
       FrontRight = new WPI_VictorSPX(RobotMap.frontRight);
+   //  FrontRight.setSafetyEnabled(false);
       BackLeft = new WPI_VictorSPX(RobotMap.backLeft);
+   // BackLeft.setSafetyEnabled(false);
       BackRight = new WPI_VictorSPX(RobotMap.backRight);
+    // BackRight.setSafetyEnabled(false);
       SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
       SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
       
         
       m_drive = new DifferentialDrive(Left, Right);
-        m_drive.setSafetyEnabled(false);
+     // m_drive.setSafetyEnabled(false);
+    
     }
   
     public static void drive(double speed, double turn){
-      m_drive.arcadeDrive(speed, turn, false);
+     
+     // m_drive.arcadeDrive(speed, turn, false);
+     m_drive.curvatureDrive(speed, turn, true);
     }
     public static void driveGyro(double speed, double turn, double gyro){
       if(turn != 0 || gyro < 0.5 || gyro > -0.5){
@@ -122,6 +129,7 @@ public class DriveTrain extends Subsystem {
     }
   @Override
   public void initDefaultCommand() {
+    //setDefaultCommand(new Drive());
     //Uncomment the next line to test out this drive.
    // setDefaultCommand(new Drive());
     // Set the default command for a subsystem here.

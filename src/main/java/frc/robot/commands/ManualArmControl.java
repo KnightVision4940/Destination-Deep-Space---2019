@@ -34,9 +34,9 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.arm(Robot.m_oi.getTriggers()*0.25);
-    System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
-    System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
+    Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
+    //System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
+    //System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -31,15 +31,15 @@ public class TurnTable extends Command {
     // encoder = Robot.table.Encoder();
    
  
-      if(Robot.table.Encoder() <= -4069 && Robot.m_oi.getXLogi() > 0){
-        Robot.table.rotate(0);
-      }else if(Robot.table.Encoder() >= 4069 && Robot.m_oi.getXLogi() < 0){
-        Robot.table.rotate(0);
-      }else{
-        Robot.table.rotate(Robot.m_oi.getXLogi()*0.25);
+      // if(Robot.table.Encoder() <= -4069 && Robot.m_oi.getXLogi() > 0){
+      //   Robot.table.rotate(0);
+      // }else if(Robot.table.Encoder() >= 4069 && Robot.m_oi.getXLogi() < 0){
+      //   Robot.table.rotate(0);
+      // }else{
+        Robot.table.rotate(Robot.m_oi.getXLogi()*-0.15);
         
-      }
-      System.out.println("Turn Table: "+ Robot.table.Encoder());
+      //}
+     // System.out.println("Turn Table: "+ Robot.table.Encoder());
     
      //System.out.println(i);
   

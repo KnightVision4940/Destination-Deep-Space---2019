@@ -38,6 +38,7 @@ public class Hatches extends Subsystem {
 }
 public static int Encoder(){
   return Hatch.getSelectedSensorPosition();
+  //return 1;
 }
   @Override
   public void initDefaultCommand() {

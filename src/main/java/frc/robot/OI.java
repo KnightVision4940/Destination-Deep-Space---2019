@@ -77,8 +77,8 @@ public class OI {
 
     
     xbox_a.whenPressed(new HatchesGrab());
-    xbox_b.whenPressed(new HatchesDrop());
-    xbox_x.whileHeld(new HatchesInit());
+    xbox_b.whileHeld(new HatchesDrop());
+    xbox_x.toggleWhenPressed(new HatchesInit());
     // xbox_y.whenPressed(new ClimbBot());
    
    // logi_a.whenPressed(new ArmGrab());

@@ -27,13 +27,14 @@ public class HatchesInit extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.H.HatchesIn(-0.15);
+    System.out.println("Hatches Encoder:" + Robot.H.Encoder());
+    
     // if (-(Robot.H.Encoder()) > 4069) {
     //   run  =true;
     // }
     // else 
     // {
-      Robot.H.HatchesIn(0.25);
-      System.out.println("Hatches Encoder:" + Robot.H.Encoder());
     }
     // }
     // }
@@ -41,7 +42,7 @@ public class HatchesInit extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return run;
+    return false;
   }
 
   // Called once after isFinished returns true
@@ -54,5 +55,6 @@ public class HatchesInit extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }
