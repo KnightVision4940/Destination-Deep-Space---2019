@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CamServer.camInit();
-      new UpdateDashboard();
+    new UpdateDashboard();
         
   
     System.out.println(isOperatorControl() + "" + isEnabled());

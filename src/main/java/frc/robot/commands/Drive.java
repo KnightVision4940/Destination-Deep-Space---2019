@@ -40,7 +40,7 @@ public class Drive extends Command {
   @Override
   protected void execute() {
    // Robot.driveTrain.drive(Robot.m_oi.xBox.getRawAxis(2),Robot.m_oi.logicTech.getX(Hand.kLeft));
-   Robot.driveTrain.drive(Robot.m_oi.getTriggers()*0.25,Robot.m_oi.getX()*0.25);
+   Robot.driveTrain.drive(Robot.m_oi.getTriggers()*-0.25,Robot.m_oi.getX()*0.25);
    //Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers(),Robot.m_oi.getX(),Robot.gyro.getAngle());
    //System.out.println("This should be printed out");
   }

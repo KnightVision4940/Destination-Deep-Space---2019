@@ -63,7 +63,8 @@ public class RobotMap {
   // turning parameters
   public static double driveRatio = 0.6;// driving speed reduction
   
-
+//Last Positions
+public static int lastHatchPos = 0;
 
   //Okay, now this is epic
 }

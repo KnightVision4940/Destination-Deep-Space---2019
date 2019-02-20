@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+
 import frc.robot.RobotMap;
 /**
  * Add your docs here.
@@ -20,10 +22,15 @@ public class Hatches extends Subsystem {
   // here. Call these from Commands.
 
   static TalonSRX Hatch = new TalonSRX(RobotMap.hatch);
-
+  
+  public static void init(){
+   // Hatch.configSelectedFeedbackSensor(FeedbackDevice.PulseWidthEncodedPosition);
+  // Hatch.configFactoryDefault();
+  }
   public static void HatchesIn(double speed) {
 
       Hatch.set(ControlMode.PercentOutput,speed);
+     
 
   }
  

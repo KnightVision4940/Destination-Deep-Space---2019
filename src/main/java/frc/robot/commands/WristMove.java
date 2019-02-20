@@ -28,10 +28,13 @@ public class WristMove extends Command {
   protected void execute() {
     if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
     Robot.wrist.moveWrist(_Speed);
+   // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
     }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
       Robot.wrist.moveWrist(-_Speed);
+     // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
       }else{
         Robot.wrist.moveWrist(0);
+      //  System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
     }
   }
 
@@ -45,6 +48,7 @@ public class WristMove extends Command {
   @Override
   protected void end() {
     Robot.wrist.moveWrist(0);
+    System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
   }
 
   // Called when another command which requires one or more of the same

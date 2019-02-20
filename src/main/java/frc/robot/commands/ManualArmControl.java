@@ -35,6 +35,7 @@ public class ManualArmControl extends Command {
   @Override
   protected void execute() {
     Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
+    
     //System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
     //System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
   }
