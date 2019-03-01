@@ -28,7 +28,7 @@ public class HatchesInit extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.H.HatchesIn(-0.15);
+    Robot.H.HatchesIn(-0.3);
     //System.out.println("Hatches Encoder:" + Robot.H.Encoder());
     
     // if (-(Robot.H.Encoder()) > 4069) {

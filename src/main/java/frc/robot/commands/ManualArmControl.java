@@ -34,10 +34,30 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
+    // if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getTriggersLogi() > 0){
+     
+    //   Robot.arm.arm(Robot.m_oi.getTriggersLogi()*-0.50);
+    // }else if(Robot.arm.EncoderShoulder() >= 2100 && Robot.m_oi.getTriggersLogi() < 0){
+    //   Robot.arm.arm(Robot.m_oi.getTriggersLogi()*-0.50);
+    // }else{
+    //   Robot.arm.arm(0);
+    //  }
+    if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getYLogiL() > 0){
+     
+      Robot.arm.arm(Robot.m_oi.getYLogiL()*-0.50);
+    }else if(Robot.arm.EncoderShoulder() >= 2100 && Robot.m_oi.getYLogiL() < 0){
+      Robot.arm.arm(Robot.m_oi.getYLogiL()*-0.50);
+    }else{
+      Robot.arm.arm(0);
+     }
+
+     Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.25);
+
+   System.out.println("Trigger Value:" + Robot.m_oi.getTriggersLogi());
+   // Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
     
-    //System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
-    //System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
+   System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
+    System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
   }
 
   // Make this return true when this Command no longer needs to run execute()

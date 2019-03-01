@@ -44,11 +44,11 @@ public static void init(){
 public static void arm(double speed) {
   
      armBase.set(ControlMode.PercentOutput,speed);
-     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
      
 
-    armElbow.set(ControlMode.PercentOutput,speed);
-    endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
+   // armElbow.set(ControlMode.PercentOutput,speed);
+    //endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
       
   }
   public static void moveShoulder(double speed){

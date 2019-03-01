@@ -23,7 +23,7 @@ public class HatchesGrab extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.H.HatchesOut(0.15);
+    Robot.H.HatchesOut(0.3);
     run =false;
   }
 
