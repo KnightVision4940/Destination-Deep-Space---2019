@@ -51,14 +51,18 @@ public class ManualArmControl extends Command {
       Robot.arm.arm(0);
      }
 
-     Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.25);
+      if(Robot.m_oi.getYLogiR() >= -0.02 && Robot.m_oi.getYLogiR() <= 0.15){
+        Robot.arm.moveElbow(0.10);
+      }else{
+        Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-1);
+      }
 
-   System.out.println("Trigger Value:" + Robot.m_oi.getTriggersLogi());
-   // Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
+  //  System.out.println("Trigger Value:" + Robot.m_oi.getTriggersLogi());
+  //  // Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
     
-   System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
-    System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
-  }
+    System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
+     System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
+   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

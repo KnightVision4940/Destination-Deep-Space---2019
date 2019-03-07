@@ -10,11 +10,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class WristMove extends Command {
-  public static double _Speed = -0.25;
-  public WristMove() {
-   // requires(Robot.wrist);
-   requires(Robot.wrist);
+public class StartPosition extends Command {
+  public StartPosition() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,18 +24,12 @@ public class WristMove extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
-    Robot.wrist.moveWrist(_Speed);
-   //Robot.arm.moveElbow(_Speed);
-   // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
-    }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
-     Robot.wrist.moveWrist(-_Speed);
-     // Robot.arm.moveElbow(-_Speed);
-     // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
-      }else{
-        Robot.wrist.moveWrist(0);
-        //Robot.arm.moveElbow(0);
-      //  System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+    if(Robot.arm.EncoderShoulder() > 3555){
+      Robot.arm.moveShoulder(0.5);
+    }else if(Robot.arm.EncoderShoulder() < 3485){
+      Robot.arm.moveShoulder(-0.5);
+    }else{
+      end();
     }
   }
 
@@ -51,8 +42,7 @@ public class WristMove extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.wrist.moveWrist(0);
-    //System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+    Robot.arm.moveShoulder(0);
   }
 
   // Called when another command which requires one or more of the same

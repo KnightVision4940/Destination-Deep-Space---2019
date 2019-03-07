@@ -155,9 +155,9 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().add(new Drive());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
     Scheduler.getInstance().add(new DriveWithJoystick());
-    Scheduler.getInstance().add(new WristMove());
     Scheduler.getInstance().add(new UpdateDashboard());
     Scheduler.getInstance().add(new ManualArmControl());
+    Scheduler.getInstance().add(new WristMove());
 
 
     //drive.start();

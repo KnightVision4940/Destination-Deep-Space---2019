@@ -88,10 +88,10 @@ public class DriveTrain extends Subsystem {
      m_drive.curvatureDrive(speed, turn, true);
     }
     public static void driveGyro(double speed, double turn, double gyro){
-      if(turn != 0 || gyro < 0.5 || gyro > -0.5){
-        m_drive.arcadeDrive(speed, turn, false);
+      if(turn <= 0.05 && turn >= -0.05 && gyro < 0.5 && gyro > -0.5){
+        m_drive.arcadeDrive(speed, -(gyro) * 0.25, false);
       }else{
-        m_drive.arcadeDrive(speed, -(gyro),false);
+        m_drive.arcadeDrive(speed, turn,false);
       }
     }
 

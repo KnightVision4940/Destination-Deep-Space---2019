@@ -54,6 +54,9 @@ public class UpdateDashboard extends Command {
     // Arm Angle = ArmWaist
     double ArmWaist = Wrist.endCountWrist;
     SmartDashboard.putNumber("angle of Wrist",ArmWaist);
+
+    double turntable = Robot.table.Encoder();
+    SmartDashboard.putNumber("angle of turntable",turntable);
     
     //Robot Status  
   }

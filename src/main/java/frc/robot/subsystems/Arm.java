@@ -56,7 +56,11 @@ public static void arm(double speed) {
     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
   public static void moveElbow(double speed){
-    armElbow.set(ControlMode.PercentOutput,speed);
+    if(speed > 0){
+      armElbow.set(ControlMode.PercentOutput,speed);
+    }else{
+      armElbow.set(ControlMode.PercentOutput,speed*0.25);
+    }
     endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
   
