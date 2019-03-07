@@ -27,18 +27,23 @@ public class WristMove extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
-    Robot.wrist.moveWrist(_Speed);
-   //Robot.arm.moveElbow(_Speed);
-   // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
-    }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
-     Robot.wrist.moveWrist(-_Speed);
-     // Robot.arm.moveElbow(-_Speed);
-     // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
-      }else{
-        Robot.wrist.moveWrist(0);
-        //Robot.arm.moveElbow(0);
-      //  System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+   
+    if(Robot.m_oi.getPOV() == -1){
+      Robot.wrist.moveWrist(0.07);
+    }else{
+      if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
+        Robot.wrist.moveWrist(-0.10);
+       //Robot.arm.moveElbow(_Speed);
+       // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+        }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
+         Robot.wrist.moveWrist(0.25);
+         // Robot.arm.moveElbow(-_Speed);
+         // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+          }else{
+            Robot.wrist.moveWrist(0);
+            //Robot.arm.moveElbow(0);
+          //  System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+        }
     }
   }
 

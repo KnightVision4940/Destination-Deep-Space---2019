@@ -44,9 +44,9 @@ public class ManualArmControl extends Command {
     //  }
     if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getYLogiL() > 0){
      
-      Robot.arm.arm(Robot.m_oi.getYLogiL()*-0.50);
+      Robot.arm.arm(Robot.m_oi.getYLogiL()*-1);
     }else if(Robot.arm.EncoderShoulder() >= 2100 && Robot.m_oi.getYLogiL() < 0){
-      Robot.arm.arm(Robot.m_oi.getYLogiL()*-0.50);
+      Robot.arm.arm(Robot.m_oi.getYLogiL()*-1);
     }else{
       Robot.arm.arm(0);
      }

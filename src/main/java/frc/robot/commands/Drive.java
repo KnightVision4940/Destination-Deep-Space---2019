@@ -41,11 +41,16 @@ Robot.gyro.reset();
   protected void execute() {
    // Robot.driveTrain.drive(Robot.m_oi.xBox.getRawAxis(2),Robot.m_oi.logicTech.getX(Hand.kLeft));
   // Robot.driveTrain.drive(Robot.m_oi.getTriggers()*-0.25,Robot.m_oi.getX()*0.25);
-   Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers()*0.7,Robot.m_oi.getX(),Robot.gyro.getAngle());
+   
    //System.out.println("This should be printed out");
  //  System.out.println("Turn:" + Robot.m_oi.getX());
   // System.out.println("Triggers" + Robot.m_oi.getTriggers()*0.7);
   // System.out.println("Gyro" + Robot.gyro.getAngle());
+  if(Robot.m_oi.getX() < 0.05 && Robot.m_oi.getX() > -0.05){
+    Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers()*0.7,0,Robot.gyro.getAngle());
+  }else{
+    Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers()*0.7,Robot.m_oi.getX(),Robot.gyro.getAngle());
+  }
   }
 
   

@@ -24,7 +24,7 @@ public class HatchesGrab extends Command {
   @Override
   protected void initialize() {
     Robot.H.HatchesOut(0.3);
-    run =false;
+   // run =false;
   }
 
   // Called repeatedly when this Command is scheduled to run

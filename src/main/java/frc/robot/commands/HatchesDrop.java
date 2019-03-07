@@ -31,15 +31,15 @@ public class HatchesDrop extends Command {
   @Override
   protected void execute() {
     //if(-(Robot.H.Encoder()) > 4069){
-    if(i > 100){
-      run  =true;
-     // i = 0;
-    }else{
-      Robot.H.HatchesIn(1);
-      i++;
-    }
-    System.out.println(i);
-  }
+    // if(i > 100){
+    //   run  =true;
+    //  // i = 0;
+    // }else{
+      Robot.H.HatchesIn(-0.3);
+      // i++;
+  //   }
+  //   System.out.println(i);
+   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
@@ -59,6 +59,6 @@ public class HatchesDrop extends Command {
   @Override
   protected void interrupted() {
     //Robot.H.HatchesStop();
-      //end();
+      end();
   }
 }
