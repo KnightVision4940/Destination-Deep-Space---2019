@@ -50,7 +50,9 @@ public class RobotMap {
   
 
   //Climb
-  public static int climbmotor = 8;
+  public static int climbmotor1 = 8;
+  public static int climbmotor2;
+
 
 // LogicTech Buttons
   public static int LogicFullSpeed = 5;	//acceleration to full speed

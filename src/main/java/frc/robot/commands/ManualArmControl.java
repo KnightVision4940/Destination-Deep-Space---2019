@@ -42,19 +42,22 @@ public class ManualArmControl extends Command {
     // }else{
     //   Robot.arm.arm(0);
     //  }
-    if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getYLogiL() > 0){
+    // if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getYLogiL() > 0){
      
-      Robot.arm.arm(Robot.m_oi.getYLogiL()*-1);
-    }else if(Robot.arm.EncoderShoulder() >= 2100 && Robot.m_oi.getYLogiL() < 0){
-      Robot.arm.arm(Robot.m_oi.getYLogiL()*-1);
-    }else{
-      Robot.arm.arm(0);
-     }
+      //Robot.arm.arm(Robot.m_oi.getYLogiL()*-1);
+    // }else 
 
+    //the if statment means if your at this position & the robot is moving away from position than move at -47% speed 
+    // if(Robot.arm.EncoderShoulder() >= 3067 && Robot.m_oi.getYLogiL() < 0){
+      Robot.arm.arm(-Robot.m_oi.getYLogiL()*-0.42);
+    // }else{
+      // Robot.arm.arm(-Robot.m_oi.getYLogiL()*-0.42);
+    //  }
+    //the if statment means if your not giving eoungh power trok to the eblow then move up at 10% speed 
       if(Robot.m_oi.getYLogiR() >= -0.02 && Robot.m_oi.getYLogiR() <= 0.15){
         Robot.arm.moveElbow(0.10);
       }else{
-        Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-1);
+        Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
       }
 
   //  System.out.println("Trigger Value:" + Robot.m_oi.getTriggersLogi());

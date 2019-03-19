@@ -63,7 +63,7 @@ public class OI {
     Button xbox_b = new JoystickButton(xBox,2);
     Button xbox_x = new JoystickButton(xBox,3);
     Button xbox_y = new JoystickButton(xBox,4);
-   
+    Button xbox_start = new JoystickButton(xBox, 8);
 
     Button logi_a = new JoystickButton(logicTech, 1);
     Button logi_b = new JoystickButton(logicTech, 2);
@@ -79,6 +79,7 @@ public class OI {
     
     xbox_b.whileHeld(new HatchesGrab());
     xbox_a.whileHeld(new HatchesDrop());
+    xbox_start.whileHeld(new ClimbBot());
    // xbox_x.whileHeld(new HatchesInit());
     
     // xbox_y.whenPressed(new ClimbBot());

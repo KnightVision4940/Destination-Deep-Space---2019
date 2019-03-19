@@ -46,10 +46,10 @@ Robot.gyro.reset();
  //  System.out.println("Turn:" + Robot.m_oi.getX());
   // System.out.println("Triggers" + Robot.m_oi.getTriggers()*0.7);
   // System.out.println("Gyro" + Robot.gyro.getAngle());
-  if(Robot.m_oi.getX() < 0.05 && Robot.m_oi.getX() > -0.05){
-    Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers()*0.7,0,Robot.gyro.getAngle());
+  if(Robot.m_oi.getX() < 0.1 && Robot.m_oi.getX() > -0.1){
+    Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.7,0,Robot.gyro.getAngle());
   }else{
-    Robot.driveTrain.driveGyro(Robot.m_oi.getTriggers()*0.7,Robot.m_oi.getX(),Robot.gyro.getAngle());
+    Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.7,Robot.m_oi.getX(),Robot.gyro.getAngle());
   }
   }
 

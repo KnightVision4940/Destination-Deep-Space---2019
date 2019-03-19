@@ -7,10 +7,12 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
 import frc.robot.subsystems.DriveTrain;
@@ -18,17 +20,32 @@ import frc.robot.subsystems.DriveTrain;
  * Add your docs here.
  */
 public class Climb extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  static VictorSPX climbMotor = new VictorSPX(RobotMap.climbmotor);
+
+  //the speed of the motor need to be the exact smae
+  //the direction of each motor should oppsite to each other *this is due to the ortaition of the motor*
+  static WPI_VictorSPX climbMotor1 = new WPI_VictorSPX(RobotMap.climbmotor1);
+  static WPI_VictorSPX climbMotor2 = new WPI_VictorSPX(RobotMap.climbmotor2);
 
     public static void climb(double speed){
-      climbMotor.set(ControlMode.PercentOutput, speed);
+      climbMotor1.set(speed);
+      climbMotor2.set(-speed);
     }
+
     public static void climbStop(){
-      climbMotor.set(ControlMode.PercentOutput, 0);
+      climbMotor1.set(0);
+      climbMotor2.set(0);
     }
+
+    //this code is if we need to test each motor/speedcontroller indiviually 
+    //they should usually run togethher at the smae speed 
     
+    // public static void climbTest1(double speed){
+    //   climbMotor1.set(speed);
+    // }
+    // public static void climbTest2(double speed){
+    //   climbMotor2.set(-speed);
+    // }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
