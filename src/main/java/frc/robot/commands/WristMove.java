@@ -29,9 +29,9 @@ public class WristMove extends Command {
   protected void execute() {
    
 
-    // if(Robot.m_oi.getPOV() == -1 && Robot.wrist.EncoderWrist() >= 4819){
-    //   Robot.wrist.moveWrist(0.07);
-    // }else{
+    if(Robot.m_oi.getPOV() == -1){
+      Robot.wrist.moveWrist(0.07);
+    }else{
       if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
         Robot.wrist.moveWrist(-0.20);
        //Robot.arm.moveElbow(_Speed);
@@ -44,7 +44,7 @@ public class WristMove extends Command {
             Robot.wrist.moveWrist(0);
   
         }
-    // }
+     }
     System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
 
   }

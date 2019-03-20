@@ -12,6 +12,9 @@ import frc.robot.Robot;
 
 public class ManualArmControl extends Command {
   static double ArmSpeed = 0.5;
+  int sh_e_back = 1516;
+  int sh_e_front = 1889;
+  int e_e_up = -3000;
   public ManualArmControl() {
     requires(Robot.arm);
     // Use requires() here to declare subsystem dependencies
@@ -34,25 +37,25 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getTriggersLogi() > 0){
-     
-    //   Robot.arm.arm(Robot.m_oi.getTriggersLogi()*-0.50);
-    // }else if(Robot.arm.EncoderShoulder() >= 2100 && Robot.m_oi.getTriggersLogi() < 0){
-    //   Robot.arm.arm(Robot.m_oi.getTriggersLogi()*-0.50);
-    // }else{
-    //   Robot.arm.arm(0);
-    //  }
-    // if(Robot.arm.EncoderShoulder() <= 4700 && Robot.m_oi.getYLogiL() > 0){
-     
-      //Robot.arm.arm(Robot.m_oi.getYLogiL()*-1);
-    // }else 
+   
 
     //the if statment means if your at this position & the robot is moving away from position than move at -47% speed 
-    // if(Robot.arm.EncoderShoulder() >= 3067 && Robot.m_oi.getYLogiL() < 0){
-      Robot.arm.arm(-Robot.m_oi.getYLogiL()*-0.42);
-    // }else{
-      // Robot.arm.arm(-Robot.m_oi.getYLogiL()*-0.42);
-    //  }
+     if(Robot.arm.EncoderShoulder() <= sh_e_back && Robot.m_oi.getYLogiL() > 0){
+        Robot.arm.moveShoulder(0);
+     }else if (Robot.arm.EncoderShoulder() >= sh_e_front && Robot.m_oi.getYLogiL() < 0){
+        Robot.arm.moveShoulder(0);
+      }else{
+        Robot.arm.moveShoulder(-Robot.m_oi.getYLogiL()*-0.42);
+      }
+
+      if(Robot.arm.EncoderElbow() <= e_e_up && Robot.m_oi.getYLogiR() < 0){
+        Robot.arm.moveElbow(0);
+     }else{
+        Robot.arm.moveElbow(-Robot.m_oi.getYLogiL()*-0.42);
+      }
+
+
+
     //the if statment means if your not giving eoungh power trok to the eblow then move up at 10% speed 
       if(Robot.m_oi.getYLogiR() >= -0.02 && Robot.m_oi.getYLogiR() <= 0.15){
         Robot.arm.moveElbow(0.10);

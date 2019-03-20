@@ -13,6 +13,9 @@ import frc.robot.Robot;
 public class TurnTable extends Command {
   double encoder;
   public static int i = 0;
+  int e_mid = 6772;
+  int e_left = 3929;
+  int e_right = 10086;
   public TurnTable() {
     requires(Robot.table);
     // Use requires() here to declare subsystem dependencies
@@ -31,9 +34,9 @@ public class TurnTable extends Command {
     // encoder = Robot.table.Encoder();
    
  
-       if(Robot.table.Encoder() <= 451 && Robot.m_oi.getTriggersLogi() > 0){
+       if(Robot.table.Encoder() <= e_left && Robot.m_oi.getTriggersLogi() > 0){
          Robot.table.rotate(0);
-       }else if(Robot.table.Encoder() >= 5173 && Robot.m_oi.getTriggersLogi() < 0){
+       }else if(Robot.table.Encoder() >= e_right && Robot.m_oi.getTriggersLogi() < 0){
          Robot.table.rotate(0);
        }else{
         Robot.table.rotate(Robot.m_oi.getTriggersLogi()*0.5);
