@@ -33,19 +33,20 @@ public class WristMove extends Command {
       Robot.wrist.moveWrist(0.07);
     }else{
       if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
-        Robot.wrist.moveWrist(-0.20);
+        Robot.wrist.moveWrist(-0.15);
        //Robot.arm.moveElbow(_Speed);
        // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
         }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
-         Robot.wrist.moveWrist(0.15);
+         Robot.wrist.moveWrist(0.30);
          // Robot.arm.moveElbow(-_Speed);
          // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
           }else{
             Robot.wrist.moveWrist(0);
   
         }
+        Robot.wrist.EncoderWrist();
      }
-    System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+   // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
 
   }
 

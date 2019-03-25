@@ -14,8 +14,8 @@ public class TurnTable extends Command {
   double encoder;
   public static int i = 0;
   int e_mid = 6772;
-  int e_left = 3929;
-  int e_right = 10086;
+  int e_left = -77;
+  int e_right = 5055;
   public TurnTable() {
     requires(Robot.table);
     // Use requires() here to declare subsystem dependencies
@@ -42,7 +42,7 @@ public class TurnTable extends Command {
         Robot.table.rotate(Robot.m_oi.getTriggersLogi()*0.5);
         
      }
-      //System.out.println("Turn Table: "+ Robot.table.Encoder());
+      System.out.println("Turn Table: "+ Robot.table.Encoder());
     
      //System.out.println(i);
   

@@ -57,8 +57,13 @@ public class OI {
   public static final XboxController x = new XboxController(1);
   public static final XboxController l = new XboxController(3);
   public static final Joystick logicTech = new Joystick(3);
+  public static int[] E_arm = {0,0};
+  public static int E_wrist = 0;
+  public static int[] all = {0,0,0};
+  public static double gyro;
   
   public OI(){
+
     Button xbox_a = new JoystickButton(xBox,1);
     Button xbox_b = new JoystickButton(xBox,2);
     Button xbox_x = new JoystickButton(xBox,3);
@@ -129,5 +134,24 @@ public static double getYLogiR(){
 }
 public static double getXLogi(){
   return l.getRawAxis(0);
+}
+public static void addArm(int elbow, int shoulder){
+  E_arm[0] = elbow;
+  E_arm[1] = shoulder;
+}
+public static void addWrist(int wrist){
+ E_wrist = wrist;
+}
+public static int[] getEncoders(){
+  all[0] = E_arm[0];
+  all[1] = E_arm[1];
+  all[2] = E_arm[2];
+  return all;
+}
+public static void Addgyro(double g){
+  gyro = g;
+}
+public static double getGyro(){
+  return gyro;
 }
 }

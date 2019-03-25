@@ -30,7 +30,7 @@ public class Drive extends Command {
     Robot.driveTrain.driveInit();
     Robot.gyro.gyroInit();
    Robot.gyro.calibrategyro();
-Robot.gyro.reset();
+  Robot.gyro.reset();
     //Robot.driveTrain.drive(Robot.m_oi.xBox.getY(),Robot.m_oi.xBox.getX());
    // System.out.println(Robot.m_oi.xBox.getThrottle());
     
@@ -49,8 +49,9 @@ Robot.gyro.reset();
   if(Robot.m_oi.getX() < 0.15 && Robot.m_oi.getX() > -0.15){
     Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.7,0,Robot.gyro.getAngle());
   }else{
-    Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.7,Robot.m_oi.getX(),Robot.gyro.getAngle());
+    Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5,Robot.gyro.getAngle());
   }
+    Robot.m_oi.Addgyro(Robot.gyro.getAngle());
   }
 
   

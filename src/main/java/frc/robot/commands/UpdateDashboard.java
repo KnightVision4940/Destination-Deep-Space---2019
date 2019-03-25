@@ -20,7 +20,7 @@ import frc.robot.subsystems.Wrist;
 public class UpdateDashboard extends Command {
 
   SendableChooser<Command> m_chooser = new SendableChooser<>();  public UpdateDashboard() {
-    requires(Robot.arm);
+    //requires(Robot.arm);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -34,31 +34,34 @@ public class UpdateDashboard extends Command {
   @Override
   protected void execute() {
     double time = 1;
+    int[] encoders = Robot.m_oi.getEncoders();
     time = DriverStation.getInstance().getMatchTime();
     SmartDashboard.putNumber("time left", time);
 
     //Gyro
     //sGyroscope g = new Gyroscope();
-    //int gyro = g.getAngle();
-   //s SmartDashboard.putNumber("gyro angle", gyro);
+    double gyro = Robot.m_oi.getGyro();
+    SmartDashboard.putNumber("gyro angle", gyro);
 
     //Arm Angle = Baseangle
     
-    double Baseangle =  Arm.endCountBase;
+    double Baseangle =  encoders[1];
     SmartDashboard.putNumber("angle of Base", Baseangle);
     
     //Arm Angle = ArmElbow
-     double ArmElbow = Arm.endCountElbow;
+     double ArmElbow = encoders[2];
     SmartDashboard.putNumber("angle of Elbow",ArmElbow); 
 
     // Arm Angle = ArmWaist
-    double ArmWrist = Wrist.endCountWrist;
+    double ArmWrist = encoders[3];
     SmartDashboard.putNumber("angle of Wrist",ArmWrist);
+    SmartDashboard.updateValues();
 
-    double turntable = Robot.table.Encoder();
-    SmartDashboard.putNumber("angle of turntable",turntable);
+    // double turntable = Robot.table.Encoder();
+    // SmartDashboard.putNumber("angle of turntable",turntable);
     
-    //Robot Status  
+    //Robot Status 
+  
   }
 
   // Make this return true when this Command no longer needs to run execute()
