@@ -12,10 +12,11 @@ import frc.robot.Robot;
 
 public class ManualArmControl extends Command {
   static double ArmSpeed = 0.5;
-  int sh_e_back = 446;
-  int sh_e_front = 1042;
-  int e_e_up = -3000;
-  int e_e_down = 0;
+  int sh_e_back = 4152;
+  int sh_e_front = 4400;
+  int sh_e_front2 = 4750;
+  int e_e_up = 8000;
+  int e_e_down = 5000;
   public ManualArmControl() {
     requires(Robot.arm);
     // Use requires() here to declare subsystem dependencies
@@ -38,45 +39,64 @@ public class ManualArmControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   
+  // NormalMode();
+   ChooseEncoderMode();
 
+   }
+   void NormalMode(){
+     
     //the if statment means if your at this position & the robot is moving away from position than move at -47% speed 
-    
-    if(Robot.arm.EncoderShoulder() <= sh_e_back && Robot.m_oi.getYLogiL() > 0){
-        Robot.arm.moveShoulder(0);
-     }else if (Robot.arm.EncoderShoulder() >= sh_e_front && Robot.m_oi.getYLogiL() < 0){
-        Robot.arm.moveShoulder(0);
-      }else{
-        Robot.arm.moveShoulder(-Robot.m_oi.getYLogiL()*-0.42);
-      }
+  //   if(Robot.arm.EncoderElbow() <= 8500){
+  //     sh_e_front = sh_e_front2;
+  //   }else {
+  //     sh_e_front = 4400;
+  //   }
 
-      if(Robot.arm.EncoderElbow() <= e_e_up && Robot.m_oi.getYLogiR() < 0){
-        Robot.arm.moveElbow(0.12);
-     }else if (Robot.arm.EncoderElbow() >= e_e_down && Robot.m_oi.getYLogiR() > 0){
-      Robot.arm.moveElbow(0);
-    }else{
-      if(Robot.m_oi.getYLogiR() >= -0.02 && Robot.m_oi.getYLogiR() <= 0.15){
-        Robot.arm.moveElbow(0.12);
-      }else{
-        Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
-      }
-     // Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
-
-    }
+  //   if(Robot.arm.EncoderElbow() <= e_e_up && Robot.m_oi.getYLogiL() < 0.1 && Robot.m_oi.getYLogiL() > -0.1 && (Robot.m_oi.getYLogiR() > 0.1 || Robot.m_oi.getYLogiR() < -0.1)){
+  //     Robot.arm.moveShoulder(-0.35);
+  //   }else if(Robot.arm.EncoderShoulder() <= sh_e_back && Robot.m_oi.getYLogiL() > 0){
+  //     Robot.arm.moveShoulder(0);
+  //  }else if (Robot.arm.EncoderShoulder() >= sh_e_front && Robot.m_oi.getYLogiL() < 0){
+  //     Robot.arm.moveShoulder(0);
+  //   }else{
+  //     Robot.arm.moveShoulder(-Robot.m_oi.getYLogiL()*-0.42);
+  //   }
   
-
-
-
-    //the if statment means if your not giving eoungh power trok to the eblow then move up at 10% speed 
-      
-
-  //  System.out.println("Trigger Value:" + Robot.m_oi.getTriggersLogi());
-  //  // Robot.arm.arm(Robot.m_oi.getTriggersLogi()*0.50);
+  //   System.out.println("Shoulder:" + Robot.arm.EncoderShoulder());
     
-  // System.out.println("Encoder Arm Shosulder: "+ Robot.arm.EncoderShoulder());
-    // System.out.println("Encoder Arm Elbow: "+ Robot.arm.EncoderElbow());
-    Robot.m_oi.addArm(Robot.arm.EncoderElbow(), Robot.arm.EncoderShoulder());
+  
+      // if(){
+      //   
+      // }
+    
 
+  //   if(Robot.arm.EncoderElbow() <= e_e_up && Robot.m_oi.getYLogiR() < 0){
+  //     Robot.arm.moveElbow(0.12);
+  //  }else if (Robot.arm.EncoderElbow() >= e_e_down && Robot.m_oi.getYLogiR() > 0){
+  //   Robot.arm.moveElbow(0);
+  // }else{
+    if(Robot.m_oi.getYLogiR() >= -0.15 && Robot.m_oi.getYLogiR() <= 0.15 && Robot.arm.EncoderElbow() >= e_e_up){
+      Robot.arm.moveElbow(0.12);
+    }else{
+      Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
+   // }
+  }
+  Robot.m_oi.addArm(Robot.arm.EncoderElbow(),1);
+  System.out.println("Elbow:" + Robot.arm.EncoderElbow());
+  System.out.println("TRY THIS" + Robot.m_oi.getYLogiR());
+   }
+   
+   
+   void ChooseEncoderMode(){
+     
+    if(Robot.m_oi.getYLogiR() >= -0.15 && Robot.m_oi.getYLogiR() <= 0.15){
+      Robot.arm.moveElbow(0.08);
+    }else{
+      Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
+    }
+   // Robot.arm.moveShoulder(-Robot.m_oi.getYLogiL()*-0.42);
+    System.out.println("Elbow:" + Robot.arm.EncoderElbow());
+    //System.out.println("Shoulder:" + Robot.arm.EncoderShoulder());
    }
 
   // Make this return true when this Command no longer needs to run execute()

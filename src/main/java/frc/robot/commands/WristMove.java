@@ -12,6 +12,8 @@ import frc.robot.Robot;
 
 public class WristMove extends Command {
   public static double _Speed = -0.25;
+  public static double encoder = 5000;
+  public static double actualEncoder;
   public WristMove() {
    // requires(Robot.wrist);
    requires(Robot.wrist);
@@ -27,13 +29,23 @@ public class WristMove extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   
+   actualEncoder = Robot.wrist.EncoderWrist();
 
     if(Robot.m_oi.getPOV() == -1){
-      Robot.wrist.moveWrist(0.07);
+      // if(actualEncoder >= (encoder)){
+      //   Robot.wrist.moveWrist(0);
+      // }else{
+        Robot.wrist.moveWrist(0.07);
+      //}
+     
     }else{
       if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
-        Robot.wrist.moveWrist(-0.15);
+        if(actualEncoder <= encoder){
+          Robot.wrist.moveWrist(-0.30);
+        }else{
+          Robot.wrist.moveWrist(-0.15);
+        }
+       
        //Robot.arm.moveElbow(_Speed);
        // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
         }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
@@ -44,9 +56,9 @@ public class WristMove extends Command {
             Robot.wrist.moveWrist(0);
   
         }
-        Robot.wrist.EncoderWrist();
+      //  Robot.wrist.EncoderWrist();
      }
-   // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+    //System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
 
   }
 

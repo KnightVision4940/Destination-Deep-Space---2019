@@ -33,34 +33,34 @@ public class UpdateDashboard extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double time = 1;
-    int[] encoders = Robot.m_oi.getEncoders();
-    time = DriverStation.getInstance().getMatchTime();
-    SmartDashboard.putNumber("time left", time);
+    // double time = 1;
+    // int[] encoders = Robot.m_oi.getEncoders();
+    // time = DriverStation.getInstance().getMatchTime();
+    // SmartDashboard.putNumber("time left", time);
 
-    //Gyro
-    //sGyroscope g = new Gyroscope();
-    double gyro = Robot.m_oi.getGyro();
-    SmartDashboard.putNumber("gyro angle", gyro);
-
-    //Arm Angle = Baseangle
+    // //Gyro
+    // //sGyroscope g = new Gyroscope();
+    // double gyro = Robot.m_oi.getGyro();
+    // SmartDashboard.putNumber("gyro angle", gyro);
+    // SmartDashboard.updateValues();
+    // //Arm Angle = Baseangle
     
-    double Baseangle =  encoders[1];
-    SmartDashboard.putNumber("angle of Base", Baseangle);
-    
-    //Arm Angle = ArmElbow
-     double ArmElbow = encoders[2];
-    SmartDashboard.putNumber("angle of Elbow",ArmElbow); 
+    // int Baseangle =  encoders[1];
+    // SmartDashboard.putNumber("angle of Base", Baseangle);
+    // SmartDashboard.updateValues();
+    // //Arm Angle = ArmElbow
+    //  int ArmElbow = encoders[2];
+    // SmartDashboard.putNumber("angle of Elbow",ArmElbow); 
+    // SmartDashboard.updateValues();
+    // // Arm Angle = ArmWaist
+    // int ArmWrist = encoders[3];
+    // SmartDashboard.putNumber("angle of Wrist",ArmWrist);
+    // SmartDashboard.updateValues();
 
-    // Arm Angle = ArmWaist
-    double ArmWrist = encoders[3];
-    SmartDashboard.putNumber("angle of Wrist",ArmWrist);
-    SmartDashboard.updateValues();
-
-    // double turntable = Robot.table.Encoder();
-    // SmartDashboard.putNumber("angle of turntable",turntable);
+    // // double turntable = Robot.table.Encoder();
+    // // SmartDashboard.putNumber("angle of turntable",turntable);
     
-    //Robot Status 
+    // //Robot Status 
   
   }
 

@@ -59,7 +59,7 @@ public class OI {
   public static final Joystick logicTech = new Joystick(3);
   public static int[] E_arm = {0,0};
   public static int E_wrist = 0;
-  public static int[] all = {0,0,0};
+  public static int[] all = new int[4];
   public static double gyro;
   
   public OI(){
@@ -69,6 +69,7 @@ public class OI {
     Button xbox_x = new JoystickButton(xBox,3);
     Button xbox_y = new JoystickButton(xBox,4);
     Button xbox_start = new JoystickButton(xBox, 8);
+    Button xbox_back = new JoystickButton(xBox, 7);
 
     Button logi_a = new JoystickButton(logicTech, 1);
     Button logi_b = new JoystickButton(logicTech, 2);
@@ -84,7 +85,8 @@ public class OI {
     
     xbox_b.whileHeld(new HatchesGrab());
     xbox_a.whileHeld(new HatchesDrop());
-    xbox_start.whileHeld(new ClimbBot());
+    xbox_start.whileHeld(new ClimbBot(1));
+   xbox_back.whileHeld(new ClimbBot(-1));
    // xbox_x.whileHeld(new HatchesInit());
     
     // xbox_y.whenPressed(new ClimbBot());
@@ -95,7 +97,7 @@ public class OI {
     logi_RB.whileHeld(new IntakeIn());
     logi_start.whenPressed(new StartPosition());
 
-
+ 
    // a.whenReleased(new IntakeIn(true));
   
 
@@ -145,7 +147,7 @@ public static void addWrist(int wrist){
 public static int[] getEncoders(){
   all[0] = E_arm[0];
   all[1] = E_arm[1];
-  all[2] = E_arm[2];
+  all[2] = E_wrist;
   return all;
 }
 public static void Addgyro(double g){

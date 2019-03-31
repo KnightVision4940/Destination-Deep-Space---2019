@@ -36,7 +36,7 @@ public class ArmGrab extends Command {
   protected void execute() {
  
     if(i1 >= 250){
-      Arm.armBase.set(ControlMode.PercentOutput, 0);
+     // Arm.armBase.set(ControlMode.PercentOutput, 0);
     }
     else{
       Arm.moveShoulder(0.5);
@@ -65,7 +65,7 @@ public class ArmGrab extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Arm.armBase.set(ControlMode.PercentOutput, 0);
+    //Arm.armBase.set(ControlMode.PercentOutput, 0);
     Arm.armElbow.set(ControlMode.PercentOutput, 0);
   }
 

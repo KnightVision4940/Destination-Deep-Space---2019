@@ -51,7 +51,7 @@ public class RobotMap {
 
   //Climb
   public static int climbmotor1 = 8;
-  public static int climbmotor2;
+  public static int climbmotor2 = 11;
 
 
 // LogicTech Buttons

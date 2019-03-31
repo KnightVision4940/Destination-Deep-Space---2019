@@ -23,8 +23,7 @@ public class HatchesDrop extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    i= 0;
-    run =false;
+    Robot.H.HatchesIn(-0.3);
   }
 
   // Called repeatedly when this Command is scheduled to run

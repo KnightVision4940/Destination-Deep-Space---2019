@@ -18,9 +18,9 @@ import frc.robot.RobotMap;
 public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
+  //public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
   public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
-  //public static TalonSRX armWrist = new TalonSRX(RobotMap.armWrist);
+ 
 
   public static double endCountBase = 0;
   public static double endCountElbow = 0;
@@ -33,7 +33,7 @@ public static void init(){
 }
 
   public static void stopMotor() {
-      armBase.set(ControlMode.PercentOutput,0);
+     // armBase.set(ControlMode.PercentOutput,0);
       armElbow.set(ControlMode.PercentOutput,0);
   }
 
@@ -43,8 +43,8 @@ public static void init(){
 
 public static void arm(double speed) {
   
-     armBase.set(ControlMode.PercentOutput,speed);
-    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+    // armBase.set(ControlMode.PercentOutput,speed);
+    //endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
      
 
    // armElbow.set(ControlMode.PercentOutput,speed);
@@ -52,8 +52,8 @@ public static void arm(double speed) {
       
   }
   public static void moveShoulder(double speed){
-    armBase.set(ControlMode.PercentOutput,speed);
-    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+    // armBase.set(ControlMode.PercentOutput,speed);
+    // endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
   public static void moveElbow(double speed){
     if(speed > 0){
@@ -61,11 +61,12 @@ public static void arm(double speed) {
     }else{
       armElbow.set(ControlMode.PercentOutput,speed*0.25);
     }
-    endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
+  //  endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
   
   public static int EncoderShoulder(){
-   return armBase.getSelectedSensorPosition();
+  // return armBase.getSelectedSensorPosition();
+  return 0;
   }
   public static int EncoderElbow(){
     return armElbow.getSelectedSensorPosition();

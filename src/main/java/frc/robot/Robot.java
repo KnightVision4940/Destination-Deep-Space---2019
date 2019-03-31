@@ -70,6 +70,9 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CamServer.camInit();
+    gyro.gyroInit();
+    gyro.calibrategyro();
+    gyro.reset();
     new UpdateDashboard();
         
   

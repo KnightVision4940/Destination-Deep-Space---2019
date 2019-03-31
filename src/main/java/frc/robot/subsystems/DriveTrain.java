@@ -17,6 +17,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import frc.robot.commands.Drive;
+import frc.robot.Robot;
 import frc.robot.RobotMap;;
 /**
  * Add your docs here.
@@ -78,7 +79,9 @@ public class DriveTrain extends Subsystem {
       
         
       m_drive = new DifferentialDrive(Left, Right);
-     // m_drive.setSafetyEnabled(false);
+     m_drive.setSafetyEnabled(false);
+     m_drive.setExpiration(Robot.kDefaultPeriod);
+    
     
     }
   

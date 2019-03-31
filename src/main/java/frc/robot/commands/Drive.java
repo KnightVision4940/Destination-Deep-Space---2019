@@ -28,9 +28,9 @@ public class Drive extends Command {
   @Override
   protected void initialize() {
     Robot.driveTrain.driveInit();
-    Robot.gyro.gyroInit();
-   Robot.gyro.calibrategyro();
-  Robot.gyro.reset();
+  // Robot.gyro.gyroInit();
+  // Robot.gyro.calibrategyro();
+  //Robot.gyro.reset();
     //Robot.driveTrain.drive(Robot.m_oi.xBox.getY(),Robot.m_oi.xBox.getX());
    // System.out.println(Robot.m_oi.xBox.getThrottle());
     
