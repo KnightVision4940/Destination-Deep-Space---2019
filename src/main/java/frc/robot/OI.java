@@ -96,6 +96,7 @@ public class OI {
     logi_LB.whileHeld(new IntakeOut());
     logi_RB.whileHeld(new IntakeIn());
     logi_start.whenPressed(new StartPosition());
+    logi_a.whenPressed(new WristMovements());
 
  
    // a.whenReleased(new IntakeIn(true));
@@ -137,18 +138,18 @@ public double getYLogiR(){
 public double getXLogi(){
   return l.getRawAxis(0);
 }
-public void addArm(int elbow, int shoulder){
-  E_arm[0] = elbow;
-  E_arm[1] = shoulder;
-}
-public void addWrist(int wrist){
- E_wrist = wrist;
-}
-public int[] getEncoders(){
-  all[0] = E_arm[0];
-  all[1] = E_arm[1];
-  all[2] = E_wrist;
-  return all;
-}
+// public void addArm(int elbow, int shoulder){
+//   E_arm[0] = elbow;
+//   E_arm[1] = shoulder;
+// }
+// public void addWrist(int wrist){
+//  E_wrist = wrist;
+// }
+// public int[] getEncoders(){
+//   all[0] = E_arm[0];
+//   all[1] = E_arm[1];
+//   all[2] = E_wrist;
+//   return all;
+// }
 
 }

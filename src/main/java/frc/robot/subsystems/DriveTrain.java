@@ -65,7 +65,7 @@ public class DriveTrain extends Subsystem {
      
    
     }
-    public static void driveInit(){
+    public void driveInit(){
       FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);
    //  FrontLeft.setSafetyEnabled(false);
       FrontRight = new WPI_VictorSPX(RobotMap.frontRight);
@@ -85,12 +85,12 @@ public class DriveTrain extends Subsystem {
     
     }
   
-    public static void drive(double speed, double turn){
+    public void drive(double speed, double turn){
      
      // m_drive.arcadeDrive(speed, turn, false);
      m_drive.curvatureDrive(speed, turn, true);
     }
-    public static void driveGyro(double speed, double turn, double gyro){
+    public void driveGyro(double speed, double turn, double gyro){
       if(turn <= 0.1 && turn >= -0.1 && gyro < 0.5 && gyro > -0.5){
         m_drive.arcadeDrive(speed, -(gyro) * 0.25, false);
       }else{

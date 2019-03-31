@@ -13,7 +13,8 @@ import frc.robot.Robot;
 
 public class WristMove extends Command {
   public static double _Speed = -0.25;
-  public static int encoder = 5000;
+  public static int downLimit;
+  public static int startLimit;
   public static int actualEncoder;
   public static int dpad;
 
@@ -26,6 +27,8 @@ public class WristMove extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    startLimit = Robot.wrist.EncoderWrist();
+    downLimit = startLimit - 200;
   }
 
   // Called repeatedly when this Command is scheduled to run

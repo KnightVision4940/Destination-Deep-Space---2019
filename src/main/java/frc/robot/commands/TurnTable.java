@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class TurnTable extends Command {
@@ -17,6 +18,7 @@ public class TurnTable extends Command {
   int e_mid = 0;
   int e_left = -3490;
   int e_right = 1011;
+
   public TurnTable() {
     requires(Robot.table);
     // Use requires() here to declare subsystem dependencies
@@ -36,22 +38,20 @@ public class TurnTable extends Command {
   protected void execute() {
     encoder = Robot.table.Encoder();
     triggerValue = Robot.m_oi.getTriggersLogi();
- 
-    //+ Trigger Value means left trigger
-    //- Trigger Value means right trigger
-       if(encoder <= e_left && triggerValue > 0){
-         Robot.table.rotate(0);
-       }else if(encoder >= e_right && triggerValue < 0){
-         Robot.table.rotate(0);
-       }else{
-        Robot.table.rotate(triggerValue*0.25);
-        
- }
-      System.out.println("Turn Table: "+ encoder);
-    
-  
+
+    // + Trigger Value means left trigger
+    // - Trigger Value means right trigger
+    if (encoder <= e_left && triggerValue > 0) {
+      Robot.table.rotate(0);
+    } else if (encoder >= e_right && triggerValue < 0) {
+      Robot.table.rotate(0);
+    } else {
+      Robot.table.rotate(triggerValue * 0.25);
+
     }
-  
+    SmartDashboard.putNumber("Turn Table:", encoder);
+
+  }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

@@ -12,11 +12,11 @@ import frc.robot.Robot;
 
 public class ManualArmControl extends Command {
   static double ArmSpeed = 0.5;
-  int sh_e_back = 4152;
-  int sh_e_front = 4400;
-  int sh_e_front2 = 4750;
-  int e_e_up = 8000;
-  int e_e_down = 5000;
+  // int sh_e_back = 4152;
+  // int sh_e_front = 4400;
+  // int sh_e_front2 = 4750;
+  int e_e_up;
+  int e_e_down;
   public ManualArmControl() {
     requires(Robot.arm);
     // Use requires() here to declare subsystem dependencies
@@ -26,24 +26,43 @@ public class ManualArmControl extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
-  //   if(Robot.arm.endCountBase >= 3){
-  //     end();
-  //   }else{
-  //     Robot.arm.arm(ArmSpeed);
-  //  }
-  //  System.out.println(Robot.arm.endCountBase);
-    
+    e_e_down = Robot.arm.EncoderElbow();
+    e_e_up = e_e_down + 2000;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  // NormalMode();
-   ChooseEncoderMode();
+  // OldMode();
+   NormalMode(Robot.m_oi.getYLogiR(),Robot.arm.EncoderElbow());
 
    }
-   void NormalMode(){
+   void NormalMode(double joystickR, int encoder){
+     
+    //if statement to keep arm up
+    if(joystickR >= -0.15 && joystickR <= 0.15){
+      Robot.arm.moveElbow(0.08);
+    }else{
+      Robot.arm.moveElbow(joystickR*-0.42);
+    }
+
+    //Puts encoder on SmartDashboard
+    
+   }
+
+   void IfDoesntWorkNormalMode(){
+     
+    if(Robot.m_oi.getYLogiR() >= -0.15 && Robot.m_oi.getYLogiR() <= 0.15){
+      Robot.arm.moveElbow(0.08);
+    }else{
+      Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
+    }
+   // Robot.arm.moveShoulder(-Robot.m_oi.getYLogiL()*-0.42);
+    System.out.println("Elbow:" + Robot.arm.EncoderElbow());
+    //System.out.println("Shoulder:" + Robot.arm.EncoderShoulder());
+   }
+
+   void OldMode(){
      
     //the if statment means if your at this position & the robot is moving away from position than move at -47% speed 
   //   if(Robot.arm.EncoderElbow() <= 8500){
@@ -81,22 +100,9 @@ public class ManualArmControl extends Command {
       Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
    // }
   }
-  Robot.m_oi.addArm(Robot.arm.EncoderElbow(),1);
+  //Robot.m_oi.addArm(Robot.arm.EncoderElbow(),1);
   System.out.println("Elbow:" + Robot.arm.EncoderElbow());
   System.out.println("TRY THIS" + Robot.m_oi.getYLogiR());
-   }
-   
-   
-   void ChooseEncoderMode(){
-     
-    if(Robot.m_oi.getYLogiR() >= -0.15 && Robot.m_oi.getYLogiR() <= 0.15){
-      Robot.arm.moveElbow(0.08);
-    }else{
-      Robot.arm.moveElbow(Robot.m_oi.getYLogiR()*-0.42);
-    }
-   // Robot.arm.moveShoulder(-Robot.m_oi.getYLogiL()*-0.42);
-    System.out.println("Elbow:" + Robot.arm.EncoderElbow());
-    //System.out.println("Shoulder:" + Robot.arm.EncoderShoulder());
    }
 
   // Make this return true when this Command no longer needs to run execute()

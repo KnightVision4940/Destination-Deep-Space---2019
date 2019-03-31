@@ -19,43 +19,24 @@ public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   //public static TalonSRX armBase = new TalonSRX(RobotMap.armBase);
-  public static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
+  static TalonSRX armElbow = new TalonSRX(RobotMap.armElbow);
  
 
-  public static double endCountBase = 0;
-  public static double endCountElbow = 0;
- // public static double endCountWrist = 0;
+  static double endCountBase = 0;
+  static double endCountElbow = 0;
 
-public static void init(){
-    //armBase.setSelectedSensorPosition(0);
-    //armElbow.setSelectedSensorPosition(0);
-    //armWrist.setSelectedSensorPosition(0);
-}
-
-  public static void stopMotor() {
+  public void stopMotor() {
      // armBase.set(ControlMode.PercentOutput,0);
       armElbow.set(ControlMode.PercentOutput,0);
   }
 
 
     //D@nte was here
-
-
-public static void arm(double speed) {
-  
-    // armBase.set(ControlMode.PercentOutput,speed);
-    //endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
-     
-
-   // armElbow.set(ControlMode.PercentOutput,speed);
-    //endCountElbow = -(armElbow.getSelectedSensorPosition(0) /4069);
-      
-  }
-  public static void moveShoulder(double speed){
+  public void moveShoulder(double speed){
     // armBase.set(ControlMode.PercentOutput,speed);
     // endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
-  public static void moveElbow(double speed){
+  public void moveElbow(double speed){
     if(speed > 0){
       armElbow.set(ControlMode.PercentOutput,speed);
     }else{
@@ -64,11 +45,11 @@ public static void arm(double speed) {
   //  endCountBase = -(armBase.getSelectedSensorPosition(0) /4069);
   }
   
-  public static int EncoderShoulder(){
+  public int EncoderShoulder(){
   // return armBase.getSelectedSensorPosition();
   return 0;
   }
-  public static int EncoderElbow(){
+  public int EncoderElbow(){
     return armElbow.getSelectedSensorPosition();
    }
 
