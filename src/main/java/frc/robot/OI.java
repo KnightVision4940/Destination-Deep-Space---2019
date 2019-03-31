@@ -60,7 +60,7 @@ public class OI {
   public static int[] E_arm = {0,0};
   public static int E_wrist = 0;
   public static int[] all = new int[4];
-  public static double gyro;
+
   
   public OI(){
 
@@ -113,11 +113,11 @@ public static double getTriggers(){
     }
   
 }
-public static int getPOV(){
+public  int getPOV(){
   return l.getPOV();
 }
 
-public static double getTriggersLogi(){
+public  double getTriggersLogi(){
   if(l.getRawAxis(2) > l.getRawAxis(3)){
     return l.getRawAxis(2);
   } else {
@@ -125,35 +125,30 @@ public static double getTriggersLogi(){
   }
 
 }
-public static double getX(){
+public double getX(){
   return x.getRawAxis(0);
 }
-public static double getYLogiL(){
+public double getYLogiL(){
   return l.getRawAxis(1);
 }
-public static double getYLogiR(){
+public double getYLogiR(){
   return l.getRawAxis(5);
 }
-public static double getXLogi(){
+public double getXLogi(){
   return l.getRawAxis(0);
 }
-public static void addArm(int elbow, int shoulder){
+public void addArm(int elbow, int shoulder){
   E_arm[0] = elbow;
   E_arm[1] = shoulder;
 }
-public static void addWrist(int wrist){
+public void addWrist(int wrist){
  E_wrist = wrist;
 }
-public static int[] getEncoders(){
+public int[] getEncoders(){
   all[0] = E_arm[0];
   all[1] = E_arm[1];
   all[2] = E_wrist;
   return all;
 }
-public static void Addgyro(double g){
-  gyro = g;
-}
-public static double getGyro(){
-  return gyro;
-}
+
 }

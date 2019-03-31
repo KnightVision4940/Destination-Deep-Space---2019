@@ -74,6 +74,7 @@ public class Robot extends TimedRobot {
     gyro.calibrategyro();
     gyro.reset();
     new UpdateDashboard();
+    
         
   
     System.out.println(isOperatorControl() + "" + isEnabled());
@@ -174,7 +175,9 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
     
   }
-
+  public static double getGyro(){
+    return gyro.getAngle();
+  }
   /**
    * This function is called periodically during test mode.
    */

@@ -40,8 +40,8 @@ public class UpdateDashboard extends Command {
 
     // //Gyro
     // //sGyroscope g = new Gyroscope();
-    // double gyro = Robot.m_oi.getGyro();
-    // SmartDashboard.putNumber("gyro angle", gyro);
+    double gyro = Robot.getGyro();
+    SmartDashboard.putNumber("gyro angle", gyro);
     // SmartDashboard.updateValues();
     // //Arm Angle = Baseangle
     

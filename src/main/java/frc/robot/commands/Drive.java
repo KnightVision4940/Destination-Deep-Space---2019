@@ -51,7 +51,7 @@ public class Drive extends Command {
   }else{
     Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5,Robot.gyro.getAngle());
   }
-    Robot.m_oi.Addgyro(Robot.gyro.getAngle());
+    
   }
 
   

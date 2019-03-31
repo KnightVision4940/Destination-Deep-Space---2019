@@ -8,15 +8,17 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class WristMove extends Command {
   public static double _Speed = -0.25;
-  public static double encoder = 5000;
-  public static double actualEncoder;
+  public static int encoder = 5000;
+  public static int actualEncoder;
+  public static int dpad;
+
   public WristMove() {
-   // requires(Robot.wrist);
-   requires(Robot.wrist);
+    requires(Robot.wrist);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -29,39 +31,26 @@ public class WristMove extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   actualEncoder = Robot.wrist.EncoderWrist();
+    actualEncoder = Robot.wrist.EncoderWrist();
+    dpad = Robot.m_oi.getPOV();
 
-    if(Robot.m_oi.getPOV() == -1){
-      // if(actualEncoder >= (encoder)){
-      //   Robot.wrist.moveWrist(0);
-      // }else{
-        Robot.wrist.moveWrist(0.07);
-      //}
-     
-    }else{
-      if(Robot.m_oi.getPOV() == 180 || Robot.m_oi.getPOV() == 135 || Robot.m_oi.getPOV() == 225){
-        if(actualEncoder <= encoder){
-          Robot.wrist.moveWrist(-0.30);
-        }else{
-          Robot.wrist.moveWrist(-0.15);
-        }
-       
-       //Robot.arm.moveElbow(_Speed);
-       // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
-        }else if(Robot.m_oi.getPOV() == 0 || Robot.m_oi.getPOV() == 45 || Robot.m_oi.getPOV() == 315){
-         Robot.wrist.moveWrist(0.30);
-         // Robot.arm.moveElbow(-_Speed);
-         // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
-          }else{
-            Robot.wrist.moveWrist(0);
-  
-        }
-      //  Robot.wrist.EncoderWrist();
-     }
-    //System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+    //Not Touched
+    if (dpad == -1) {
+      Robot.wrist.moveWrist(0.07);
 
+    //Touching Down 
+    } else if (dpad == 180 || dpad == 135 || dpad == 225) {
+      Robot.wrist.moveWrist(-0.15);
+
+    //Touching Up
+    } else if (dpad == 0 || dpad == 45 || dpad == 315) {
+      Robot.wrist.moveWrist(0.30);
+    }
+    SmartDashboard.putNumber("Wrist:", actualEncoder);
   }
+  
 
+  
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
@@ -72,7 +61,7 @@ public class WristMove extends Command {
   @Override
   protected void end() {
     Robot.wrist.moveWrist(0);
-    //System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
+    // System.out.println("Wrist:" + Robot.wrist.EncoderWrist());
   }
 
   // Called when another command which requires one or more of the same

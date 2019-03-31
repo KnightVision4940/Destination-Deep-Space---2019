@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class TurnTable extends Command {
-  double encoder;
+  int encoder;
+  double triggerValue;
   public static int i = 0;
   int e_mid = 0;
   int e_left = -3490;
@@ -25,26 +26,29 @@ public class TurnTable extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
+    e_mid = Robot.table.Encoder();
+    e_left = e_mid - 200;
+    e_right = e_mid + 200;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // encoder = Robot.table.Encoder();
-   
+    encoder = Robot.table.Encoder();
+    triggerValue = Robot.m_oi.getTriggersLogi();
  
-       if(Robot.table.Encoder() <= e_left && Robot.m_oi.getTriggersLogi() > 0){
+    //+ Trigger Value means left trigger
+    //- Trigger Value means right trigger
+       if(encoder <= e_left && triggerValue > 0){
          Robot.table.rotate(0);
-       }else if(Robot.table.Encoder() >= e_right && Robot.m_oi.getTriggersLogi() < 0){
+       }else if(encoder >= e_right && triggerValue < 0){
          Robot.table.rotate(0);
        }else{
-        Robot.table.rotate(Robot.m_oi.getTriggersLogi()*0.25);
+        Robot.table.rotate(triggerValue*0.25);
         
  }
-      System.out.println("Turn Table: "+ Robot.table.Encoder());
+      System.out.println("Turn Table: "+ encoder);
     
-     //System.out.println(i);
   
     }
   

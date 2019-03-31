@@ -18,14 +18,14 @@ public class Wrist extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public static TalonSRX armWrist = new TalonSRX(RobotMap.armWrist);
-  public static double endCountWrist = 0;
+//  public static double endCountWrist = 0;
 
-  public static void moveWrist(double speed){
+  public void moveWrist(double speed){
     armWrist.set(ControlMode.PercentOutput,speed);
-    endCountWrist = -(armWrist.getSelectedSensorPosition(0) /4069);
+    //endCountWrist = -(armWrist.getSelectedSensorPosition(0) /4069);
   }
 
-public static int EncoderWrist(){
+public int EncoderWrist(){
   return armWrist.getSelectedSensorPosition();
 }
   @Override
