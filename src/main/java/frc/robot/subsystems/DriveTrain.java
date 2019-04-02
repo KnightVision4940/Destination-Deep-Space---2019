@@ -98,6 +98,7 @@ public class DriveTrain extends Subsystem {
       }
     }
 
+
     //The drive we are going to use - needs testing
     // public static void driveGyro(double speed, double turn){
     //   setpoint = (int)(turn * 180);
@@ -120,8 +121,55 @@ public class DriveTrain extends Subsystem {
     //   }else{
     //     m_drive.arcadeDrive(0, 0, false);
     //   }
-    //   //gab was here
+    //   //gab was heres
     // }
+
+    //Drivetrain created by team 2609. Hope this works
+    //https://github.com/frc2609/FIRSTPRESEASON2017/blob/master/src/org/usfirst/frc/team2609/robot/Robot.java
+
+    public void CustomDrivetrain(double speed, double turn){
+      double deadZone = 0.15;
+      double X = speed;
+          double Y = turn;
+          if ((Math.abs(-speed)<deadZone) && (Math.abs(-turn)<deadZone)){
+            X = 0;
+            Y = 0;
+          }
+          /*if (Math.abs(-driveStick.getRawAxis(1))<deadZone){
+            Y = 0;
+          }*/
+          double leftOutput;
+          double rightOutput;
+          if (Y > 0) {
+              if (X > 0.0) {
+                  leftOutput = Math.pow(Y, 1) - Math.pow(X, 1);
+                  rightOutput = Math.max(Math.pow(Y, 1), Math.pow(X, 1));
+              } else {
+                  leftOutput = Math.max(Math.pow(Y, 1), -(Math.pow(X, 1)));
+                  rightOutput = Math.pow(Y, 1) + (Math.pow(X, 1));
+              }
+          } else{
+              if (X > 0.0) {
+                  leftOutput = -Math.max(-(Math.pow(Y, 1)), Math.pow(X, 1));
+                  rightOutput = (Math.pow(Y, 1)) + Math.pow(X, 1);
+              } else {
+                //this is also vvv imborktant
+                  leftOutput = (Math.pow(Y, 1)) - (Math.pow(X, 1));
+                  rightOutput = -Math.max(-(Math.pow(Y, 1)), -(Math.pow(X, 1)));
+              }
+                
+  
+          }
+            
+  //        
+         FrontLeft.set(ControlMode.PercentOutput,leftOutput);
+         BackLeft.set(ControlMode.PercentOutput,leftOutput);
+
+         FrontRight.set(ControlMode.PercentOutput,rightOutput);
+         BackRight.set(ControlMode.PercentOutput,rightOutput);
+
+    }
+
 
     public static void forward(double speed){
         m_drive.arcadeDrive(speed, 0);
