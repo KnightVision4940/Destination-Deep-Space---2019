@@ -53,6 +53,7 @@ public class Robot extends TimedRobot {
   public static Powertrain powertrain = new Powertrain();
   public static Gyroscope gyro = new Gyroscope();
   public static Wrist wrist = new Wrist();
+  public static boolean ran = false;
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
@@ -166,6 +167,10 @@ public class Robot extends TimedRobot {
 
     //drive.start();
   }
+    public static void startCommand(){
+      Scheduler.getInstance().add(new WristMove());
+      ran = true;
+    }
 
   /**
    * This function is called periodically during operator control.

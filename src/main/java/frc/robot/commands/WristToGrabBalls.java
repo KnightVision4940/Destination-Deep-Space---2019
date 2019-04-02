@@ -14,6 +14,7 @@ public class WristToGrabBalls extends Command {
     static int e_grab;
     static int e_current;
     static boolean up;
+    static boolean stopRunning = false;
   public WristToGrabBalls() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -23,45 +24,51 @@ public class WristToGrabBalls extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-      e_grab = Robot.wrist.getEncoderSaved();
+     // e_grab = Robot.wrist.getEncoderSaved();
+     e_grab = 6900;
       e_current = Robot.wrist.EncoderWrist();
-      if(e_current > e_grab){
+      if(e_current < e_grab){
         goDown();
-      }else if (e_current < e_grab){
+      }else if (e_current > e_grab){
           goUp();
       }else{
-        end();
+        stopRunning = true;
       }
-      end();
+      stopRunning = true;
   }
 
   void goDown(){
-    while(e_current > e_grab){
-        Robot.wrist.moveWrist(-0.3);
+    System.out.println("This is being called" + e_grab);
+    while(e_current < e_grab){
+        Robot.wrist.moveWrist(-0.15);
+        e_current = Robot.wrist.EncoderWrist();
     }
   }
 
   void goUp(){
-    while(e_current < e_grab){
-        Robot.wrist.moveWrist(0.3);
+    while(e_current > e_grab){
+        Robot.wrist.moveWrist(0.15);
+        e_current = Robot.wrist.EncoderWrist();
     }
   }
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+
      
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return stopRunning;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
       Robot.wrist.moveWrist(0);
+      Robot.startCommand();
   }
 
   // Called when another command which requires one or more of the same

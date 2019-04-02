@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.commands.WristMovements;
 import frc.robot.commands.*;
 //import frc.robot.Xbox;
 import frc.robot.subsystems.Arm;
@@ -96,7 +97,8 @@ public class OI {
     logi_LB.whileHeld(new IntakeOut());
     logi_RB.whileHeld(new IntakeIn());
     logi_start.whenPressed(new StartPosition());
-    logi_a.whenPressed(new WristMovements());
+    logi_a.whenPressed(new WristToGrabBalls());
+    
 
  
    // a.whenReleased(new IntakeIn(true));

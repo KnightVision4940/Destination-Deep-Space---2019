@@ -30,7 +30,13 @@ public class WristMovements extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
+    setInterruptible(true);
     addSequential(new WristToGrabBalls());
     addSequential(new WristMove());
+    System.out.println("DONE");
+    end();
+    
+    
   }
+  
 }

@@ -27,8 +27,11 @@ public class WristMove extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    if(Robot.ran = false){
     startLimit = Robot.wrist.EncoderWrist();
-    downLimit = startLimit - 200;
+    downLimit = startLimit + 2000;
+    Robot.wrist.StoreEncoders(downLimit);
+    }
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -46,7 +49,7 @@ public class WristMove extends Command {
       Robot.wrist.moveWrist(-0.15);
 
     //Touching Up
-    } else if (dpad == 0 || dpad == 45 || dpad == 315) {
+    } else if ((dpad == 0 || dpad == 45 || dpad == 315)) {
       Robot.wrist.moveWrist(0.30);
     }
     SmartDashboard.putNumber("Wrist:", actualEncoder);

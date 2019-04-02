@@ -29,8 +29,8 @@ public class TurnTable extends Command {
   @Override
   protected void initialize() {
     e_mid = Robot.table.Encoder();
-    e_left = e_mid - 200;
-    e_right = e_mid + 200;
+    e_left = e_mid - 2000;
+    e_right = e_mid + 2000;
   }
 
   // Called repeatedly when this Command is scheduled to run

@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class HatchesDrop extends Command {
@@ -35,6 +36,8 @@ public class HatchesDrop extends Command {
     //  // i = 0;
     // }else{
       Robot.H.HatchesIn(-0.3);
+      SmartDashboard.putNumber("Hatches:", Robot.H.Encoder());
+      
       // i++;
   //   }
   //   System.out.println(i);

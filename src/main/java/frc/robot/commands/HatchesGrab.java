@@ -10,6 +10,7 @@ package frc.robot.commands;
 
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class HatchesGrab extends Command {
   static double Hspeed = 0.25;
@@ -31,6 +32,7 @@ public class HatchesGrab extends Command {
   @Override
   protected void execute() {
     Robot.H.HatchesOut(0.3);
+    SmartDashboard.putNumber("Hatches:", Robot.H.Encoder());
     // if(-(Robot.H.Encoder()) > 4069){
     //   run  =true;
     //   //end();
