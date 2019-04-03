@@ -25,7 +25,7 @@ public class WristToGrabBalls extends Command {
   @Override
   protected void initialize() {
      // e_grab = Robot.wrist.getEncoderSaved();
-     e_grab = 6900;
+     e_grab = 7200;
       e_current = Robot.wrist.EncoderWrist();
       if(e_current < e_grab){
         goDown();

@@ -28,9 +28,9 @@ public class WristMove extends Command {
   @Override
   protected void initialize() {
     if(Robot.ran = false){
-    startLimit = Robot.wrist.EncoderWrist();
-    downLimit = startLimit + 2000;
-    Robot.wrist.StoreEncoders(downLimit);
+      startLimit = Robot.wrist.EncoderWrist();
+      downLimit = startLimit + 2000;
+      Robot.wrist.StoreEncoders(downLimit);
     }
   }
 

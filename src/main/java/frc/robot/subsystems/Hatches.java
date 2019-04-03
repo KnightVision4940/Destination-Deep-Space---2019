@@ -23,27 +23,27 @@ public class Hatches extends Subsystem {
 
   static TalonSRX Hatch = new TalonSRX(RobotMap.hatch);
   
-  public static void init(){
+  public void init(){
    // Hatch.configSelectedFeedbackSensor(FeedbackDevice.PulseWidthEncodedPosition);
   // Hatch.configFactoryDefault();
   }
-  public static void HatchesIn(double speed) {
+  public void HatchesIn(double speed) {
 
       Hatch.set(ControlMode.PercentOutput,speed);
      
 
   }
  
-  public static void HatchesOut(double speed) {
+  public void HatchesOut(double speed) {
 
       Hatch.set(ControlMode.PercentOutput,speed);
 
 }
-  public static void HatchesStop() {
+  public void HatchesStop() {
 
       Hatch.set(ControlMode.PercentOutput,0);
 }
-public static int Encoder(){
+public int Encoder(){
   return Hatch.getSelectedSensorPosition();
   //return 1;
 }

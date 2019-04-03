@@ -9,17 +9,12 @@ package frc.robot;
 
 
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.commands.WristMovements;
 import frc.robot.commands.*;
 //import frc.robot.Xbox;
-import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.Climb;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -98,6 +93,7 @@ public class OI {
     logi_RB.whileHeld(new IntakeIn());
     logi_start.whenPressed(new StartPosition());
     logi_a.whenPressed(new WristToGrabBalls());
+    logi_start.whenPressed(new StopPreset());
     
 
  
@@ -108,7 +104,7 @@ public class OI {
   
 }
 
-public static double getTriggers(){
+public double getTriggers(){
     if(x.getRawAxis(2) > x.getRawAxis(3)){
       return x.getRawAxis(2);
     } else {

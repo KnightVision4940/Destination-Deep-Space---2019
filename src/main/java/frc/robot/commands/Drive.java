@@ -9,8 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.XboxController; 
 
 
 public class Drive extends Command {
@@ -51,7 +49,8 @@ public class Drive extends Command {
   // }else{
   //   Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5,Robot.gyro.getAngle());
   // }
-  Robot.driveTrain.drive(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5);
+  //Robot.driveTrain.drive(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5);
+  Robot.driveTrain.CustomDrivetrain(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5);
   }
 
   

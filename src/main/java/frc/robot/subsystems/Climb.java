@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -23,17 +24,24 @@ public class Climb extends Subsystem {
 
   //the speed of the motor need to be the exact smae
   //the direction of each motor should oppsite to each other *this is due to the ortaition of the motor*
-  static WPI_VictorSPX climbMotor1 = new WPI_VictorSPX(RobotMap.climbmotor1);
-  static WPI_VictorSPX climbMotor2 = new WPI_VictorSPX(RobotMap.climbmotor2);
+  static TalonSRX climbMotor1 = new TalonSRX(RobotMap.climbmotor1);
+  static TalonSRX climbMotor2 = new TalonSRX(RobotMap.climbmotor2);
 
     public static void climb(double speed){
-      climbMotor1.set(speed);
-      climbMotor2.set(-speed);
+      climbMotor1.set(ControlMode.PercentOutput, speed);
+      climbMotor2.set(ControlMode.PercentOutput, -speed);
     }
 
     public static void climbStop(){
-      climbMotor1.set(0);
-      climbMotor2.set(0);
+      climbMotor1.set(ControlMode.PercentOutput, 0);
+      climbMotor2.set(ControlMode.PercentOutput, 0);
+    }
+    public static double encoder1(){
+      return climbMotor1.getSelectedSensorVelocity();
+    }
+    public static double encoder2(){
+      return climbMotor2.getSelectedSensorVelocity();
+
     }
 
     //this code is if we need to test each motor/speedcontroller indiviually 

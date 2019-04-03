@@ -10,19 +10,9 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ClimbBot extends Command {
-  double ClimbSpeed;
-  double ClimbSpeed2;
-  double encoder1;
-  double encoder2;
-  public ClimbBot(double speed) {
-    requires(Robot.Climb);
-    ClimbSpeed = speed;
-    ClimbSpeed2 = -speed;
-    encoder1 = Robot.Climb.encoder1();
-    encoder2 = Robot.Climb.encoder2();
-
-
+public class StopPreset extends Command {
+  public StopPreset() {
+    requires(Robot.wrist);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -30,40 +20,28 @@ public class ClimbBot extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if(encoder1 !=0 && encoder2 == 0){
-      Robot.Climb.climbStop();
-    }else if(encoder1 ==0 && encoder2 != 0){
-      Robot.Climb.climbStop();
-    }else if(encoder1 !=0 && encoder2 != 0){
-      Robot.Climb.climb(-ClimbSpeed);
-    }else{
-      end();
-    }
-    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.Climb.climbStop();
+    Robot.startCommand();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

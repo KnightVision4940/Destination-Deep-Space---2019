@@ -15,8 +15,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.Drive;
 import frc.robot.commands.DriveWithJoystick;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.HatchesDrop;
-import frc.robot.commands.HatchesGrab;
 import frc.robot.commands.ManualArmControl;
 import frc.robot.commands.UpdateDashboard;
 import frc.robot.commands.WristMove;
@@ -74,7 +72,7 @@ public class Robot extends TimedRobot {
     gyro.gyroInit();
     gyro.calibrategyro();
     gyro.reset();
-    new UpdateDashboard();
+   // new UpdateDashboard();
     
         
   
