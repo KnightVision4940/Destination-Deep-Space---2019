@@ -28,16 +28,16 @@ public class TurnTable extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    e_mid = Robot.table.Encoder();
-    e_left = e_mid - 2000;
-    e_right = e_mid + 2000;
+    e_mid = 0;
+    e_left = -1708;
+    e_right = 1708;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     encoder = Robot.table.Encoder();
-    triggerValue = Robot.m_oi.getTriggersLogi();
+    triggerValue = Robot.getTriggersLogi();
 
     // + Trigger Value means left trigger
     // - Trigger Value means right trigger

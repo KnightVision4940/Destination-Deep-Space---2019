@@ -8,17 +8,11 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import frc.robot.commands.Drive;
 import frc.robot.Robot;
-import frc.robot.RobotMap;;
 /**
  * Add your docs here.
  */
@@ -50,53 +44,37 @@ public class DriveTrain extends Subsystem {
     static DifferentialDrive m_drive; 
   //d@nte was here
     public DriveTrain(int frontLeft, int frontRight, int backLeft, int backRight) {
-     
-      
-      // FrontLeft = new WPI_VictorSPX(frontLeft);
-      // BackLeft = new WPI_VictorSPX(backLeft);
-      // FrontRight = new WPI_VictorSPX(frontRight);
-      // BackRight = new WPI_VictorSPX(backRight);
-      //FrontLeft = new WPI_TalonSRX(frontLeft);
-      //BackLeft = new WPI_TalonSRX(backLeft);
-    //  FrontRight = new WPI_TalonSRX(frontRight);
-      //BackRight = new WPI_TalonSRX(backRight);
-     // FrontLeft.setSelectedSensorPosition(0);
-  
-     
-   
-    }
-    public void driveInit(){
-      FrontLeft  = new WPI_VictorSPX(RobotMap.frontLeft);
-   //  FrontLeft.setSafetyEnabled(false);
-      FrontRight = new WPI_VictorSPX(RobotMap.frontRight);
-   //  FrontRight.setSafetyEnabled(false);
-      BackLeft = new WPI_VictorSPX(RobotMap.backLeft);
-   // BackLeft.setSafetyEnabled(false);
-      BackRight = new WPI_VictorSPX(RobotMap.backRight);
-    // BackRight.setSafetyEnabled(false);
+      FrontLeft  = new WPI_VictorSPX(frontLeft);
+      FrontLeft.setSafetyEnabled(false);
+        FrontRight = new WPI_VictorSPX(frontRight);
+      FrontRight.setSafetyEnabled(false);
+        BackLeft = new WPI_VictorSPX(backLeft);
+     BackLeft.setSafetyEnabled(false);
+        BackRight = new WPI_VictorSPX(backRight);
+      BackRight.setSafetyEnabled(false);
       SpeedControllerGroup Left = new SpeedControllerGroup(FrontLeft,BackLeft);
       SpeedControllerGroup Right = new SpeedControllerGroup(FrontRight, BackRight);
-      
-        
-      m_drive = new DifferentialDrive(Left, Right);
-     m_drive.setSafetyEnabled(false);
-     m_drive.setExpiration(Robot.kDefaultPeriod);
-    
-    
+       
+         
+       m_drive = new DifferentialDrive(Left, Right);
+      m_drive.setSafetyEnabled(false);
+      m_drive.setExpiration(Robot.kDefaultPeriod);
     }
+
   
     public void drive(double speed, double turn){
      
      // m_drive.arcadeDrive(speed, turn, false);
-     m_drive.curvatureDrive(speed, turn, true);
+     
+     m_drive.arcadeDrive(speed, turn, true);
     }
-    public void driveGyro(double speed, double turn, double gyro){
-      if(turn <= 0.1 && turn >= -0.1 && gyro < 0.5 && gyro > -0.5){
-        m_drive.arcadeDrive(speed, -(gyro) * 0.25, false);
-      }else{
-        m_drive.arcadeDrive(speed, turn,false);
-      }
-    }
+    // public void driveGyro(double speed, double turn, double gyro){
+    //   if(turn <= 0.1 && turn >= -0.1 && gyro < 0.5 && gyro > -0.5){
+    //     m_drive.arcadeDrive(speed, -(gyro) * 0.25, false);
+    //   }else{
+    //     m_drive.arcadeDrive(speed, turn,false);
+    //   }
+    // }
 
 
     //The drive we are going to use - needs testing

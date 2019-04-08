@@ -24,8 +24,7 @@ public class WristToGrabBalls extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-     // e_grab = Robot.wrist.getEncoderSaved();
-     e_grab = 7200;
+     e_grab = 3857;
       e_current = Robot.wrist.EncoderWrist();
       if(e_current < e_grab){
         goDown();
@@ -38,16 +37,22 @@ public class WristToGrabBalls extends Command {
   }
 
   void goDown(){
-    System.out.println("This is being called" + e_grab);
-    while(e_current < e_grab){
+   // System.out.println("This is being called" + e_grab);
+    while(e_current < (e_grab-150)){
         Robot.wrist.moveWrist(-0.15);
+        //Robot.wrist.moveWrist(-0.10*((e_current - e_grab)/1000));
+        // if(e_grab - e_current < 1000){
+        //   Robot.wrist.moveWrist(-0.10);
+        // }else{
+        //   Robot.wrist.moveWrist(-0.10*((e_current - e_grab)/1000));
+        // }
         e_current = Robot.wrist.EncoderWrist();
     }
   }
 
   void goUp(){
     while(e_current > e_grab){
-        Robot.wrist.moveWrist(0.15);
+        Robot.wrist.moveWrist(0.25);
         e_current = Robot.wrist.EncoderWrist();
     }
   }

@@ -7,16 +7,12 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.RobotMap;
-import frc.robot.subsystems.DriveTrain;
 /**
  * Add your docs here.
  */
@@ -42,6 +38,11 @@ public class Climb extends Subsystem {
     public static double encoder2(){
       return climbMotor2.getSelectedSensorVelocity();
 
+    }
+
+    public void setEncoder(){
+      climbMotor1.setSelectedSensorPosition(0);
+      climbMotor2.setSelectedSensorPosition(0);
     }
 
     //this code is if we need to test each motor/speedcontroller indiviually 

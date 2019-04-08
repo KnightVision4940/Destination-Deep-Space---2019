@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class ClimbBot extends Command {
@@ -15,6 +16,7 @@ public class ClimbBot extends Command {
   double ClimbSpeed2;
   double encoder1;
   double encoder2;
+  boolean start = true;
   public ClimbBot(double speed) {
     requires(Robot.Climb);
     ClimbSpeed = speed;
@@ -34,12 +36,14 @@ public class ClimbBot extends Command {
       Robot.Climb.climbStop();
     }else if(encoder1 ==0 && encoder2 != 0){
       Robot.Climb.climbStop();
-    }else if(encoder1 !=0 && encoder2 != 0){
+    }else {
       Robot.Climb.climb(-ClimbSpeed);
-    }else{
-      end();
+     // start = false;
     }
-    
+    encoder1 = Robot.Climb.encoder1();
+    encoder2 = Robot.Climb.encoder2();
+    SmartDashboard.putNumber("Climb A:", encoder1);
+    SmartDashboard.putNumber("Climb B:", encoder2);
   }
 
   // Called repeatedly when this Command is scheduled to run

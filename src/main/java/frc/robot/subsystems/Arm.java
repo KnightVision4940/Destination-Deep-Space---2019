@@ -50,7 +50,8 @@ public class Arm extends Subsystem {
   return 0;
   }
   public int EncoderElbow(){
-    return armElbow.getSelectedSensorPosition();
+    //return 4;
+     return armElbow.getSelectedSensorPosition();
    }
 
 

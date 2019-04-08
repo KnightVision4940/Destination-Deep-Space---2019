@@ -8,15 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 
 public class Drive extends Command {
  // public static XboxController Driver = new XboxController(1);
+static double var1;
+static double var2;
 
   public Drive() {
     requires(Robot.driveTrain);
-    requires(Robot.gyro);
+    //requires(Robot.gyro);
     //requires(Robot.D_Control);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -25,7 +28,7 @@ public class Drive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveTrain.driveInit();
+    //Robot.driveTrain.driveInit();
   // Robot.gyro.gyroInit();
   // Robot.gyro.calibrategyro();
   //Robot.gyro.reset();
@@ -37,20 +40,18 @@ public class Drive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   // Robot.driveTrain.drive(Robot.m_oi.xBox.getRawAxis(2),Robot.m_oi.logicTech.getX(Hand.kLeft));
-  // Robot.driveTrain.drive(Robot.m_oi.getTriggers()*-0.25,Robot.m_oi.getX()*0.25);
    
-   //System.out.println("This should be printed out");
+  
  //  System.out.println("Turn:" + Robot.m_oi.getX());
   // System.out.println("Triggers" + Robot.m_oi.getTriggers()*0.7);
   // System.out.println("Gyro" + Robot.gyro.getAngle());
-  // if(Robot.m_oi.getX() < 0.15 && Robot.m_oi.getX() > -0.15){
-  //   Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.7,0,Robot.gyro.getAngle());
-  // }else{
-  //   Robot.driveTrain.driveGyro(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5,Robot.gyro.getAngle());
-  // }
-  //Robot.driveTrain.drive(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5);
-  Robot.driveTrain.CustomDrivetrain(-Robot.m_oi.getTriggers()*0.9,Robot.m_oi.getX()*0.5);
+  Robot.driveTrain.drive(-Robot.getTriggers()*0.9,Robot.getX()*0.8);
+  //var1 = -Robot.getTriggers();
+  //var2 = Robot.getX();
+  //SmartDashboard.putNumber("Trigger:", var1);
+  //SmartDashboard.putNumber("Turn:", var2);
+ // SmartDashboard.putNumber(key, value)
+  //Robot.driveTrain.CustomDrivetrain(Robot.getTriggers()*0.9,Robot.getX()*0.8);
   }
 
   

@@ -8,10 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import frc.robot.RobotMap;
 /**
@@ -27,18 +25,13 @@ public class Hatches extends Subsystem {
    // Hatch.configSelectedFeedbackSensor(FeedbackDevice.PulseWidthEncodedPosition);
   // Hatch.configFactoryDefault();
   }
-  public void HatchesIn(double speed) {
+  public void HatchesRun(double speed) {
 
       Hatch.set(ControlMode.PercentOutput,speed);
      
 
   }
  
-  public void HatchesOut(double speed) {
-
-      Hatch.set(ControlMode.PercentOutput,speed);
-
-}
   public void HatchesStop() {
 
       Hatch.set(ControlMode.PercentOutput,0);

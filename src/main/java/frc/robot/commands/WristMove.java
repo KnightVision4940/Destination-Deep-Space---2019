@@ -38,7 +38,7 @@ public class WristMove extends Command {
   @Override
   protected void execute() {
     actualEncoder = Robot.wrist.EncoderWrist();
-    dpad = Robot.m_oi.getPOV();
+    dpad = Robot.getPOV();
 
     //Not Touched
     if (dpad == -1) {

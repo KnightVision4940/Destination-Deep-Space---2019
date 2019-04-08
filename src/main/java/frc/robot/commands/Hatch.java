@@ -7,11 +7,15 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class StartPosition extends Command {
-  public StartPosition() {
+public class Hatch extends Command {
+  double Dirct;
+  public Hatch(double Speed) {
+    requires(Robot.H);
+    Dirct = Speed;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -19,19 +23,14 @@ public class StartPosition extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-   
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(Robot.arm.EncoderShoulder() > 3555){
-      Robot.arm.moveShoulder(0.5);
-    }else if(Robot.arm.EncoderShoulder() < 3485){
-      Robot.arm.moveShoulder(-0.5);
-    }else{
-      end();
-    }
+    //D@nte was here
+    Robot.H.HatchesRun(Dirct);
+    SmartDashboard.putNumber("Hatches:", Robot.H.Encoder());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -43,7 +42,7 @@ public class StartPosition extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.arm.moveShoulder(0);
+    Robot.H.HatchesStop();
   }
 
   // Called when another command which requires one or more of the same

@@ -12,7 +12,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.*;
 //import frc.robot.Xbox;
 
@@ -50,8 +49,6 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public static final Joystick xBox = new Joystick(1);
-  public static final XboxController x = new XboxController(1);
-  public static final XboxController l = new XboxController(3);
   public static final Joystick logicTech = new Joystick(3);
   public static int[] E_arm = {0,0};
   public static int E_wrist = 0;
@@ -79,75 +76,20 @@ public class OI {
    
 
     
-    xbox_b.whileHeld(new HatchesGrab());
-    xbox_a.whileHeld(new HatchesDrop());
-    xbox_start.whileHeld(new ClimbBot(1));
-   xbox_back.whileHeld(new ClimbBot(-1));
-   // xbox_x.whileHeld(new HatchesInit());
+    xbox_b.whileHeld(new Hatch(0.3));
+    xbox_a.whileHeld(new Hatch(-0.3));
+    xbox_start.whileHeld(new ClimbBot(-1));
+   xbox_back.whileHeld(new ClimbBot(1));
     
-    // xbox_y.whenPressed(new ClimbBot());
-   
-   // logi_a.whenPressed(new ArmGrab());
-    // logi_b.whenPressed(new ArmGrab());
+    logi_RB.whileHeld(new IntakeIn(1));
     logi_LB.whileHeld(new IntakeOut());
-    logi_RB.whileHeld(new IntakeIn());
-    logi_start.whenPressed(new StartPosition());
     logi_a.whenPressed(new WristToGrabBalls());
     logi_start.whenPressed(new StopPreset());
-    
 
- 
-   // a.whenReleased(new IntakeIn(true));
+   
   
 
 
   
 }
-
-public double getTriggers(){
-    if(x.getRawAxis(2) > x.getRawAxis(3)){
-      return x.getRawAxis(2);
-    } else {
-      return -x.getRawAxis(3);
-    }
-  
-}
-public  int getPOV(){
-  return l.getPOV();
-}
-
-public  double getTriggersLogi(){
-  if(l.getRawAxis(2) > l.getRawAxis(3)){
-    return l.getRawAxis(2);
-  } else {
-    return -l.getRawAxis(3);
-  }
-
-}
-public double getX(){
-  return x.getRawAxis(0);
-}
-public double getYLogiL(){
-  return l.getRawAxis(1);
-}
-public double getYLogiR(){
-  return l.getRawAxis(5);
-}
-public double getXLogi(){
-  return l.getRawAxis(0);
-}
-// public void addArm(int elbow, int shoulder){
-//   E_arm[0] = elbow;
-//   E_arm[1] = shoulder;
-// }
-// public void addWrist(int wrist){
-//  E_wrist = wrist;
-// }
-// public int[] getEncoders(){
-//   all[0] = E_arm[0];
-//   all[1] = E_arm[1];
-//   all[2] = E_wrist;
-//   return all;
-// }
-
 }

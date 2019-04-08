@@ -8,15 +8,14 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.Drive;
-import frc.robot.commands.DriveWithJoystick;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.ManualArmControl;
-import frc.robot.commands.UpdateDashboard;
 import frc.robot.commands.WristMove;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -24,9 +23,7 @@ import frc.robot.subsystems.Hatches;
 import frc.robot.subsystems.IntakeSystem;
 import frc.robot.subsystems.PracticeMotor;
 import frc.robot.subsystems.TurnTable;
-import frc.robot.subsystems.Xbox;
 import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.Powertrain;
 import frc.robot.subsystems.*;
 
 /**
@@ -46,12 +43,12 @@ public class Robot extends TimedRobot {
   public static Arm arm = new Arm();
   public static Climb Climb = new Climb();  
   public static TurnTable table = new TurnTable();
-  public static Xbox D_Control = new Xbox(1);
-  public static Xbox A_Control = new Xbox(3);
-  public static Powertrain powertrain = new Powertrain();
   public static Gyroscope gyro = new Gyroscope();
   public static Wrist wrist = new Wrist();
   public static boolean ran = false;
+  public static final XboxController x = new XboxController(1);
+  public static final XboxController l = new XboxController(3);
+  public static double deadband = 0.15;
 
   public static DriveTrain driveTrain = new DriveTrain(RobotMap.frontLeft, RobotMap.frontRight, RobotMap.backLeft, RobotMap.backRight);
   Command m_autonomousCommand;
@@ -64,19 +61,20 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CamServer.camInit();
-    gyro.gyroInit();
-    gyro.calibrategyro();
-    gyro.reset();
+    // gyro.gyroInit();
+    // gyro.calibrategyro();
+    // gyro.reset();
+    Climb.setEncoder();
+    m_oi = new OI();
    // new UpdateDashboard();
     
         
   
-    System.out.println(isOperatorControl() + "" + isEnabled());
+   // System.out.println(isOperatorControl() + " " + isEnabled());
   }
 
   /**
@@ -133,7 +131,6 @@ public class Robot extends TimedRobot {
     }
     Scheduler.getInstance().add(new Drive());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
-    Scheduler.getInstance().add(new DriveWithJoystick());
     Scheduler.getInstance().add(new WristMove());
     Scheduler.getInstance().add(new ManualArmControl());
   }
@@ -157,12 +154,9 @@ public class Robot extends TimedRobot {
     }
     Scheduler.getInstance().add(new Drive());
     Scheduler.getInstance().add(new frc.robot.commands.TurnTable());
-    Scheduler.getInstance().add(new DriveWithJoystick());
-    Scheduler.getInstance().add(new UpdateDashboard());
     Scheduler.getInstance().add(new ManualArmControl());
     Scheduler.getInstance().add(new WristMove());
-
-
+    //CamServer.camStop();
     //drive.start();
   }
     public static void startCommand(){
@@ -187,4 +181,43 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+  
+public static double getTriggers(){
+  if(x.getRawAxis(2) > x.getRawAxis(3)){
+    return x.getRawAxis(2);
+  } else {
+    return -x.getRawAxis(3);
+  }
+
+}
+public static int getPOV(){
+return l.getPOV();
+}
+
+public static double getTriggersLogi(){
+if(l.getRawAxis(2) > l.getRawAxis(3)){
+  return l.getRawAxis(2);
+} else {
+  return -l.getRawAxis(3);
+}
+
+}
+public static double getX(){
+  double xaxis = x.getRawAxis(0);
+  // if(xaxis > deadband && xaxis < -deadband){
+    return x.getRawAxis(0);
+  // }else{
+  //   return 0;
+  // }
+
+}
+public static double getYLogiL(){
+return l.getRawAxis(1);
+}
+public static double getYLogiR(){
+return l.getRawAxis(5);
+}
+public static double getXLogi(){
+return l.getRawAxis(0);
+}
 }

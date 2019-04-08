@@ -9,13 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.IntakeSystem;
 
 public class IntakeIn extends Command {
-  static double InSpeed = 1;
+  static double speed = 1;
   //static boolean stop;
-  public IntakeIn() {
-    
+  public IntakeIn(int s) {
+    speed = s;
     requires(Robot.intakeSystem);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -31,7 +30,7 @@ public class IntakeIn extends Command {
   @Override
   protected void execute() {
     //Robot.intakeSystem.Intake(InSpeed);
-    Robot.intakeSystem.Intake(InSpeed);
+    Robot.intakeSystem.Intake(-speed,speed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
